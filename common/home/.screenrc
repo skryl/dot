@@ -1,0 +1,55 @@
+# -------------------------------------------------------------------
+# Settings
+# -------------------------------------------------------------------
+crlf off                        # No Microsoft linebreaks
+startup_message off             # bypass GPL notice (we're aware)
+defscrollback 50000             # big scrollback
+shell bash                      # don't start login shells
+shelltitle "$ |bash"
+defmonitor on                   # turn on monitoring
+activity "<%n>"                 # let you know when stuff happens!
+silencewait 15                  # notify when window goes silent
+bell_msg "DING! (%n)"
+vbell_msg "DING! (%n)"
+vbell off
+nethack off                     # makes error messages cryptic.
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+autodetach on
+defutf8 on
+
+#Pretty Statusline
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+bind + resize +1
+bind - resize -1
+bind } resize +3
+bind { resize -3
+
+# copy screen clipboard to mac clipboard
+bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+# this makes backspace sane on debian systems
+termcapinfo xterm 'bc@:bs@'
+termcapinfo xterm-color 'bc@:bs@'
+
+#256 color and other termcap hacks
+#terminfo and termcap for nice 256 color terminal
+term xterm-256color
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+# the first two are for other terminal emulators, just in case.
+termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm" 
+termcapinfo xterm-color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm" 
+termcapinfo xterm-256color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm" 
+# erase background with current bg color
+#defbce "on"
+#
+# tell screen that xterm can switch to dark background and has function
+# keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+termcapinfo xterm-color 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm-color 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm-color 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'

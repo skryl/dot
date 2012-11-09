@@ -1,0 +1,10 @@
+section: screens
+  MiniMac.local:
+  xmbp.local:
+end
+section: links
+  MiniMac.local:
+    down = xmbp.local
+  xmbp.local:
+    up = MiniMac.local
+end

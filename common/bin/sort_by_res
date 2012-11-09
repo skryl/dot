@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for image in *.$1; do
+  res=`identify $image | cut -d" " -f 3`; 
+  echo $res
+  if [ -n "$res" ]; then
+    [ ! -d $res ]  && mkdir $res; 
+    mv "$image" $res
+  fi
+done

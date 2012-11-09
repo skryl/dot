@@ -1,0 +1,9 @@
+.vim_backup/
+.vim/
+.oh-my-zsh/
+.chef/
+.aws/
+*.pem
+*.keys
+*.amazonrc
+*.fuzzy_notes

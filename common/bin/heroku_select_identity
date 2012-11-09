@@ -1,0 +1,22 @@
+#!/bin/bash
+
+EXPECTED_ARGS=1
+
+if [[ ("$#" = "$EXPECTED_ARGS") ]]
+then
+  identity=$1
+else
+  echo "Usage: `basename $0` [identity]"
+  exit 65
+fi
+
+identity_creds=$HOME/.heroku/${identity}.creds
+current_creds=$HOME/.heroku/credentials
+
+if [ -f $identity_creds ]; then
+  ln -sf $identity_creds $current_creds 
+  echo "heroku identity is now '$identity'"
+else
+  echo "credential file '${identity_creds}' could not be found"
+  exit
+fi

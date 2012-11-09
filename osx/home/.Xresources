@@ -1,0 +1,45 @@
+!!! .Xresources file !!!
+!! Comments start with !, C style #define statements can be used only if
+!! this file is processed with xrdb -merge $HOME/.Xresources
+!
+!
+XTerm*reverseWrap:      true
+XTerm*scrollKey:        true
+XTerm*saveLines:        10000
+!XTerm*scrollBar:        true
+XTerm*scrollTtyOutput:  false
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! xterm !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! make exclamation mark, percent  sign,  dash, period,  slash, ampersand and
+!! cyrillic letters to be selected with double click
+XTerm*CharClass: 33:48,37:48,45-47:48,58:48,64:48,126:48,161-255:48
+!
+!XTerm*faceName: Bitstream Vera Sans Mono
+XTerm*faceName: Luxi
+XTerm*faceSize: 10
+
+XTerm*background: Black
+XTerm*foreground: Green
+!XTerm*geometry: 80x40
+XTerm*loginShell: true
+!
+!! Colour for the bold attribute
+XTerm*VT100*colorBDMode: on
+XTerm*VT100*colorBD: purple
+!!Fix hard to read colors on OSX
+XTerm*color4: lightblue
+XTerm*color12: lightblue
+!
+!! Colour for underline attribute
+XTerm*VT100*colorULMode: on
+XTerm*VT100*underLine: on
+XTerm*VT100*colorUL: red
+!
+!! Turn on color mode in your xterms
+XTerm.VT100*dynamicColors: On
+!
+!! Do not clear the screen after the program exits
+XTerm*VT100*titeInhibit: true
+!
+!! Blink instead of beeping
+XTerm*visualBell: False

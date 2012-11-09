@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# (Hopefully) replaces all occurences of spaces in filenames with an underscore character
+#
+# Expected Usage: killspc [regexp]
+# regexp represents the location and types of files to rename i.e $HOME/downloads/*
+#
+
+TOTAL_RENAMED=0
+for NXT_FILE in "$@" ; do
+  case "$NXT_FILE" in *' '*)
+  OLD_NAME="$NXT_FILE"
+  NEW_NAME=`echo "$OLD_NAME" | tr ' ' '_'`
+  echo -e "Renaming file `basename "$OLD_NAME"` to `basename $NEW_NAME`...\c"
+  OLDIFS="$IFS"
+  IFS=:
+  mv "$OLD_NAME" "$NEW_NAME"
+  IFS="$OLDIFS"
+  if [ $? -eq 0 ]; then
+    echo "ok"
+    TOTAL_RENAMED=$(( $TOTAL_RENAMED +1 ))
+  else
+    echo "failed"
+  fi
+  ;;
+  esac
+done

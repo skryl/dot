@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: `basename $0` [REPO PATH]"
+  exit  $E_BADARGS
+fi
+
+homesick clone "$1/common"
+homesick clone "$1/linux"
+homesick clone "$1/osx"
+homesick symlink common
+# homesick symlink linux
+homesick symlink osx

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+  tempfile='~/.irb_tempfile.rb'
+else
+  tempfile=$1
+fi
+
+tmux new-session -d -s hack "vim $tempfile"
+tmux split-window -ht hack:1 "zsh"
+tmux select-pane -t hack:1.1
+tmux -2 attach-session -t hack

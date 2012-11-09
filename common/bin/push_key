@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: `basename $0` [host1, host2...]"
+  exit  $E_BADARGS
+fi
+
+test -f ~/.ssh/id_rsa.pub || ssh-keygen -t dsa
+
+local _host
+for _host in "$@";
+do
+    echo $_host
+    ssh $_host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+done

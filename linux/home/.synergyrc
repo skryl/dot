@@ -1,0 +1,12 @@
+section: screens
+	p5beast:
+	xmbp:
+    alt = super
+    super = alt
+end
+section: links
+	p5beast:
+		down = xmbp
+	xmbp:
+		up = p5beast
+end

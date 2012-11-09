@@ -1,0 +1,68 @@
+[user]
+	name = Alex Skryl
+	email = rut216@gmail.com
+
+[color]
+  ui = true
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+
+[github]
+	user = skryl
+
+[push]
+  default = current
+
+[diff]
+  tool = meldmerge
+
+[merge]
+  keepBackup = false;
+  tool = p4_merge
+
+[mergetool "p4_merge"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$REMOTE" "$PWD/$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+  prompt = false
+
+[difftool "p4_diff"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$LOCAL" "$PWD/$REMOTE"
+  trustExitCode = false
+  prompt = false
+
+[difftool "diffmerge"]
+  cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge "$LOCAL" "$REMOTE"
+  trustExitCode = false
+  prompt = false
+
+[difftool "filemerge"]
+  cmd = opendiff "$LOCAL" "$REMOTE"
+  trustExitCode = false
+  prompt = false
+
+[difftool "meldmerge"]
+  cmd = meld "$LOCAL" "$REMOTE"
+  trustExitCode = false
+  prompt = false
+
+[alias]
+  diffall = !~/bin/common/git-diffall
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+# sourcetree
+#
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[gui]
+	recentrepo = /Volumes/gtech/Dropbox/dev/enova/identity.auto

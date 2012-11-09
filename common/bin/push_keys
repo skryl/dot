@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+EXPECTED_ARGS=1
+
+if [[ ("$#" = "$EXPECTED_ARGS") ]]
+then
+  host=$1
+else
+  echo "Usage: `basename $0` [hostname]"
+  exit 65
+fi
+
+echo "Running 'scp ~/.ssh/* $host:.ssh/'..."
+scp ~/.ssh/* $host:.ssh/
+echo "Running 'scp ~/.heroku/* $host:.heroku/'..."
+scp ~/.heroku/* $host:.heroku/
+echo "Done"
