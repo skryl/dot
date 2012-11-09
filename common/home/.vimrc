@@ -173,13 +173,13 @@
 " HISTORY/BACKUPS
 " ---------------------------------------------------------------------------
   set history=1000
-  set nobackup                             " do not keep backups after close
-  set noswapfile                           " do not keep backups after close
+  set nobackup                                " do not keep backups after close
+  set noswapfile                              " do not keep backups after close
   " set writebackup                           " do keep a backup while working
   " set backupcopy=yes                        " keep attributes of original file
   " set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
-  set backupdir=$HOME/.vim_backup
-  set directory=$HOME/.vim_backup,~/tmp,/tmp  " swapfile directory
+  " set backupdir=$HOME/.vim_backup
+  " set directory=$HOME/.vim_backup,~/tmp,/tmp  " swapfile directory
   set undolevels=1000                         " number of forgivable mistakes
   set updatecount=100                         " write swap file to disk every 100 chars
 
