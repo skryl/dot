@@ -41,3 +41,5 @@ class Class
   def meta_eval &blk; metaclass.instance_eval &blk; end
 
 end
+
+puts ".irbrc successfully loaded"
