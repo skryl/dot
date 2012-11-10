@@ -1,29 +1,13 @@
-# -------------------------------------------------------------------
-# RUBY/RVM/RBENV
-# -------------------------------------------------------------------
-
-test -n $(command -v rbenv) && eval "$(rbenv init -)"
+test -e "$HOME/.profile" && source "$HOME/.profile"
 
 # ----------------------------------------------------------------------
-# PACKAGES
+# ZSH OPTIONS
 # ----------------------------------------------------------------------
-if [ "$UNAME" = Darwin ]; then
 
-  # add macports path
-  # test -x /opt/local && {
-  #     PORTS=/opt/local
-  #     # setup the PATH and MANPATH
-  #     PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-  #     MANPATH="$PORTS/share/man:$MANPATH"
-  #     # DYLD_LIBRARY_PATH="/opt/local/lib"
-  # }
+setopt CHASE_LINKS
+setopt extendedglob
+unsetopt share_history
 
-  # add homebrew path
-  test -x /usr/local && {
-      BREW=/usr/local
-      # setup the PATH and MANPATH
-      PATH="$BREW/bin:$BREW/sbin:$PATH"
-      MANPATH="$BREW/share/man:$MANPATH"
-  }
-
-fi
+bindkey -v
+bindkey '\e[3~' delete-char
+bindkey '^R' history-incremental-search-backward

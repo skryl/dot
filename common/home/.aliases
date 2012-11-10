@@ -56,7 +56,6 @@ function _alias_nav {
   alias proj="cd $DROPBOX/projects"
   alias dev="cd $DROPBOX/dev"
   alias bin="cd ~/bin"
-  alias dl="cd $SKULLCANDY/osx/downloads/"
   alias tc="cd $DROPBOX/dev/trunkclub"
   alias enova="cd $DROPBOX/dev/enova"
   alias auto="cd $DROPBOX/dev/enova/auto"
