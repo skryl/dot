@@ -1,1 +1,2 @@
-export PATH="/Users/username/.rbenv/shims:/usr/local/bin:$PATH"
+export PATH="/Users/rut216/.rbenv/shims:/Users/rut216/.rbenv/bin:$PATH"
+

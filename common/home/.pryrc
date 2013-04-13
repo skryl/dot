@@ -10,7 +10,7 @@ end
 # -------------------------------------------------------------------------------
 
 Pry.config.history.should_save = false
-Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
+# Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
 # scratch buffer
 # -------------------------------------------------------------------------------

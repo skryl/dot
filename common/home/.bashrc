@@ -1,6 +1,6 @@
 # DEBUG=true
 
-test -e "$HOME/.bash_functions" && source "$HOME/.bash_functions"
+test -e "$HOME/.profile" && source "$HOME/.profile"
 
 _rc_test_shell_bin
 _rc_test_shell_type

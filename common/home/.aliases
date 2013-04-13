@@ -57,9 +57,8 @@ function _alias_nav {
   alias dev="cd $DROPBOX/dev"
   alias bin="cd ~/bin"
   alias tc="cd $DROPBOX/dev/trunkclub"
-  alias enova="cd $DROPBOX/dev/enova"
-  alias auto="cd $DROPBOX/dev/enova/auto"
-  alias netc="cd $DROPBOX/dev/enova/netcredit"
+  alias txi="cd $DROPBOX/dev/tablexi"
+  alias one="cd $DROPBOX/dev/tablexi/dickson"
 }
 
 #remotes
@@ -120,6 +119,7 @@ function _alias_tools {
   alias rbw='rbenv which'
 
 # rails
+  alias rspec='nocorrect rspec'
   alias pryc='bundle exec pry -r ./config/environment'
   alias be='bundle exec'
   alias rc='rails console'
@@ -147,7 +147,8 @@ function _alias_tools {
   alias gd='git diff'
   alias gdc='git diff --cached'
   alias gb='git branch'
-  alias gc='git checkout'
+  alias gc='git clone'
+  alias go='git checkout'
   alias gm='git merge'
   alias gcm='git commit -a -m'
   alias gca='git commit -a'

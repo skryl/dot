@@ -19,7 +19,7 @@
   filetype plugin indent on
   syntax enable
   let mapleader = ","
-  set clipboard+=unnamed
+  " set clipboard+=unnamed
   set errorfile=/tmp/vim.errors.log
   set shell=/bin/bash
 
@@ -31,10 +31,8 @@
   call vundle#rc()
 
   " functionality
-  " Bundle 'easytags.vim'
-  Bundle 'CCTree'
+  Bundle 'easytags.vim'
   Bundle 'dhazel/conque-term'
-  Bundle 'Lokaltog/vim-easymotion'
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -42,9 +40,7 @@
   Bundle 'ZoomWin'
   Bundle 'a.vim'
   Bundle 'bufkill.vim'
-  Bundle 'chazy/cscope_maps'
-  Bundle 'ddollar/nerdcommenter'
-  " Bundle 'ervandew/supertab'
+  Bundle 'tomtom/tcomment_vim'
   " Bundle 'garbas/vim-snipmate'
   Bundle 'gmarik/vundle'
   Bundle 'godlygeek/tabular'
@@ -61,10 +57,11 @@
   Bundle 'minibufexpl.vim'
   Bundle 'mru.vim'
   Bundle 'Raimondi/delimitMate'
+  Bundle 'derekwyatt/vim-scala'
   Bundle 'scrooloos/nerdtree'
   Bundle 'scrooloose/syntastic'
   Bundle 'searchfold.vim'
-  Bundle 'Shougo/neocomplcache'
+  Bundle 'Valloric/YouCompleteMe'
   Bundle 'simplefold'
   Bundle 'sjl/gundo.vim'
   Bundle 'skryl/tslime.vim'
@@ -75,7 +72,9 @@
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-rvm'
   Bundle 'tpope/vim-unimpaired'
+  Bundle 'xolox/vim-session'
   Bundle 'VimClojure'
+  Bundle 'paredit.vim'
 
   " syntax
   Bundle 'kchmck/vim-coffee-script'
@@ -86,7 +85,6 @@
   Bundle 'html5.vim'
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'tpope/vim-rails'
-  Bundle 'Rip-Rip/clang_complete'
   Bundle 'ap/vim-css-color'
 
   " colors
@@ -271,7 +269,6 @@
   au Syntax * RainbowParenthesesLoadBraces
 
 
-
 " ----------------------------------------------------------------------------
 " PLUGINS
 " ----------------------------------------------------------------------------
@@ -288,10 +285,6 @@
 " BUFFERGATOR
   nmap <C-B> :BuffergatorToggle<CR>
 
-" CLANG_COMPLETE
-  let g:clang_complete_auto = 0
-  let g:clang_complete_copen = 1
-
 " CONQUE-TERM
   nmap <Leader>sh :ConqueTermVSplit zsh<CR>
   nmap <Leader>pry :ConqueTermVSplit pry<CR>
@@ -302,19 +295,6 @@
   let g:ConqueTerm_SendVisKey = '<F9>'
   let g:ConqueTerm_SendFileKey = '<F10>'
   let g:ConqueTerm_ExecFileKey = '<F11>'
-
-" CTAGS/CSCOPE
-  map <Leader>rt :!ctags -R --extra=+f .<CR><CR>
-  map <Leader>rs :!cscope -bR<CR><CR>
-  set cscopetag cscopeverbose
-  set cscopequickfix=s-,c-,d-,i-,t-,e-
-
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
 
 " CTRLP
   let g:ctrlp_map = ''
@@ -332,6 +312,24 @@
 " EASYMOTION
   let g:EasyMotion_leader_key = '<Leader><Leader>'
 
+" EASYTAGS / CTAGS / CSCOPE
+  let g:easytags_updatetime_min = 2000
+  let g:easytags_always_enabled = 1
+  let g:easytags_python_enabled = 1
+  let g:easytags_auto_update = 0
+
+  map <Leader>tu :!ctags -R --extra=+f .<CR><CR>
+  map <Leader>tsu :!cscope -bR<CR><CR>
+  set cscopetag cscopeverbose
+  set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
 " GIST
   let g:gist_clip_command = 'pbcopy'
   let g:gist_detect_filetype = 1
@@ -346,43 +344,6 @@
 " MRU
   nmap <leader>mr :MRU<cr>
 
-" NEOCOMPLCACHE
-
-  " Use neocomplcache.
-  let g:neocomplcache_enable_at_startup = 1
-  let g:neocomplcache_max_list = 20
-  let g:neocomplcache_enable_smart_case = 1
-  let g:neocomplcache_enable_camel_case_completion = 1
-  let g:neocomplcache_enable_underbar_completion = 1
-  let g:neocomplcache_min_syntax_length = 3
-  let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-  if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-  endif
-  let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-  if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-  endif
-  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-  let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-  let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-  " inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplcache#close_popup()
-  inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" NERDCOMMENTER
-  let NERDShutUp = 1
-  " bind command-/ to toggle comment
-  nmap <D-/> ,c<Space>
-  vmap <D-/> ,c<Space>
-  imap <D-/> <C-O>,c<Space>
-
 " NERDTREE
   let NERDChristmasTree = 1
   let NERDTreeHighlightCursorline = 1
@@ -393,6 +354,25 @@
 
 " POWERLINE
   let g:Powerline_symbols = 'fancy'
+
+" RAINBOW PARENS
+  let g:rbpt_colorpairs = [
+      \ ['brown',       'RoyalBlue3'],
+      \ ['Darkblue',    'SeaGreen3'],
+      \ ['darkgray',    'DarkOrchid3'],
+      \ ['darkgreen',   'firebrick3'],
+      \ ['darkcyan',    'RoyalBlue3'],
+      \ ['darkred',     'SeaGreen3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['brown',       'firebrick3'],
+      \ ['gray',        'RoyalBlue3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['Darkblue',    'firebrick3'],
+      \ ['darkgreen',   'RoyalBlue3'],
+      \ ['darkcyan',    'SeaGreen3'],
+      \ ['darkred',     'DarkOrchid3'],
+      \ ['red',         'firebrick3'],
+      \ ]
 
 " RUBY RUNNER
   nmap <leader>rr :call :RunRuby<CR>
@@ -438,6 +418,22 @@
   nmap <C-T> :TagbarToggle<CR>
   map <C-\> :tnext<CR>
 
+  let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+  \ }
+
 " TAGLIST
   let g:ctags_statusline=1
   let Tlist_Compact_Format = 1
@@ -453,6 +449,10 @@
   let Tlist_File_Fold_Auto_Close = 1 " Only auto expand the current file
   nmap tl :TlistToggle<CR>
 
+" TCOMMENT
+  nmap ,c<Space> <C-_><C-_> 
+  vmap ,c<Space> <C-_><C-_> 
+
 " TSLIME
   let g:tmux_sessionname = 'hack'
   let g:tmux_windowname = 1
@@ -460,6 +460,23 @@
   nmap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
   vmap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
   nmap <leader>tv :call Tmux_Vars()<CR>
+
+" VIMCLOJURE
+  let vimclojure#WantBackend = 1
+  let vimclojure#SplitPos = "right"
+  let g:vimclojure#HighlightBuiltins = 1
+  let g:paredit_mode = 1
+
+" VIM-SESSION
+  let g:session_autoload = 'no'
+  let g:session_autosave = 'no'
+
+  nmap <Leader>ss :SaveSession<CR>
+  nmap <Leader>so :OpenSession<CR>
+  nmap <Leader>sc :CloseSession<CR>
+  nmap <Leader>sd :DeleteSession<CR>
+  nmap <Leader>sv :ViewSession<CR>
+
 
 " VUNDLE
   nmap <Leader>bi :BundleInstall<CR>
@@ -499,7 +516,6 @@
   map <leader>ew :e %%
   map <leader>es :sp %%
   map <leader>ev :vsp %%
-  map <leader>et :tabe %%
 
 " swap two words
   nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
