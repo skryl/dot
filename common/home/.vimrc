@@ -12,14 +12,16 @@
   set ttyfast
   set autoread
   set timeoutlen=500
+  set ttimeoutlen=100
   set modeline
   set modelines=1
-" allows switching buffers without saving first
+  " allows switching buffers without saving first
   set hidden            
   filetype plugin indent on
-  syntax enable
+  syntax on
   let mapleader = ","
-  " set clipboard+=unnamed
+  vnoremap . :norm.<cr>
+  set clipboard=unnamed
   set errorfile=/tmp/vim.errors.log
   set shell=/bin/bash
 
@@ -31,50 +33,49 @@
   call vundle#rc()
 
   " functionality
-  Bundle 'easytags.vim'
-  Bundle 'dhazel/conque-term'
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'MarcWeber/vim-addon-mw-utils'
+  Bundle 'Raimondi/delimitMate'
   Bundle 'ShowMarks'
+  Bundle 'SirVer/ultisnips'
+  Bundle 'Valloric/YouCompleteMe'
+  Bundle 'VimClojure'
   Bundle 'ZoomWin'
   Bundle 'a.vim'
   Bundle 'bufkill.vim'
-  Bundle 'tomtom/tcomment_vim'
-  " Bundle 'garbas/vim-snipmate'
+  Bundle 'derekwyatt/vim-scala'
+  Bundle 'dhazel/conque-term'
+  Bundle 'easytags.vim'
   Bundle 'gmarik/vundle'
   Bundle 'godlygeek/tabular'
-  Bundle 'greyblake/vim-preview'
   Bundle 'henrik/vim-ruby-runner'
-  " Bundle 'honza/snipmate-snippets'
-  Bundle 'jeetsukumaran/vim-buffergator'
   Bundle 'kien/ctrlp.vim'
   Bundle 'kien/rainbow_parentheses.vim'
   Bundle 'majutsushi/tagbar'
   Bundle 'mattn/gist-vim'
   Bundle 'michaeljsmith/vim-indent-object'
   Bundle 'mileszs/ack.vim'
+  Bundle 'epmatsw/ag.vim'
   Bundle 'minibufexpl.vim'
   Bundle 'mru.vim'
-  Bundle 'Raimondi/delimitMate'
-  Bundle 'derekwyatt/vim-scala'
+  Bundle 'paredit.vim'
   Bundle 'scrooloos/nerdtree'
   Bundle 'scrooloose/syntastic'
   Bundle 'searchfold.vim'
-  Bundle 'Valloric/YouCompleteMe'
   Bundle 'simplefold'
   Bundle 'sjl/gundo.vim'
   Bundle 'skryl/tslime.vim'
-  Bundle 'taglist.vim'
-  Bundle 'tpope/surround.vim'
+  Bundle 'suan/vim-instant-markdown.git'
+  Bundle 'tomtom/tcomment_vim'
+  Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-git'
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-rvm'
   Bundle 'tpope/vim-unimpaired'
   Bundle 'xolox/vim-session'
-  Bundle 'VimClojure'
-  Bundle 'paredit.vim'
 
   " syntax
   Bundle 'kchmck/vim-coffee-script'
@@ -101,7 +102,6 @@
 " ----------------------------------------------------------------------------
 " TEXT FORMATTING/INDENTATION
 " " ----------------------------------------------------------------------------
-  "set cursorline
   set nowrap              " do not wrap lines"
   set textwidth=80
   set virtualedit=all     " place cursor where there is no text
@@ -167,9 +167,16 @@
   set ignorecase  " ignore case during searches
   set smartcase   " ovverride ignore case if pattern has upcase
 
+  :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+  :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+  :nnoremap <Leader>c :set cursorcolumn!<CR>
+  :nnoremap <Leader>l :set list!<CR>
+  set cursorline
+
 " ---------------------------------------------------------------------------
 " HISTORY/BACKUPS
 " ---------------------------------------------------------------------------
+  set tags=./.tags;,~/.vimtags
   set history=1000
   set nobackup                                " do not keep backups after close
   set noswapfile                              " do not keep backups after close
@@ -193,7 +200,7 @@
   hi IncSearch guibg=white guifg=black
   set guifont=Monaco:h11
   set guioptions-=T
-  set listchars=tab:>-,trail:.
+  set listchars=tab:»·,trail:·
   set listchars+=extends:>
   set listchars+=precedes:<
   "improve autocomplete menu color
@@ -282,9 +289,6 @@
 " ACK             
   nmap <Leader>ac :Ack 
 
-" BUFFERGATOR
-  nmap <C-B> :BuffergatorToggle<CR>
-
 " CONQUE-TERM
   nmap <Leader>sh :ConqueTermVSplit zsh<CR>
   nmap <Leader>pry :ConqueTermVSplit pry<CR>
@@ -309,16 +313,19 @@
   let g:delimitMate_expand_space = 1
   let g:delimitMate_balance_matchpairs = 1
 
+" ECLIM
+  let g:EclimCompletionMethod = 'omnifunc'
+
 " EASYMOTION
   let g:EasyMotion_leader_key = '<Leader><Leader>'
 
 " EASYTAGS / CTAGS / CSCOPE
   let g:easytags_updatetime_min = 2000
-  let g:easytags_always_enabled = 1
   let g:easytags_python_enabled = 1
   let g:easytags_auto_update = 0
 
-  map <Leader>tu :!ctags -R --extra=+f .<CR><CR>
+  " map <Leader>tu :!ctags -R --extras=+f .<CR><CR>
+  map <Leader>tu :UpdateTags -R `pwd`<CR>
   map <Leader>tsu :!cscope -bR<CR><CR>
   set cscopetag cscopeverbose
   set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -338,11 +345,14 @@
 " GUNDO
   nnoremap <C-g> :GundoToggle<CR>
 
+" INSTANT-MARKDOWN
+  let g:instant_markdown_slow = 1
+
 " MINIBUFEXPL
   let g:miniBufExplSplitBelow = 0
 
 " MRU
-  nmap <leader>mr :MRU<cr>
+  nmap <C-O> :MRU<cr>
 
 " NERDTREE
   let NERDChristmasTree = 1
@@ -386,16 +396,22 @@
   highlight ShowMarksHLo guifg=red guibg=green
   highlight ShowMarksHLm guifg=red guibg=green
 
+" SILVER-SEARCHER
+  map <leader>ag :Ag!<space><<C-R><C-W>\><CR>
+
 " SIMPLEFOLD
   let g:SimpleFold_use_subfolds = 0
 
 " SYNTASTIC
+  let g:syntastic_auto_loc_list=1
   let g:syntastic_enable_signs=1
+  let g:syntastic_enable_highlighting=1
   let g:syntastic_quiet_warnings=1
   let g:syntastic_auto_jump=1
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
+  let g:syntastic_mode_map = { 'passive_filetypes': ['scala'] }
 
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
@@ -417,37 +433,7 @@
 " TAGBAR
   nmap <C-T> :TagbarToggle<CR>
   map <C-\> :tnext<CR>
-
-  let g:tagbar_type_scala = {
-    \ 'ctagstype' : 'Scala',
-    \ 'kinds'     : [
-        \ 'p:packages:1',
-        \ 'V:values',
-        \ 'v:variables',
-        \ 'T:types',
-        \ 't:traits',
-        \ 'o:objects',
-        \ 'a:aclasses',
-        \ 'c:classes',
-        \ 'r:cclasses',
-        \ 'm:methods'
-    \ ]
-  \ }
-
-" TAGLIST
-  let g:ctags_statusline=1
-  let Tlist_Compact_Format = 1
-  let Tlist_GainFocus_On_ToggleOpen = 1
-  let Tlist_File_Fold_Auto_Close = 1
-  let Tlist_Process_File_Always = 1
-  let Tlist_Inc_Winwidth = 0
-  let Tlist_WinWidth = 50
-  let Tlist_Enable_Fold_Column = 1   " Disable drawing the fold column
-  let Tlist_Use_SingleClick = 1      " Single click tag selection
-  let Tlist_Use_Right_Window = 1
-  let Tlist_Exit_OnlyWindow = 1      " Exit if only the taglist is open
-  let Tlist_File_Fold_Auto_Close = 1 " Only auto expand the current file
-  nmap tl :TlistToggle<CR>
+  let g:tagbar_left = 1
 
 " TCOMMENT
   nmap ,c<Space> <C-_><C-_> 
@@ -482,6 +468,14 @@
   nmap <Leader>bi :BundleInstall<CR>
   nmap <Leader>bc :BundleClean<CR>
 
+" YOUCOMPLETEME
+  let g:ycm_filetype_blacklist = { 
+    \ 'notes': 1,  
+    \ 'markdown': 1,  
+    \ 'text': 1,  
+    \ 'ruby': 1  
+    \ }
+
 " ZOOMWIN
   map <leader>zz :ZoomWin<CR>
 
@@ -499,12 +493,12 @@
   nmap <silent> <leader>sp :set spell!<CR>
 
 " upper/lower word
-  nmap <leader>u mQviwU`Q
-  nmap <leader>l mQviwu`Q
+  " nmap <leader>u mQviwU`Q
+  " nmap <leader>l mQviwu`Q
 
 " upper/lower first char of word
-  nmap <leader>U mQgewvU`Q
-  nmap <leader>L mQgewvu`Q
+  " nmap <leader>U mQgewvU`Q
+  " nmap <leader>L mQgewvu`Q
 
 " underscore/camelcase
   noremap + /\$\w\+_<CR>
@@ -567,9 +561,9 @@
   " map - :resize -3<CR>
   " map + :resize +3<CR>
 
-" rotates the orientation of all windows on screen
-  nnoremap <leader>rv :windo wincmd H<CR>
-  nnoremap <leader>rh :windo wincmd K<CR>
+" rotates the orientation of all windows on screen (doesn't work with bufexplr)
+  " nnoremap <leader>rv :windo wincmd H<CR>
+  " nnoremap <leader>rh :windo wincmd K<CR>
 
 " window navigation
   nnoremap <C-h> <C-w>h

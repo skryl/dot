@@ -173,6 +173,12 @@ else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 fi
 
+# -------------------------------------------------------------------
+# NODE
+# -------------------------------------------------------------------
+_rc_debug_print NODE
+
+PATH=$PATH:/usr/local/share/npm/bin
 
 # -------------------------------------------------------------------
 # XMONAD
@@ -188,6 +194,14 @@ export USERWM=`which xmonad`
 # AVR-GCC
 # -------------------------------------------------------------------
 _rc_debug_print AVR
+
+# -------------------------------------------------------------------
+# SBT
+# -------------------------------------------------------------------
+_rc_debug_print SBT
+
+export SBT_OPTS=-XX:MaxPermSize=512m
+
 
 test -d "/usr/local/CrossPack-AVR" && PATH="/usr/local/CrossPack-AVR/bin:$PATH"
 
