@@ -8,6 +8,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	autocrlf = input
 
 [github]
 	user = skryl

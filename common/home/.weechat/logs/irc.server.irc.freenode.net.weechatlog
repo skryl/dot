@@ -1,0 +1,308 @@
+2013-07-20 03:04:39	--	irc: connecting to server irc.freenode.net/6667...
+2013-07-20 03:04:40	--	irc: connected to irc.freenode.net/6667 (193.219.128.49)
+2013-07-20 03:04:40	--	sendak.freenode.net (sendak.freenode.net): *** Looking up your hostname...
+2013-07-20 03:04:40	--	sendak.freenode.net (sendak.freenode.net): *** Checking Ident
+2013-07-20 03:04:40	--	sendak.freenode.net (sendak.freenode.net): *** No Ident response
+2013-07-20 03:04:40	--	sendak.freenode.net (sendak.freenode.net): *** Couldn't look up your hostname
+2013-07-20 03:04:40	--	Welcome to the freenode Internet Relay Chat Network skryl
+2013-07-20 03:04:40	--	Your host is sendak.freenode.net[193.219.128.49/6667], running version ircd-seven-1.1.3
+2013-07-20 03:04:40	--	This server was created Mon Dec 31 2012 at 23:37:24 EET
+2013-07-20 03:04:40	--	sendak.freenode.net ircd-seven-1.1.3 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
+2013-07-20 03:04:40	--	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-07-20 03:04:40	--	CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: :are supported by this server
+2013-07-20 03:04:40	--	EXTBAN=$,arxz WHOX CLIENTVER=3.0 SAFELIST ELIST=CTU :are supported by this server
+2013-07-20 03:04:40	--	There are 187 users and 69519 invisible on 26 servers
+2013-07-20 03:04:40	--	36 :IRC Operators online
+2013-07-20 03:04:40	--	14 :unknown connection(s)
+2013-07-20 03:04:40	--	40667 :channels formed
+2013-07-20 03:04:40	--	I have 5000 clients and 1 servers
+2013-07-20 03:04:40	--	5000 7333 :Current local users 5000, max 7333
+2013-07-20 03:04:40	--	69706 92550 :Current global users 69706, max 92550
+2013-07-20 03:04:40	--	Highest connection count: 7334 (7333 clients) (822637 connections received)
+2013-07-20 03:04:40	--	- sendak.freenode.net Message of the Day -
+2013-07-20 03:04:40	--	- Welcome to sendak.freenode.net in Vilnius, Lithuania, EU.
+2013-07-20 03:04:40	--	- Thanks to Microlink Lietuva (http://www.microlink.lt) for providing this
+2013-07-20 03:04:40	--	- server!
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- SENDAK, MAURICE [1928-2012].  The author of Seven Little
+2013-07-20 03:04:40	--	- Monsters and Where the Wild Things Are, Maurice Sendak was
+2013-07-20 03:04:40	--	- born in Brooklyn, NY, US, to a family of poor Polish
+2013-07-20 03:04:40	--	- immigrants who moved to the US before World War II.  He
+2013-07-20 03:04:40	--	- became an illustrator while in high school.
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- Welcome to freenode - supporting the free and open source
+2013-07-20 03:04:40	--	- software communities since 1998.
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- By connecting to freenode you indicate that you have read and
+2013-07-20 03:04:40	--	- agree to adhere to our policies and procedures as per the
+2013-07-20 03:04:40	--	- website (http://freenode.net/).
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- We would like to remind you that unauthorised public logging
+2013-07-20 03:04:40	--	- of channels on the network is prohibited. Public channel
+2013-07-20 03:04:40	--	- logging should only take place where the channel owner(s) has
+2013-07-20 03:04:40	--	- requested this and users of the channel are all made aware
+2013-07-20 03:04:40	--	- (if you are publically logging your channel, you may wish to
+2013-07-20 03:04:40	--	- keep a notice in the topic and perhaps as an on-join message).
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- freenode runs an open proxy scanner. For details on freenode
+2013-07-20 03:04:40	--	- network policy, please take a look at our policy page
+2013-07-20 03:04:40	--	- (http://freenode.net/policy.shtml).  Your use of the network
+2013-07-20 03:04:40	--	- indicates your acceptance of this policy.
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- Please join #freenode for any network-related questions or
+2013-07-20 03:04:40	--	- queries, there are numerous freenode volunteers and helpful
+2013-07-20 03:04:40	--	- users who would be happy to try answer any questions you might
+2013-07-20 03:04:40	--	- have.
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- Check out www.fossevents.org to find out what is happening in
+2013-07-20 03:04:40	--	- your area, join us at FOSSCON (www.fosscon.org) for talks and
+2013-07-20 03:04:40	--	- real-life collaboration or bring a picnic and come join
+2013-07-20 03:04:40	--	- like-minded geeks for a geeknic (www.geeknic.org) somewhere
+2013-07-20 03:04:40	--	- close to you.
+2013-07-20 03:04:40	--	- Lastly, massive thanks to the OSU Open Source Lab
+2013-07-20 03:04:40	--	- (http://osuosl.org/) and Private Internet Access
+2013-07-20 03:04:40	--	- (https://www.privateinternetaccess.com/) for their sustained,
+2013-07-20 03:04:40	--	- long term support and dedication they show to the FOSS
+2013-07-20 03:04:40	--	- communities.
+2013-07-20 03:04:40	--	-
+2013-07-20 03:04:40	--	- ***************************************************************
+2013-07-20 03:04:41	--	- Please read http://blog.freenode.net/2010/11/be-safe-out-there/
+2013-07-20 03:04:41	--	- ***************************************************************
+2013-07-20 03:04:41	--	End of /MOTD command.
+2013-07-20 03:04:41	--	User mode [+i] by skryl
+2013-07-20 03:04:41	--	NickServ (NickServ@services.): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-07-20 03:05:33	--	ChanServ (ChanServ@services.): [#ruby] Welcome to #ruby. || http://www.ruby-lang.org || http://www.modruby.net
+2013-07-20 12:49:14	--	irc: connecting to server irc.freenode.net/6667...
+2013-07-20 12:49:14	--	irc: connected to irc.freenode.net/6667 (213.92.8.4)
+2013-07-20 12:49:15	--	calvino.freenode.net (calvino.freenode.net): *** Looking up your hostname...
+2013-07-20 12:49:15	--	calvino.freenode.net (calvino.freenode.net): *** Checking Ident
+2013-07-20 12:49:15	--	calvino.freenode.net (calvino.freenode.net): *** No Ident response
+2013-07-20 12:49:15	--	calvino.freenode.net (calvino.freenode.net): *** Couldn't look up your hostname
+2013-07-20 12:49:15	--	Welcome to the freenode Internet Relay Chat Network skryl
+2013-07-20 12:49:15	--	Your host is calvino.freenode.net[213.92.8.4/6667], running version ircd-seven-1.1.3
+2013-07-20 12:49:15	--	This server was created Mon Dec 31 2012 at 22:38:09 CET
+2013-07-20 12:49:15	--	calvino.freenode.net ircd-seven-1.1.3 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
+2013-07-20 12:49:15	--	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-07-20 12:49:15	--	CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: :are supported by this server
+2013-07-20 12:49:15	--	EXTBAN=$,arxz WHOX CLIENTVER=3.0 SAFELIST ELIST=CTU :are supported by this server
+2013-07-20 12:49:15	--	There are 195 users and 72889 invisible on 24 servers
+2013-07-20 12:49:15	--	35 :IRC Operators online
+2013-07-20 12:49:15	--	11 :unknown connection(s)
+2013-07-20 12:49:15	--	41062 :channels formed
+2013-07-20 12:49:15	--	I have 4589 clients and 1 servers
+2013-07-20 12:49:15	--	4589 7821 :Current local users 4589, max 7821
+2013-07-20 12:49:15	--	73084 92550 :Current global users 73084, max 92550
+2013-07-20 12:49:15	--	Highest connection count: 7822 (7821 clients) (891992 connections received)
+2013-07-20 12:49:15	--	- calvino.freenode.net Message of the Day -
+2013-07-20 12:49:15	--	- Welcome to calvino.freenode.net in Milan, Italy! Thanks to
+2013-07-20 12:49:15	--	- I.Net S.p.A. (www.inet.it) for sponsoring this server!
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- CALVINO, ITALO [1923-1985].  Born in Cuba, Italo Calvino grew
+2013-07-20 12:49:15	--	- up in San Remo, Italy.  During World War II, he joined the
+2013-07-20 12:49:15	--	- partisans during the German occupation and, after writing a
+2013-07-20 12:49:15	--	- series of stories which drew on his experiences, he became a
+2013-07-20 12:49:15	--	- journalist. His work included Mr. Palomar, Under the
+2013-07-20 12:49:15	--	- Jaguar Sun, Cosmicomics and t zero.  Calvino made
+2013-07-20 12:49:15	--	- important contributions to Italian literature in the middle
+2013-07-20 12:49:15	--	- of the last century.
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- Welcome to freenode - supporting the free and open source
+2013-07-20 12:49:15	--	- software communities since 1998.
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- By connecting to freenode you indicate that you have read and
+2013-07-20 12:49:15	--	- agree to adhere to our policies and procedures as per the
+2013-07-20 12:49:15	--	- website (http://freenode.net/).
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- We would like to remind you that unauthorised public logging
+2013-07-20 12:49:15	--	- of channels on the network is prohibited. Public channel
+2013-07-20 12:49:15	--	- logging should only take place where the channel owner(s) has
+2013-07-20 12:49:15	--	- requested this and users of the channel are all made aware
+2013-07-20 12:49:15	--	- (if you are publically logging your channel, you may wish to
+2013-07-20 12:49:15	--	- keep a notice in the topic and perhaps as an on-join message).
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- freenode runs an open proxy scanner. For details on freenode
+2013-07-20 12:49:15	--	- network policy, please take a look at our policy page
+2013-07-20 12:49:15	--	- (http://freenode.net/policy.shtml).  Your use of the network
+2013-07-20 12:49:15	--	- indicates your acceptance of this policy.
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- Please join #freenode for any network-related questions or
+2013-07-20 12:49:15	--	- queries, there are numerous freenode volunteers and helpful
+2013-07-20 12:49:15	--	- users who would be happy to try answer any questions you might
+2013-07-20 12:49:15	--	- have.
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- Check out www.fossevents.org to find out what is happening in
+2013-07-20 12:49:15	--	- your area, join us at FOSSCON (www.fosscon.org) for talks and
+2013-07-20 12:49:15	--	- real-life collaboration or bring a picnic and come join
+2013-07-20 12:49:15	--	- like-minded geeks for a geeknic (www.geeknic.org) somewhere
+2013-07-20 12:49:15	--	- close to you.
+2013-07-20 12:49:15	--	- Lastly, massive thanks to the OSU Open Source Lab
+2013-07-20 12:49:15	--	- (http://osuosl.org/) and Private Internet Access
+2013-07-20 12:49:15	--	- (https://www.privateinternetaccess.com/) for their sustained,
+2013-07-20 12:49:15	--	- long term support and dedication they show to the FOSS
+2013-07-20 12:49:15	--	- communities.
+2013-07-20 12:49:15	--	-
+2013-07-20 12:49:15	--	- ***************************************************************
+2013-07-20 12:49:15	--	- Please read http://blog.freenode.net/2010/11/be-safe-out-there/
+2013-07-20 12:49:15	--	- ***************************************************************
+2013-07-20 12:49:15	--	End of /MOTD command.
+2013-07-20 12:49:15	--	User mode [+i] by skryl
+2013-07-20 12:49:15	--	NickServ (NickServ@services.): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-07-20 12:51:05	--	[skryl] (~skryl@50.12.126.251): skryl
+2013-07-20 12:51:06	--	[skryl] calvino.freenode.net (Milan, IT)
+2013-07-20 12:51:06	--	[skryl] is connecting from *@50.12.126.251 50.12.126.251
+2013-07-20 12:51:06	--	[skryl] idle: 00 hours 01 minutes 50 seconds, signon at: Sat, 20 Jul 2013 12:48:05
+2013-07-20 12:51:06	--	[skryl] End of /WHOIS list.
+2013-07-20 13:03:55	--	irc: connecting to server irc.freenode.net/6667...
+2013-07-20 13:03:55	--	irc: connected to irc.freenode.net/6667 (216.155.130.130)
+2013-07-20 13:03:55	--	verne.freenode.net (verne.freenode.net): *** Looking up your hostname...
+2013-07-20 13:03:55	--	verne.freenode.net (verne.freenode.net): *** Checking Ident
+2013-07-20 13:03:56	--	verne.freenode.net (verne.freenode.net): *** No Ident response
+2013-07-20 13:03:56	--	verne.freenode.net (verne.freenode.net): *** Couldn't look up your hostname
+2013-07-20 13:03:56	--	Welcome to the freenode Internet Relay Chat Network skryl
+2013-07-20 13:03:56	--	Your host is verne.freenode.net[216.155.130.130/6667], running version ircd-seven-1.1.3
+2013-07-20 13:03:56	--	This server was created Sun Dec 11 2011 at 17:15:56 EST
+2013-07-20 13:03:56	--	verne.freenode.net ircd-seven-1.1.3 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
+2013-07-20 13:03:56	--	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-07-20 13:03:56	--	CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: :are supported by this server
+2013-07-20 13:03:56	--	EXTBAN=$,arxz WHOX CLIENTVER=3.0 SAFELIST ELIST=CTU :are supported by this server
+2013-07-20 13:03:56	--	There are 194 users and 73006 invisible on 24 servers
+2013-07-20 13:03:56	--	35 :IRC Operators online
+2013-07-20 13:03:56	--	15 :unknown connection(s)
+2013-07-20 13:03:56	--	41077 :channels formed
+2013-07-20 13:03:56	--	I have 4956 clients and 1 servers
+2013-07-20 13:03:56	--	4956 10432 :Current local users 4956, max 10432
+2013-07-20 13:03:56	--	73200 92550 :Current global users 73200, max 92550
+2013-07-20 13:03:56	--	Highest connection count: 10433 (10432 clients) (1959375 connections received)
+2013-07-20 13:03:56	--	- verne.freenode.net Message of the Day -
+2013-07-20 13:03:56	--	- Welcome to verne.freenode.net in Newark, NJ, US.
+2013-07-20 13:03:56	--	- Thanks to Choopa 'www.choopa.com' for providing this server!
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- VERNE, Jules (1828-1905). Born in Nantes, France, Verne was
+2013-07-20 13:03:56	--	- a pioneering french author known for novels such as Twenty
+2013-07-20 13:03:56	--	- Thousand Leagues Under the Sea, A Journey to the Center of the
+2013-07-20 13:03:56	--	- Earth, and Around the World in Eighty Days. Often lauded as the
+2013-07-20 13:03:56	--	- Father of science fiction, Verne wrote about concepts such as
+2013-07-20 13:03:56	--	- space travel, skyscrapers, and worldwide communications
+2013-07-20 13:03:56	--	- networks long before these ideas became popularised or realised.
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- Welcome to freenode - supporting the free and open source
+2013-07-20 13:03:56	--	- software communities since 1998.
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- By connecting to freenode you indicate that you have read and
+2013-07-20 13:03:56	--	- agree to adhere to our policies and procedures as per the
+2013-07-20 13:03:56	--	- website (http://freenode.net/).
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- We would like to remind you that unauthorised public logging
+2013-07-20 13:03:56	--	- of channels on the network is prohibited. Public channel
+2013-07-20 13:03:56	--	- logging should only take place where the channel owner(s) has
+2013-07-20 13:03:56	--	- requested this and users of the channel are all made aware
+2013-07-20 13:03:56	--	- (if you are publically logging your channel, you may wish to
+2013-07-20 13:03:56	--	- keep a notice in the topic and perhaps as an on-join message).
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- freenode runs an open proxy scanner. For details on freenode
+2013-07-20 13:03:56	--	- network policy, please take a look at our policy page
+2013-07-20 13:03:56	--	- (http://freenode.net/policy.shtml).  Your use of the network
+2013-07-20 13:03:56	--	- indicates your acceptance of this policy.
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- Please join #freenode for any network-related questions or
+2013-07-20 13:03:56	--	- queries, there are numerous freenode volunteers and helpful
+2013-07-20 13:03:56	--	- users who would be happy to try answer any questions you might
+2013-07-20 13:03:56	--	- have.
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- Check out www.fossevents.org to find out what is happening in
+2013-07-20 13:03:56	--	- your area, join us at FOSSCON (www.fosscon.org) for talks and
+2013-07-20 13:03:56	--	- real-life collaboration or bring a picnic and come join
+2013-07-20 13:03:56	--	- like-minded geeks for a geeknic (www.geeknic.org) somewhere
+2013-07-20 13:03:56	--	- close to you.
+2013-07-20 13:03:56	--	- Lastly, massive thanks to the OSU Open Source Lab
+2013-07-20 13:03:56	--	- (http://osuosl.org/) and Private Internet Access
+2013-07-20 13:03:56	--	- (https://www.privateinternetaccess.com/) for their sustained,
+2013-07-20 13:03:56	--	- long term support and dedication they show to the FOSS
+2013-07-20 13:03:56	--	- communities.
+2013-07-20 13:03:56	--	-
+2013-07-20 13:03:56	--	- ***************************************************************
+2013-07-20 13:03:56	--	- Please read http://blog.freenode.net/2010/11/be-safe-out-there/
+2013-07-20 13:03:56	--	- ***************************************************************
+2013-07-20 13:03:56	--	End of /MOTD command.
+2013-07-20 13:03:56	--	User mode [+i] by skryl
+2013-07-20 13:03:56	--	NickServ (NickServ@services.): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-07-20 13:04:01	--	Channel Users  Name
+2013-07-20 13:04:01	--	#pdxruby(10): Welcome to the Portland Ruby Brigade : Monthly meeting June 4 at CrowdCompass http://calagator.org/events/1250463996 : Hack+Help Tuesday May 14, 2013 at CrowdCompass http://calagator.org/events/1250463552 : http://pdxruby.org/
+2013-07-20 13:04:01	--	#ruby-tw(18): Ruby Taiwan | http://ruby.tw
+2013-07-20 13:04:01	--	#rubycas(3): http://rubycas.github.com
+2013-07-20 13:04:02	--	#ruby-ja(15): Do you want to join #ruby-ja on IRCNet? | Tunneled to #ruby-ja on IRCNet. | Logs can be published, be careful on your words
+2013-07-20 13:04:02	--	#RubyOnRails(540): 4.0.0 has been released! http://goo.gl/ffOST | Newest releases: 4.0.0, 3.2.13,  3.1.12,  3.0.20 | Guides: http://goo.gl/Drh96 | API Docs: http://goo.gl/ErSVb | Mailing List: http://is.gd/3Euc | Rules: https://gist.github.com/996779 | MINASWAN (Matz is nice and so we are nice) | Logs are at http://goo.gl/e9X9X
+2013-07-20 13:04:02	--	#mruby(3)
+2013-07-20 13:04:02	--	#sunspot-ruby(3): http://sunspot.github.com/ — mostly lurkers in here, try the mailing list first: http://groups.google.com/group/ruby-sunspot
+2013-07-20 13:04:02	--	#ruby-core(43): check the latest release candidate for 1.9.1 release ftp.ruby-lang.org:/home/yugui/ruby-1.9.1-r26021+1.tar.bz2
+2013-07-20 13:04:02	--	#ruby-lang(305): Ruby 2.0.0-p247: http://ruby-lang.org (Ruby 1.9.3-p448) || Paste >3 lines of text on http://gist.github.com
+2013-07-20 13:04:02	--	#macruby(17): Current Release: v0.12 -- https://github.com/downloads/MacRuby/MacRuby/MacRuby%200.12.zip | Mailing  list -- http://lists.macosforge.org/mailman/listinfo.cgi/macruby-devel
+2013-07-20 13:04:02	--	#rubygems-aws(11): RubyGems ops chat at Thursday 6PM EST, stay tuned here for the hangout link | http://spy.infr.as/irclogs/ | https://github.com/rubygems/rubygems-aws
+2013-07-20 13:04:02	--	#jruby(144): Get 1.7.4! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | Paste at http://gist.github.com
+2013-07-20 13:04:02	--	#rubylang(3)
+2013-07-20 13:04:02	--	#rubysur(22): Comunidad Ruby del Cono Sur
+2013-07-20 13:04:02	--	#fedora-ruby(15): https://fedoraproject.org/wiki/Ruby_SIG
+2013-07-20 13:04:02	--	#ruby(746): Ruby 2.0.0-p247: http://ruby-lang.org (Ruby 1.9.3-p448) || Paste >3 lines of text on http://gist.github.com
+2013-07-20 13:04:02	--	#rubyonrails-de(3)
+2013-07-20 13:04:02	--	#rubygems(95): RubyGems 2.0.5: http://bit.ly/rubygems-2-0-5 – Latest status: http://twitter.com/rubygems_status and http://status.rubygems.org
+2013-07-20 13:04:02	--	#bitcoin-ruby(6): bitcoin-ruby: bitcoin utils and protocol in ruby.  -  https://github.com/lian/bitcoin-ruby
+2013-07-20 13:04:02	--	##ruby-br(5): puts "puts!" | Canal Ruby Brasil => Seja bem-vindo!" | Paste => http://pastie.org | Aprenda Ruby => http://forum.rubyonbr.org/forums/5/topics/3583"
+2013-07-20 13:04:03	--	#ruby.pl(22): Ruby http://ruby-lang.org, JRuby http://jruby.org/, MagLev http://ruby.gemstone.com/, Rubinius http://rubini.us, IronRuby http://www.ironruby.net/; MacRuby http://macruby.org/; wklejanie: http://wklej.org/,  http://ideone.com/ || regexpy: http://rubular.com/ | Kanał jedynych prawdziwych programistów.
+2013-07-20 13:04:03	--	#bangaloreruby(5): Bangalore Ruby User Group | This channel is logged- http://j.mp/bangaloreruby-logs
+2013-07-20 13:04:03	--	#nyruby(5): New York (State) Ruby community channel. -- developing android apps with mirah
+2013-07-20 13:04:03	--	#austin-ruby(16): Austin Ruby Users Group - http://austinruby.com - Lunch on Thursday - #lsrc for Lone Star RubyConf
+2013-07-20 13:04:03	--	#rubyists.com(3): Effortless IT, by the rubyists
+2013-07-20 13:04:03	--	#ironruby(4): Welcome to #ironruby | email help available at: http://rubyforge.org/mailman/listinfo/ironruby-core | Sources available at: http://github.com/ironruby/ironruby
+2013-07-20 13:04:03	--	#rubylearning.org(4): Please do register your nickname with freenode.net so that I can send you a memo in case I don't see your question right away.  Also remember the IRC etiquette of "Don't ask to ask, just ask!" so that we can start answering right when we get back.  It will help you get your answers more efficiently, and is not considered rude.
+2013-07-20 13:04:03	--	#ruby.ie(10): Welcome to Ruby Ireland's IRC - for all things Ruby on this island! Questions welcome, answers appreciated...
+2013-07-20 13:04:03	--	#arlingtonruby(5): http://www.youtube.com/watch?v=4T1RMuoQnKo
+2013-07-20 13:04:03	--	#ruby-de(23): [NOTRUFZOPF] Die Gay-Zocker-Moslem-Eunuchen-Kommune für die deutschsprachige Ruby/Go-Community | Wer das Topic nicht liest, ist 'nil brei'.unpack('x6a2X8ax2axa2X3axaX5aXa').join | (Kein|No) public logging | http://setgame.com:8088/puzzle/set.htm
+2013-07-20 13:04:03	--	#ruby-fog(22): fog: The Ruby cloud computing library | Source: http://github.com/geemus/fog | News: http://twitter.com/fog
+2013-07-20 13:04:03	--	#ruby-br(5)
+2013-07-20 13:04:03	--	#rubysapporo(11): Ruby勉強会@札幌-13
+2013-07-20 13:04:04	--	#ruby.mn(10): rubí en los carriles
+2013-07-20 13:04:04	--	#rubyroguesfans(5)
+2013-07-20 13:04:05	--	#vanruby(12): all things Ruby and lovely mountains
+2013-07-20 13:04:05	--	#ruby-ffi(5): The Ruby FFI library | https://github.com/ffi/ffi | Mailinglist: http://groups.google.com/group/ruby-ffi | `gem install ffi` | If you don't get a quick answer, try the mailing list
+2013-07-20 13:04:06	--	#rubyonrails.cz(12): Czech and Slovak Ruby and Rails community || Začni tady: http://www.rubyonrails.cz/ a tady: http://guides.rubyonrails.cz/ 
+2013-07-20 13:04:06	--	#rubyists(10): http://github.com/bougyman/freeswitcher | http://github.com/rubyists/tiny_call_center/wiki
+2013-07-20 13:04:06	--	#RubyKaigi-staff(3)
+2013-07-20 13:04:06	--	#rubymotion(44): 3rd rubymotion meetup! http://youtu.be/8jIB8UyjQ3U
+2013-07-20 13:04:06	--	#rubymidwest(4)
+2013-07-20 13:04:06	--	#rubysec(5): RubySec Project | https://rubysec.github.com/
+2013-07-20 13:04:06	--	#ruby-it(8): http://www.apogeonline.com/libri/9788850328468/scheda | http://redmine.ruby-lang.org/issues/4569 | http://moca.olografix.org/moca2012/pages/subscribe
+2013-07-20 13:04:06	--	#sciruby(7): We're a Google Summer of Code 2013 organization! Check out our Ideas page to get involved: https://github.com/SciRuby/sciruby/wiki/Google-Summer-of-Code-2013-Ideas
+2013-07-20 13:04:06	--	#rubyconfuk(3): A channel to talk about the organising of RubyConf England. Tally Ho!
+2013-07-20 13:04:07	--	#gentoo-ruby(28):  Ruby on Gentoo Linux | MRI 1.8, 1.9 stable; JRuby stable; Rubinius: experimental; Enterprise Edition: removed | Help wanted: http://www.gentoo.org/proj/en/prog_lang/ruby
+2013-07-20 13:04:07	--	#rubyperu(4): Bienvenido a la comunidad de usuarios de Ruby en Perú. http://ruby.pe/ Logs en http://irclogger.com/.rubyperu
+2013-07-20 13:04:07	--	#ruby-implementers(18): moderator: drbrain (/msg for voice) itinerary: https://bugs.ruby-lang.org/projects/ruby/wiki/DevelopersMeeting20130712
+2013-07-20 13:04:07	--	#rubygems-trust(9): Current Status: drafting requirements. please leave comments on http://goo.gl/ybFIO :: Logs at http://irclog.whitequark.org/rubygems-trust
+2013-07-20 13:04:07	--	#ruby.fr(35): http://rubyfrance.org | Ruby en version 2.0.0-p247 (lol pour ceux encore du 1.8) | Le site officiel (en français) : http://ruby-lang.org/fr/ | Questions sur Rails : #rubyonrails.fr
+2013-07-20 13:04:07	--	#wnyruby(4)
+2013-07-20 13:04:07	--	#ruby-osx(4): MacRuby 0.7 released - http://bit.ly/aH0XB8 - http://macruby.org - Want to hack on the specs? http://bit.ly/i4ebs - RubyCocoa 1.0 - http://rubycocoa.sf.net - No pasting in the channel! Use: http://gist.github.com
+2013-07-20 13:04:07	--	#RubyKaigi(12): RubyKaigi announcement
+2013-07-20 13:04:08	--	#ruby-pro(17): (\/)__°^°__(|/) | The Channel for Advanced Ruby Topics | http://next.ruby-pro.org | Moderation is permanent. See http://next.ruby-pro.org/article/show/Rules for how to get voice | Spread the Word :)
+2013-07-20 13:04:08	--	#rubyonrails.fr(36): Bienvenue sur le canal officiel de la communauté française de Ruby on Rails. http://railsfrance.org | Le canal sur Ruby : #ruby.fr | Version stable de ruby on rails : 4.0.0 | Victoire de pi3r sur l'annonce de la date de release de rails 4 | please do not http://mywiki.wooledge.org/XyProblem
+2013-07-20 13:04:08	--	#rubyforce(3): Rubyforce <3
+2013-07-20 13:04:08	--	#ruby-es(12): :::: Bienvenidos  a #ruby-es | formula tus preguntas y se paciente | http://rubylearning.com/satishtalim/tutorial.html  | editores   http://en.wikibooks.org/wiki/Ruby_Programming/Ruby_editors | tutorial interactivo: http://railsforzombies.org/ | video tutoriales en español: http://bit.ly/LJx1Wf | videotutoriales en ingles: http://railscasts.com/
+2013-07-20 13:04:08	--	#ruby-ch(4): Willkommen im Rubykanal der Schweiz.
+2013-07-20 13:04:08	--	#maglev-ruby(4): http://github.com/MagLev/maglev | Latest release: MagLev-1.0.0
+2013-07-20 13:04:09	--	#kde-ruby(4)
+2013-07-20 13:04:09	--	End of /LIST
+2013-07-20 13:06:10	--	ChanServ (ChanServ@services.): [#ruby] Welcome to #ruby. || http://www.ruby-lang.org || http://www.modruby.net
+2013-07-20 13:06:36	--	WHO: Not enough parameters
+2013-07-20 13:06:40	--	[shift_] (~shift@188.123.231.70): Anonymous User
+2013-07-20 13:06:40	--	[shift_] #ruby
+2013-07-20 13:06:40	--	[shift_] rajaniemi.freenode.net (Helsinki, FI, EU)
+2013-07-20 13:06:40	--	[shift_] is using a secure connection
+2013-07-20 13:06:40	--	[shift_] idle: 00 hours 05 minutes 03 seconds, signon at: Sat, 20 Jul 2013 12:47:56
+2013-07-20 13:06:40	--	[shift_] End of /WHOIS list.
+2013-07-20 13:10:33	--	[PuercoPop] (PuercoPop@2600:3c01::f03c:91ff:feae:c11b): PuercoPop
+2013-07-20 13:10:33	--	[PuercoPop] #emacs
+2013-07-20 13:10:33	--	[PuercoPop] leguin.freenode.net (Ume?, SE, EU)
+2013-07-20 13:10:33	--	[PuercoPop] is away: Auto away at Sat Jul 20 07:36:23 2013
+2013-07-20 13:10:33	--	[PuercoPop] is using a secure connection
+2013-07-20 13:10:33	--	[PuercoPop] idle: 09 hours 38 minutes 03 seconds, signon at: Wed, 17 Jul 2013 02:38:22
+2013-07-20 13:10:33	--	[PuercoPop] is logged in as PuercoPop
+2013-07-20 13:10:33	--	[PuercoPop] End of /WHOIS list.
+2013-07-20 13:11:03	--	MSG(PuercoPop): hi

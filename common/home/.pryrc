@@ -3,14 +3,25 @@ require 'pp'
 begin
   require 'hirb'
   require 'awesome_print'
+  require 'pry'
+  require 'pry-debugger'
+  require 'pry-stack_explorer'
 rescue LoadError
 end
 
 # config
 # -------------------------------------------------------------------------------
 
-Pry.config.history.should_save = false
-# Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
+Pry.config.history.should_save = true
+Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
+
+if defined?(PryDebugger)
+  Pry.commands.alias_command 'whr', 'whereami'
+  Pry.commands.alias_command 'con', 'continue'
+  Pry.commands.alias_command 'st',  'step'
+  Pry.commands.alias_command 'nxt', 'next'
+  Pry.commands.alias_command 'fin', 'finish'
+end
 
 # scratch buffer
 # -------------------------------------------------------------------------------

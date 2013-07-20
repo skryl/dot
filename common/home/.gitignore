@@ -39,3 +39,12 @@ Thumbs.db
 ##############
 .rvmrc
 .rbenv-version
+
+# VM #
+######
+*.jar
+*.beam
+
+# Java #
+########
+target/

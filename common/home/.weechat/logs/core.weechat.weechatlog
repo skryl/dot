@@ -1,0 +1,187 @@
+2013-07-20 02:59:40		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer
+2013-07-20 02:59:48		[core]
+2013-07-20 02:59:48		  away    buffer  command debug   filter  history key     mouse   plugin  quit    repeat  set     upgrade version window 
+2013-07-20 02:59:48		  bar     color   cursor  eval    help    input   layout  mute    proxy   reload  save    unset   uptime  wait   
+2013-07-20 02:59:48		[alias]
+2013-07-20 02:59:48		  AAWAY   AME     ANICK   C       CL      EXIT    J       KB      M       N       REDRAW  SIGNOFF UB      unalias W       WI      WW     
+2013-07-20 02:59:48		  alias   AMSG    BYE     CHAT    CLOSE   IG      K       LEAVE   MUB     Q       SAY     T       UMODE   V       WC      WII    
+2013-07-20 02:59:48		[charset]
+2013-07-20 02:59:48		  charset
+2013-07-20 02:59:48		[irc]
+2013-07-20 02:59:48		  admin      ctcp       devoice    info       kickban    map        names      oper       quiet      sajoin     server     stats      unban      wallchops 
+2013-07-20 02:59:48		  allchan    cycle      die        invite     kill       me         nick       part       quote      samode     service    summon     userhost   wallops   
+2013-07-20 02:59:48		  allserv    dcc        disconnect ison       links      mode       notice     ping       reconnect  sanick     servlist   time       users      who       
+2013-07-20 02:59:48		  ban        dehalfop   halfop     join       list       motd       notify     pong       rehash     sapart     squery     topic      version    whois     
+2013-07-20 02:59:48		  connect    deop       ignore     kick       lusers     msg        op         query      restart    saquit     squit      trace      voice      whowas    
+2013-07-20 02:59:48		[logger]
+2013-07-20 02:59:48		  logger
+2013-07-20 02:59:48		[relay]
+2013-07-20 02:59:48		  relay
+2013-07-20 02:59:48		[rmodifier]
+2013-07-20 02:59:48		  rmodifier
+2013-07-20 02:59:48		[script]
+2013-07-20 02:59:48		  script
+2013-07-20 02:59:48		[tcl]
+2013-07-20 02:59:48		  tcl
+2013-07-20 02:59:48		[xfer]
+2013-07-20 02:59:48		  me   xfer
+2013-07-20 02:59:59	=!=	You can not write text in this buffer
+2013-07-20 03:01:03		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer
+2013-07-20 03:01:08	=!=	irc: command "join" must be executed on irc buffer (server or channel)
+2013-07-20 03:01:18		[core]
+2013-07-20 03:01:18		  away    color   debug   help    key     mute    quit    save    upgrade wait   
+2013-07-20 03:01:18		  bar     command eval    history layout  plugin  reload  set     uptime  window 
+2013-07-20 03:01:18		  buffer  cursor  filter  input   mouse   proxy   repeat  unset   version
+2013-07-20 03:01:18		[alias]
+2013-07-20 03:01:18		  AAWAY   AMSG    C       CLOSE   J       LEAVE   N       SAY     UB      V       WI     
+2013-07-20 03:01:18		  alias   ANICK   CHAT    EXIT    K       M       Q       SIGNOFF UMODE   W       WII    
+2013-07-20 03:01:18		  AME     BYE     CL      IG      KB      MUB     REDRAW  T       unalias WC      WW     
+2013-07-20 03:01:18		[charset]
+2013-07-20 03:01:18		  charset
+2013-07-20 03:01:18		[irc]
+2013-07-20 03:01:18		  admin      deop       join       mode       part       sajoin     squit      version   
+2013-07-20 03:01:18		  allchan    devoice    kick       motd       ping       samode     stats      voice     
+2013-07-20 03:01:18		  allserv    die        kickban    msg        pong       sanick     summon     wallchops 
+2013-07-20 03:01:18		  ban        disconnect kill       names      query      sapart     time       wallops   
+2013-07-20 03:01:18		  connect    halfop     links      nick       quiet      saquit     topic      who       
+2013-07-20 03:01:18		  ctcp       ignore     list       notice     quote      server     trace      whois     
+2013-07-20 03:01:18		  cycle      info       lusers     notify     reconnect  service    unban      whowas    
+2013-07-20 03:01:18		  dcc        invite     map        op         rehash     servlist   userhost  
+2013-07-20 03:01:18		  dehalfop   ison       me         oper       restart    squery     users     
+2013-07-20 03:01:18		[logger]
+2013-07-20 03:01:18		  logger
+2013-07-20 03:01:18		[relay]
+2013-07-20 03:01:18		  relay
+2013-07-20 03:01:18		[rmodifier]
+2013-07-20 03:01:18		  rmodifier
+2013-07-20 03:01:18		[script]
+2013-07-20 03:01:18		  script
+2013-07-20 03:01:18		[tcl]
+2013-07-20 03:01:18		  tcl
+2013-07-20 03:01:18		[xfer]
+2013-07-20 03:01:18		  me   xfer
+2013-07-20 03:01:34		All servers:
+2013-07-20 03:01:34		   freenode
+2013-07-20 03:02:28		[core]
+2013-07-20 03:02:28		  away    color   debug   help    key     mute    quit    save    upgrade wait   
+2013-07-20 03:02:28		  bar     command eval    history layout  plugin  reload  set     uptime  window 
+2013-07-20 03:02:28		  buffer  cursor  filter  input   mouse   proxy   repeat  unset   version
+2013-07-20 03:02:28		[alias]
+2013-07-20 03:02:28		  AAWAY   AMSG    C       CLOSE   J       LEAVE   N       SAY     UB      V       WI     
+2013-07-20 03:02:28		  alias   ANICK   CHAT    EXIT    K       M       Q       SIGNOFF UMODE   W       WII    
+2013-07-20 03:02:28		  AME     BYE     CL      IG      KB      MUB     REDRAW  T       unalias WC      WW     
+2013-07-20 03:02:28		[charset]
+2013-07-20 03:02:28		  charset
+2013-07-20 03:02:28		[irc]
+2013-07-20 03:02:28		  admin      dcc        ignore     kill       motd       oper       reconnect  saquit     summon     version   
+2013-07-20 03:02:28		  allchan    dehalfop   info       links      msg        part       rehash     server     time       voice     
+2013-07-20 03:02:28		  allserv    deop       invite     list       names      ping       restart    service    topic      wallchops 
+2013-07-20 03:02:28		  ban        devoice    ison       lusers     nick       pong       sajoin     servlist   trace      wallops   
+2013-07-20 03:02:28		  connect    die        join       map        notice     query      samode     squery     unban      who       
+2013-07-20 03:02:28		  ctcp       disconnect kick       me         notify     quiet      sanick     squit      userhost   whois     
+2013-07-20 03:02:28		  cycle      halfop     kickban    mode       op         quote      sapart     stats      users      whowas    
+2013-07-20 03:02:28		[logger]
+2013-07-20 03:02:28		  logger
+2013-07-20 03:02:28		[relay]
+2013-07-20 03:02:28		  relay
+2013-07-20 03:02:28		[rmodifier]
+2013-07-20 03:02:28		  rmodifier
+2013-07-20 03:02:28		[script]
+2013-07-20 03:02:28		  script
+2013-07-20 03:02:28		[tcl]
+2013-07-20 03:02:28		  tcl
+2013-07-20 03:02:28		[xfer]
+2013-07-20 03:02:28		  me   xfer
+2013-07-20 03:03:29		[core]
+2013-07-20 03:03:29		  away    buffer  command debug   filter  history key     mouse   plugin  quit    repeat  set     upgrade version window 
+2013-07-20 03:03:29		  bar     color   cursor  eval    help    input   layout  mute    proxy   reload  save    unset   uptime  wait   
+2013-07-20 03:03:29		[alias]
+2013-07-20 03:03:29		  AAWAY   AMSG    C       CLOSE   J       LEAVE   N       SAY     UB      V       WI     
+2013-07-20 03:03:29		  alias   ANICK   CHAT    EXIT    K       M       Q       SIGNOFF UMODE   W       WII    
+2013-07-20 03:03:29		  AME     BYE     CL      IG      KB      MUB     REDRAW  T       unalias WC      WW     
+2013-07-20 03:03:29		[charset]
+2013-07-20 03:03:29		  charset
+2013-07-20 03:03:29		[irc]
+2013-07-20 03:03:29		  admin      dcc        ignore     kill       motd       oper       reconnect  saquit     summon     version   
+2013-07-20 03:03:29		  allchan    dehalfop   info       links      msg        part       rehash     server     time       voice     
+2013-07-20 03:03:29		  allserv    deop       invite     list       names      ping       restart    service    topic      wallchops 
+2013-07-20 03:03:29		  ban        devoice    ison       lusers     nick       pong       sajoin     servlist   trace      wallops   
+2013-07-20 03:03:29		  connect    die        join       map        notice     query      samode     squery     unban      who       
+2013-07-20 03:03:29		  ctcp       disconnect kick       me         notify     quiet      sanick     squit      userhost   whois     
+2013-07-20 03:03:29		  cycle      halfop     kickban    mode       op         quote      sapart     stats      users      whowas    
+2013-07-20 03:03:29		[logger]
+2013-07-20 03:03:29		  logger
+2013-07-20 03:03:29		[relay]
+2013-07-20 03:03:29		  relay
+2013-07-20 03:03:29		[rmodifier]
+2013-07-20 03:03:29		  rmodifier
+2013-07-20 03:03:29		[script]
+2013-07-20 03:03:29		  script
+2013-07-20 03:03:29		[tcl]
+2013-07-20 03:03:29		  tcl
+2013-07-20 03:03:29		[xfer]
+2013-07-20 03:03:29		  me   xfer
+2013-07-20 03:03:51	=!=	Error: unknown command "" (type /help for help)
+2013-07-20 03:03:57		[core]
+2013-07-20 03:03:57		  away    buffer  command debug   filter  history key     mouse   plugin  quit    repeat  set     upgrade version window 
+2013-07-20 03:03:57		  bar     color   cursor  eval    help    input   layout  mute    proxy   reload  save    unset   uptime  wait   
+2013-07-20 03:03:57		[alias]
+2013-07-20 03:03:57		  AAWAY   AMSG    C       CLOSE   J       LEAVE   N       SAY     UB      V       WI     
+2013-07-20 03:03:57		  alias   ANICK   CHAT    EXIT    K       M       Q       SIGNOFF UMODE   W       WII    
+2013-07-20 03:03:57		  AME     BYE     CL      IG      KB      MUB     REDRAW  T       unalias WC      WW     
+2013-07-20 03:03:57		[charset]
+2013-07-20 03:03:57		  charset
+2013-07-20 03:03:57		[irc]
+2013-07-20 03:03:57		  admin      dcc        ignore     kill       motd       oper       reconnect  saquit     summon     version   
+2013-07-20 03:03:57		  allchan    dehalfop   info       links      msg        part       rehash     server     time       voice     
+2013-07-20 03:03:57		  allserv    deop       invite     list       names      ping       restart    service    topic      wallchops 
+2013-07-20 03:03:57		  ban        devoice    ison       lusers     nick       pong       sajoin     servlist   trace      wallops   
+2013-07-20 03:03:57		  connect    die        join       map        notice     query      samode     squery     unban      who       
+2013-07-20 03:03:57		  ctcp       disconnect kick       me         notify     quiet      sanick     squit      userhost   whois     
+2013-07-20 03:03:57		  cycle      halfop     kickban    mode       op         quote      sapart     stats      users      whowas    
+2013-07-20 03:03:57		[logger]
+2013-07-20 03:03:57		  logger
+2013-07-20 03:03:57		[relay]
+2013-07-20 03:03:57		  relay
+2013-07-20 03:03:57		[rmodifier]
+2013-07-20 03:03:57		  rmodifier
+2013-07-20 03:03:57		[script]
+2013-07-20 03:03:57		  script
+2013-07-20 03:03:57		[tcl]
+2013-07-20 03:03:57		  tcl
+2013-07-20 03:03:57		[xfer]
+2013-07-20 03:03:57		  me   xfer
+2013-07-20 03:04:26		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer
+2013-07-20 03:04:39		irc: server irc.freenode.net created (temporary server, NOT SAVED!)
+2013-07-20 03:07:33	=!=	Error: unknown command "clera" (type /help for help)
+2013-07-20 03:07:36	=!=	Error: unknown command "clear" (type /help for help)
+2013-07-20 03:10:04		List of bars:
+2013-07-20 03:10:04		  input: window, bottom, height: 1
+2013-07-20 03:10:04		  title: window, top, height: 1
+2013-07-20 03:10:04		  status: window, bottom, height: 1
+2013-07-20 03:10:04		  nicklist: window, right, width: auto
+2013-07-20 03:10:10		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer
+2013-07-20 03:10:12		List of bars:
+2013-07-20 03:10:12		  input: window, bottom, height: 1
+2013-07-20 03:10:12		  title: window, top, height: 1
+2013-07-20 03:10:12		  status: window, bottom, height: 1
+2013-07-20 03:10:12		  nicklist: window, right, width: auto
+2013-07-20 03:10:25		Buffers list:
+2013-07-20 03:10:25		  [1] (core) weechat (notify: all)
+2013-07-20 03:10:56	=!=	Error: unknown command "clear" (type /help for help)
+2013-07-20 03:11:00	=!=	irc: command "part" must be executed on irc buffer (server or channel)
+2013-07-20 03:11:02	=!=	Error: unknown command "home" (type /help for help)
+2013-07-20 12:48:59		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer
+2013-07-20 12:49:14		irc: server irc.freenode.net created (temporary server, NOT SAVED!)
+2013-07-20 12:53:14		irc: server efnet created (temporary server, NOT SAVED!)
+2013-07-20 12:53:23	=!=	Error: unknown command "servers" (type /help for help)
+2013-07-20 12:53:32		All servers:
+2013-07-20 12:53:32		   freenode
+2013-07-20 12:53:32		   irc.freenode.net (temporary)
+2013-07-20 12:53:32		   efnet (temporary)
+2013-07-20 12:54:16		irc: server irc.efnet.org created (temporary server, NOT SAVED!)
+2013-07-20 12:57:11	=!=	irc: already connected to server "irc.efnet.org"!
+2013-07-20 12:57:11	=!=	Error with command "connect" (try /help connect)
+2013-07-20 13:05:58	=!=	Error: unknown option for "window" command
+2013-07-20 13:41:50	=!=	Error: WeeChat main buffer can't be closed
+2013-07-20 13:43:11		Plugins loaded: alias, charset, fifo, irc, logger, relay, rmodifier, script, tcl, xfer

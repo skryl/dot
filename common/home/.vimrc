@@ -1,7 +1,116 @@
+" TODO:
+" - fix easytags / easygrep
+" - upgrade to new powerline
+
+  set nocompatible
+
+" ----------------------------------------------------------------------------
+" VUNDLE
+" ----------------------------------------------------------------------------
+  if has ('vim_starting')
+      set runtimepath+=~/.vim/bundle/neobundle.vim/
+    endif
+
+  call neobundle#rc(expand('~/.vim/bundle/'))
+
+  NeoBundle 'Shougo/neobundle.vim'
+  NeoBundle 'Shougo/vimproc', { 'build': {
+        \   'windows': 'make -f make_mingw32.mak',
+        \   'cygwin': 'make -f make_cygwin.mak',
+        \   'mac': 'make -f make_mac.mak',
+        \   'unix': 'make -f make_unix.mak',
+        \ }  }
+
+  " functionality
+  NeoBundle 'Lokaltog/vim-easymotion'
+  NeoBundle 'JuliaLang/julia-vim'
+  NeoBundle 'Lokaltog/vim-powerline'
+  NeoBundle 'MarcWeber/vim-addon-mw-utils'
+  NeoBundle 'Raimondi/delimitMate'
+  NeoBundle 'ShowMarks'
+  NeoBundle 'SirVer/ultisnips'
+  "NeoBundle 'Valloric/YouCompleteMe'
+  NeoBundle 'VimClojure'
+  NeoBundle 'ZoomWin'
+  NeoBundle 'a.vim'
+  NeoBundle 'bufkill.vim'
+  NeoBundle 'derekwyatt/vim-scala'
+  NeoBundle 'dhazel/conque-term'
+  " NeoBundle 'easytags.vim'
+  NeoBundle 'gmarik/vundle'
+  NeoBundle 'godlygeek/tabular'
+  NeoBundle 'henrik/vim-ruby-runner'
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'kien/rainbow_parentheses.vim'
+  NeoBundle 'majutsushi/tagbar'
+  NeoBundle 'mattn/gist-vim'
+  NeoBundle 'michaeljsmith/vim-indent-object'
+  NeoBundle 'mileszs/ack.vim'
+  NeoBundle 'epmatsw/ag.vim'
+  NeoBundle 'minibufexpl.vim'
+  NeoBundle 'buftabs'
+  NeoBundle 'mru.vim'
+  NeoBundle 'paredit.vim'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'searchfold.vim'
+  NeoBundle 'simplefold'
+  NeoBundle 'sjl/gundo.vim'
+  NeoBundle 'skryl/tslime.vim'
+  NeoBundle 'suan/vim-instant-markdown.git'
+  NeoBundle 'tomtom/tcomment_vim'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'tpope/vim-git'
+  NeoBundle 'tpope/vim-repeat'
+  NeoBundle 'tpope/vim-rvm'
+  NeoBundle 'tpope/vim-unimpaired'
+  NeoBundle 'xolox/vim-session'
+  NeoBundle 'xolox/vim-misc'
+  NeoBundle '907th/vim-auto-save'
+  NeoBundle 'jimenezrick/vimerl'
+  NeoBundle 'vim-multiple-cursors'
+  NeoBundle 'gregsexton/gitv'
+  NeoBundle 'mhinz/vim-signify'
+  NeoBundle 'mhinz/vim-startify'
+  NeoBundle 'VimIRC.vim'
+  " NeoBundle 'EasyGrep'
+
+  " unite
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/unite-outline'
+  NeoBundle 'Shougo/unite-session'
+  NeoBundle 'Shougo/junkfile.vim'
+  NeoBundle 'ujihisa/unite-colorscheme'
+  NeoBundle 'thinca/vim-unite-history'
+
+  " syntax
+  NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'timcharper/textile.vim'
+  NeoBundle 'tpope/vim-haml'
+  NeoBundle 'tpope/vim-markdown'
+  NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'ap/vim-css-color'
+
+  " colors
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'wgibbs/vim-irblack'
+
+  " dependencies
+  NeoBundle 'MarcWeber/vim-addon-mw-utils'
+  NeoBundle 'tomtom/tlib_vim'
+  NeoBundle 'mattn/webapi-vim'
+
+  filetype plugin indent on    " don't move/change this line
+  syntax enable
+  NeoBundleCheck
+
 " ----------------------------------------------------------------------------
 " GENERAL
 " ----------------------------------------------------------------------------
-  set nocompatible
   set encoding=utf-8
   set fileformats=unix
   set ruler
@@ -11,93 +120,22 @@
   set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
   set ttyfast
   set autoread
-  set timeoutlen=500
-  set ttimeoutlen=100
+  set timeoutlen=300
+  set ttimeoutlen=50
   set modeline
   set modelines=1
   " allows switching buffers without saving first
   set hidden            
-  filetype plugin indent on
-  syntax on
   let mapleader = ","
+  let g:mapleader=","
   vnoremap . :norm.<cr>
-  set clipboard=unnamed
+  if exists('$TMUX')
+    set clipboard=
+  else
+    set clipboard=unnamed
+  end
   set errorfile=/tmp/vim.errors.log
   set shell=/bin/bash
-
-" ----------------------------------------------------------------------------
-" VUNDLE
-" ----------------------------------------------------------------------------
-  filetype off                 " required!
-  set rtp+=~/.vim/bundle/vundle
-  call vundle#rc()
-
-  " functionality
-  Bundle 'Lokaltog/vim-easymotion'
-  Bundle 'Lokaltog/vim-powerline'
-  Bundle 'MarcWeber/vim-addon-mw-utils'
-  Bundle 'Raimondi/delimitMate'
-  Bundle 'ShowMarks'
-  Bundle 'SirVer/ultisnips'
-  Bundle 'Valloric/YouCompleteMe'
-  Bundle 'VimClojure'
-  Bundle 'ZoomWin'
-  Bundle 'a.vim'
-  Bundle 'bufkill.vim'
-  Bundle 'derekwyatt/vim-scala'
-  Bundle 'dhazel/conque-term'
-  Bundle 'easytags.vim'
-  Bundle 'gmarik/vundle'
-  Bundle 'godlygeek/tabular'
-  Bundle 'henrik/vim-ruby-runner'
-  Bundle 'kien/ctrlp.vim'
-  Bundle 'kien/rainbow_parentheses.vim'
-  Bundle 'majutsushi/tagbar'
-  Bundle 'mattn/gist-vim'
-  Bundle 'michaeljsmith/vim-indent-object'
-  Bundle 'mileszs/ack.vim'
-  Bundle 'epmatsw/ag.vim'
-  Bundle 'minibufexpl.vim'
-  Bundle 'mru.vim'
-  Bundle 'paredit.vim'
-  Bundle 'scrooloos/nerdtree'
-  Bundle 'scrooloose/syntastic'
-  Bundle 'searchfold.vim'
-  Bundle 'simplefold'
-  Bundle 'sjl/gundo.vim'
-  Bundle 'skryl/tslime.vim'
-  Bundle 'suan/vim-instant-markdown.git'
-  Bundle 'tomtom/tcomment_vim'
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-endwise'
-  Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-git'
-  Bundle 'tpope/vim-repeat'
-  Bundle 'tpope/vim-rvm'
-  Bundle 'tpope/vim-unimpaired'
-  Bundle 'xolox/vim-session'
-
-  " syntax
-  Bundle 'kchmck/vim-coffee-script'
-  Bundle 'pangloss/vim-javascript'
-  Bundle 'timcharper/textile.vim'
-  Bundle 'tpope/vim-haml'
-  Bundle 'tpope/vim-markdown'
-  Bundle 'html5.vim'
-  Bundle 'vim-ruby/vim-ruby'
-  Bundle 'tpope/vim-rails'
-  Bundle 'ap/vim-css-color'
-
-  " colors
-  Bundle 'altercation/vim-colors-solarized'
-  Bundle 'wgibbs/vim-irblack'
-
-  " dependencies
-  Bundle 'MarcWeber/vim-addon-mw-utils'
-  Bundle 'tomtom/tlib_vim'
-  Bundle 'mattn/webapi-vim'
-
-  filetype plugin indent on    " don't move/change this line
 
 " ----------------------------------------------------------------------------
 " TEXT FORMATTING/INDENTATION
@@ -119,7 +157,7 @@
 " ----------------------------------------------------------------------------
   set ruler                  " show the cursor position all the time
   set noshowcmd              " don't display incomplete commands
-  set nolazyredraw           " turn off lazy redraw
+  set lazyredraw           " turn off lazy redraw
   set number                 " line numbers
   set wildmenu               " turn on wild menu
   set wildmode=list:longest,full
@@ -135,6 +173,11 @@
   set showcmd                " show the command characters
   set scrolloff=3            " min # of lines to keep above and below cursor
   set pumheight=15
+
+" sounds
+  set noerrorbells
+  set novisualbell
+  set t_vb=
 
 " folding
  " set foldmethod=syntax " kills autocomplete performance
@@ -156,6 +199,29 @@
 
 " spelling
   set spelllang=en_us
+
+if has('gui_running')
+    " open maximized
+    set lines=999 columns=9999
+    set guioptions+=t                                 "tear off menu items
+    set guioptions-=T                                 "toolbar icons
+
+    set guifont=Monaco:h11
+    " set gfn=Ubuntu_Mono:h14
+    set transparency=2
+  else
+    if $TERM_PROGRAM == 'iTerm.app'
+      " different cursors for insert vs normal mode
+      if exists('$TMUX')
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+      else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+      endif
+    endif
+  endif
+"}}}
 
 " ----------------------------------------------------------------------------
 " VISUAL CUES/SEARCH
@@ -198,8 +264,6 @@
   hi Normal guibg=black guifg=white
   hi Search guibg=white guifg=black
   hi IncSearch guibg=white guifg=black
-  set guifont=Monaco:h11
-  set guioptions-=T
   set listchars=tab:»·,trail:·
   set listchars+=extends:>
   set listchars+=precedes:<
@@ -236,7 +300,7 @@
   endfunction
 
 " ----------------------------------------------------------------------------
-"  PATH on MacOS X
+"  SETTINGS
 " ----------------------------------------------------------------------------
   if system('uname') =~ 'Darwin'
     let $PATH = $HOME .
@@ -244,6 +308,16 @@
       \ '/usr/pkg/bin:' .
       \ '/opt/local/bin:/opt/local/sbin:' .
       \ $PATH
+  endif
+
+" set grepprg
+  if executable('ack')
+    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+    set grepformat=%f:%l:%c:%m
+  endif
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
   endif
 
 " enable brace matching
@@ -274,7 +348,9 @@
   au Syntax * RainbowParenthesesLoadRound
   au Syntax * RainbowParenthesesLoadSquare
   au Syntax * RainbowParenthesesLoadBraces
-
+  au BufReadPost *.rkt,*.rktl set filetype=racket
+  au filetype racket set lisp
+  au filetype racket set autoindent
 
 " ----------------------------------------------------------------------------
 " PLUGINS
@@ -288,6 +364,9 @@
 
 " ACK             
   nmap <Leader>ac :Ack 
+
+" BUFTABS
+  let g:buftabs_only_basename=1
 
 " CONQUE-TERM
   nmap <Leader>sh :ConqueTermVSplit zsh<CR>
@@ -315,6 +394,9 @@
 
 " ECLIM
   let g:EclimCompletionMethod = 'omnifunc'
+
+" EASYGREP
+  let g:EasyGrepCommand=1
 
 " EASYMOTION
   let g:EasyMotion_leader_key = '<Leader><Leader>'
@@ -440,18 +522,76 @@
   vmap ,c<Space> <C-_><C-_> 
 
 " TSLIME
-  let g:tmux_sessionname = 'hack'
+  let g:tmux_sessionname = 0
   let g:tmux_windowname = 1
   let g:tmux_panenumber = 2
   nmap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
   vmap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
   nmap <leader>tv :call Tmux_Vars()<CR>
 
+" UNITE
+  let bundle = neobundle#get('unite.vim')
+  function! bundle.hooks.on_source(bundle)
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#set_profile('files', 'smartcase', 1)
+    call unite#custom#source('line,outline','matchers','matcher_fuzzy')
+  endfunction
+
+  " let g:unite_enable_start_insert=1
+  let g:unite_data_directory='~/.vim/.cache/unite'
+  let g:unite_source_history_yank_enable=1
+  let g:unite_source_rec_max_cache_files=5000
+  let g:unite_prompt='» '
+
+  if executable('ag')
+    let g:unite_source_grep_command='ag'
+    let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
+    let g:unite_source_grep_recursive_opt=''
+  elseif executable('ack')
+    let g:unite_source_grep_command='ack'
+    let g:unite_source_grep_default_opts='--no-heading --no-color -a'
+    let g:unite_source_grep_recursive_opt=''
+  endif
+
+  function! s:unite_settings()
+    nmap <buffer> Q <plug>(unite_exit)
+    nmap <buffer> <esc> <plug>(unite_exit)
+    imap <buffer> <esc> <plug>(unite_exit)
+  endfunction
+  autocmd FileType unite call s:unite_settings()
+
+  nmap <space> [unite]
+  nnoremap [unite] <nop>
+
+  let g:junkfile#directory=expand("~/.vim/.cache/junk")
+  nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async<cr><c-u> 
+  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
+  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+  nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tags tags tags/file<cr>
+  nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
+  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
+  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
+
+" VIM-AUTO-SAVE
+  let g:auto_save = 1
+
 " VIMCLOJURE
   let vimclojure#WantBackend = 1
   let vimclojure#SplitPos = "right"
   let g:vimclojure#HighlightBuiltins = 1
   let g:paredit_mode = 1
+
+" VIM-MULTIPLE-CURSOR
+  let g:multi_cursor_use_default_mapping=0
+  let g:multi_cursor_next_key="\<C-w>"
+  let g:multi_cursor_prev_key="\<C-q>"
+  let g:multi_cursor_skip_key="\<C-x>"
+  let g:multi_cursor_exit_key="\<Esc>"
 
 " VIM-SESSION
   let g:session_autoload = 'no'
@@ -463,10 +603,14 @@
   nmap <Leader>sd :DeleteSession<CR>
   nmap <Leader>sv :ViewSession<CR>
 
+" VIM-SIGNIFY
+  let g:signify_disable_by_default = 1
+  let g:signify_mapping_toggle_highlight = '<leader>gh'
+  let g:signify_mapping_toggle = '<leader>gt'
 
 " VUNDLE
-  nmap <Leader>bi :BundleInstall<CR>
-  nmap <Leader>bc :BundleClean<CR>
+  nmap <Leader>bi :NeoBundleInstall<CR>
+  nmap <Leader>bc :NeoBundleClean<CR>
 
 " YOUCOMPLETEME
   let g:ycm_filetype_blacklist = { 
@@ -592,4 +736,3 @@
 " some C helpers
   nmap <leader>; $a;<Esc>
   nmap <leader>mf $xo{<cr>}<Esc>O
-

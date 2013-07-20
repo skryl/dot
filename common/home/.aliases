@@ -12,6 +12,7 @@ function _alias_osx {
   alias binstall='brew install'
   alias updatedb='sudo /usr/libexec/locate.updatedb'
   alias unq='xattr -dr com.apple.quarantine'
+  alias _='sudo'
 }
 
 # linux
@@ -148,13 +149,13 @@ function _alias_tools {
   alias gdc='git diff --cached'
   alias gb='git branch'
   alias gc='git clone'
-  alias go='git checkout'
+  alias gco='git checkout'
   alias gm='git merge'
   alias gcm='git commit -a -m'
   alias gca='git commit -a'
   alias gra='git remote add'
   alias grr='git remote rm'
-  alias grhh='git reset --hard HEAD'
+  alias grh='git reset --hard'
 
 # heroku
   alias hc='heroku run console'

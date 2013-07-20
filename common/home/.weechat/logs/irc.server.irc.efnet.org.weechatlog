@@ -1,0 +1,106 @@
+2013-07-20 12:54:16	--	irc: connecting to server irc.efnet.org/6667...
+2013-07-20 12:54:16	--	irc: connected to irc.efnet.org/6667 (195.140.202.142)
+2013-07-20 12:54:17	--	*** Processing connection to efnet.port80.se
+2013-07-20 12:54:17	--	*** Looking up your hostname...
+2013-07-20 12:54:17	--	*** Checking Ident
+2013-07-20 12:54:17	--	*** No Ident response
+2013-07-20 12:54:17	--	*** Couldn't look up your hostname
+2013-07-20 12:54:17	--	Welcome to the EFNet Internet Relay Chat Network skryl
+2013-07-20 12:54:17	--	Your host is efnet.port80.se[efnet.port80.se/6667], running version ircd-ratbox-3.0.6
+2013-07-20 12:54:17	--	This server was created Tue May 10 2011 at 00:39:00 CEST
+2013-07-20 12:54:17	--	efnet.port80.se ircd-ratbox-3.0.6 oiwszcrkfydnxbauglZCD biklmnopstveIrS bkloveI
+2013-07-20 12:54:17	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIb,k,l,imnpstS CHANLIMIT=&#:50 PREFIX=(ov)@+ MAXLIST=beI:100 MODES=4 NETWORK=EFNet KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-07-20 12:54:17	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=9 CHANNELLEN=50 TOPICLEN=160 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=80 :are supported by this server
+2013-07-20 12:54:17	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:10,NOTICE:10,ACCEPT:,MONITOR: :are supported by this server
+2013-07-20 12:54:17	--	There are 6930 users and 24886 invisible on 36 servers
+2013-07-20 12:54:17	--	199 :IRC Operators online
+2013-07-20 12:54:17	--	5 :unknown connection(s)
+2013-07-20 12:54:17	--	16290 :channels formed
+2013-07-20 12:54:17	--	I have 2163 clients and 1 servers
+2013-07-20 12:54:17	--	2163 2255 :Current local users 2163, max 2255
+2013-07-20 12:54:17	--	31816 35205 :Current global users 31816, max 35205
+2013-07-20 12:54:17	--	Highest connection count: 2256 (2255 clients) (154252 connections received)
+2013-07-20 12:54:17	--	- efnet.port80.se Message of the Day -
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	- THE INTERNET IS FULL. FUCK OFF.
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	-
+2013-07-20 12:54:17	--	End of /MOTD command.
+2013-07-20 12:54:18	--	CTCP requested by p80cores: VERSION
+2013-07-20 12:54:18	--	CTCP reply to p80cores: VERSION WeeChat 0.4.1 (Jul 20 2013)
+2013-07-20 12:55:17	--	Channel Users  Name
+2013-07-20 12:55:24	--	#musclecars(15)
+2013-07-20 12:55:24	--	#oscars(23)
+2013-07-20 12:55:25	--	End of /LIST
+2013-07-20 12:55:29	--	Channel Users  Name
+2013-07-20 12:55:29	--	#united-hackers(1)
+2013-07-20 12:55:29	--	#vbfxphacks(1)
+2013-07-20 12:55:29	--	#pudwhacker(1)
+2013-07-20 12:55:29	--	#⟍hack(1)
+2013-07-20 12:55:29	--	#ps4hack(1)
+2013-07-20 12:55:29	--	#hackthenews(2)
+2013-07-20 12:55:29	--	#cmuhack(1)
+2013-07-20 12:55:29	--	#surfboard_hackers(1)
+2013-07-20 12:55:29	--	#hackeri(1)
+2013-07-20 12:55:29	--	#uberhacker(1)
+2013-07-20 12:55:29	--	#musicshack(1)
+2013-07-20 12:55:29	--	#xxxhackers(4)
+2013-07-20 12:55:29	--	#hack.fr(1)
+2013-07-20 12:55:29	--	#neurohack(1)
+2013-07-20 12:55:29	--	#felhack(1)
+2013-07-20 12:55:29	--	#cellhacks(1)
+2013-07-20 12:55:29	--	#DSSHack(1)
+2013-07-20 12:55:29	--	#hack.nl(1)
+2013-07-20 12:55:29	--	#grapeshack(2)
+2013-07-20 12:55:29	--	#xboxhacks.de(9): Official xboxhacks.de (formerly known as 360hacks.de) Channel - no Warez - no Marketplace
+2013-07-20 12:55:29	--	#hackcanada(2)
+2013-07-20 12:55:29	--	#3dshack(1)
+2013-07-20 12:55:29	--	#try2hack(14): try2hack.nl
+2013-07-20 12:55:29	--	#try2hack.crew(7)
+2013-07-20 12:55:29	--	#hackedxxxpasswords(7)
+2013-07-20 12:55:29	--	#antihackerlink(20): Welcome here, have a nice chat - http://www.antihackerlink.or.id - Menantu yang ideal adalah seorang user hacker!
+2013-07-20 12:55:29	--	#hackphreak(1)
+2013-07-20 12:55:29	--	#hack2600(3)
+2013-07-20 12:55:29	--	#ps3hack(20)
+2013-07-20 12:55:29	--	#hackedxxxpasses(3)
+2013-07-20 12:55:29	--	#straighthackers(1)
+2013-07-20 12:55:29	--	#irchackers(4)
+2013-07-20 12:55:29	--	#wiihack(166): | #xboxone AND #wiiu AND #satworld also open come chat ! |
+2013-07-20 12:55:29	--	#hackersunited(29): || Micfly Get Well  || http://images.4chan.org/b/src/1374138323800.png || Happy Birthday Dstrbd
+2013-07-20 12:55:29	--	#hacks(65)
+2013-07-20 12:55:29	--	#hacking(41): ...
+2013-07-20 12:55:29	--	#hacker(41): ...
+2013-07-20 12:55:29	--	#WiiUHacks(7): Wii U Hacking News & Discussion
+2013-07-20 12:55:29	--	#vitahack(11)
+2013-07-20 12:55:30	--	#tg-hack(3): Når du har nådd 3k poeng i hackekonken, kom til UiO-standen for en overraskelse! | Frist 17:00 - Få så mange poeng du klarer innen da!
+2013-07-20 12:55:30	--	#upphack(3)
+2013-07-20 12:55:30	--	#EliteHackerZ(10): [EhZ] Oldscool!
+2013-07-20 12:55:30	--	#hack.co.za(10): Http://hack.co.za - It's just the beginning...
+2013-07-20 12:55:30	--	#http://hack.co.za(10): shoo!
+2013-07-20 12:55:30	--	#fun&hack(4): MOVE TO irc.rizon.net #fun&hack NOW!!!
+2013-07-20 12:55:30	--	#hackere3(6)
+2013-07-20 12:55:30	--	#hackers(148): http://hackers.disconnectedirc.net statz reset 7 days ago | OMFGILOVEYOUDANI!!!!!!!!!@%$@!$@!#$!@%$!@$@!$ <3x*4LYFEOMFGURDABESTEST!!!!!!! :D :D :D :D
+2013-07-20 12:55:30	--	End of /LIST
+2013-07-20 12:56:50	--	MSG(NICKSERV): help
+2013-07-20 12:57:28	--	MSG(NICKSERV): help
+2013-07-20 12:57:51	--	MSG(NickServ): help
+2013-07-20 12:57:57	--	MSG(NickServ): register
+2013-07-20 12:59:13	--	[skryl] (~skryl@50.12.126.251): skryl
+2013-07-20 12:59:13	--	[skryl] efnet.port80.se (Phonera/Availo Networks (IPv6/SSL))
+2013-07-20 12:59:13	--	[skryl] idle: 00 hours 01 minutes 16 seconds, signon at: Sat, 20 Jul 2013 12:53:07
+2013-07-20 12:59:13	--	[skryl] End of /WHOIS list.
+2013-07-20 13:00:54	--	#hackers: Cannot join channel (+b)
+2013-07-20 13:00:59	--	#hackers: Cannot join channel (+b)
+2013-07-20 13:01:10	--	#hacking: Cannot join channel (+i)
+2013-07-20 13:01:15	--	User mode for skryl is [+]
+2013-07-20 13:01:24	--	Unknown MODE flag
+2013-07-20 13:01:28	--	User mode [+i] by skryl
+2013-07-20 13:01:36	--	User mode for skryl is [+i]
+2013-07-20 13:01:57	--	#hacking: Cannot join channel (+i)
+2013-07-20 13:02:13	--	Channel Users  Name
+2013-07-20 13:02:15	--	#deprogram(3)
+2013-07-20 13:02:16	--	#programming(36): don't ask to ask, just ask! code snippets > 3 lines >> pastie.org | http://nedmartin.org/v3/amused/rtfm
+2013-07-20 13:02:16	--	End of /LIST
