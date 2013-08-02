@@ -8,3 +8,4 @@
 *.amazonrc
 *.fuzzy_notes
 logs/
+.floorc
