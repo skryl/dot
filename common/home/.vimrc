@@ -1,7 +1,3 @@
-" TODO:
-" - fix easytags / easygrep
-" - upgrade to new powerline
-
   set nocompatible
 
 " ----------------------------------------------------------------------------
@@ -15,87 +11,101 @@
 
   NeoBundle 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/vimproc', { 'build': {
-        \   'windows': 'make -f make_mingw32.mak',
-        \   'cygwin': 'make -f make_cygwin.mak',
         \   'mac': 'make -f make_mac.mak',
         \   'unix': 'make -f make_unix.mak',
         \ }  }
 
   " functionality
+  "NeoBundle 'easytags.vim'
+  NeoBundle '907th/vim-auto-save'
   NeoBundle 'Lokaltog/vim-easymotion'
-  NeoBundle 'JuliaLang/julia-vim'
   NeoBundle 'Lokaltog/vim-powerline'
-  NeoBundle 'MarcWeber/vim-addon-mw-utils'
   NeoBundle 'Raimondi/delimitMate'
-  NeoBundle 'ShowMarks'
   NeoBundle 'SirVer/ultisnips'
-  "NeoBundle 'Valloric/YouCompleteMe'
-  NeoBundle 'VimClojure'
+  NeoBundle 'Valloric/YouCompleteMe'
   NeoBundle 'ZoomWin'
-  NeoBundle 'a.vim'
   NeoBundle 'bufkill.vim'
-  NeoBundle 'derekwyatt/vim-scala'
+  NeoBundle 'dahu/vim-fanfingtastic'
   NeoBundle 'dhazel/conque-term'
-  " NeoBundle 'easytags.vim'
-  NeoBundle 'gmarik/vundle'
+  NeoBundle 'epmatsw/ag.vim'
   NeoBundle 'godlygeek/tabular'
-  NeoBundle 'henrik/vim-ruby-runner'
-  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'honza/vim-snippets'
+  NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
   NeoBundle 'kien/rainbow_parentheses.vim'
-  NeoBundle 'majutsushi/tagbar'
-  NeoBundle 'mattn/gist-vim'
+  NeoBundle 'kshenoy/vim-signature'
+  NeoBundle 'mhinz/vim-signify'
+  NeoBundle 'mhinz/vim-startify'
   NeoBundle 'michaeljsmith/vim-indent-object'
   NeoBundle 'mileszs/ack.vim'
-  NeoBundle 'epmatsw/ag.vim'
   NeoBundle 'minibufexpl.vim'
-  NeoBundle 'buftabs'
   NeoBundle 'mru.vim'
-  NeoBundle 'paredit.vim'
-  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'nathanaelkane/vim-indent-guides'
   NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'searchfold.vim'
   NeoBundle 'simplefold'
-  NeoBundle 'sjl/gundo.vim'
   NeoBundle 'skryl/tslime.vim'
-  NeoBundle 'suan/vim-instant-markdown.git'
+  NeoBundle 'terryma/vim-expand-region'
   NeoBundle 'tomtom/tcomment_vim'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'tpope/vim-endwise'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'tpope/vim-git'
   NeoBundle 'tpope/vim-repeat'
-  NeoBundle 'tpope/vim-rvm'
+  NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-unimpaired'
-  NeoBundle 'xolox/vim-session'
   NeoBundle 'xolox/vim-misc'
-  NeoBundle '907th/vim-auto-save'
-  NeoBundle 'jimenezrick/vimerl'
-  NeoBundle 'vim-multiple-cursors'
-  NeoBundle 'gregsexton/gitv'
-  NeoBundle 'mhinz/vim-signify'
-  NeoBundle 'mhinz/vim-startify'
-  NeoBundle 'VimIRC.vim'
-  " NeoBundle 'EasyGrep'
+
+  NeoBundleLazy 'EasyGrep', {'autoload':{'commands':'GrepOptions'}}
+  NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'], 'autoload':{'commands':'Gitv'}}
+  NeoBundleLazy 'majutsushi/tagbar', {'autoload':{'commands':'TagbarToggle'}}
+  NeoBundleLazy 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim', 'autoload': { 'commands': 'Gist' } }
+  NeoBundleLazy 'mbbill/undotree', {'autoload':{'commands':'UndotreeToggle'}}
+  NeoBundleLazy 'scrooloose/nerdtree', {'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
+  NeoBundleLazy 'tpope/vim-endwise', {'autoload':{'filetypes':['lua','ruby','sh','zsh','vb','vbnet','aspvbs','vim','c','cpp','xdefaults']}}
+
+  " language support
+  NeoBundle 'a.vim'
+  NeoBundle 'bccalc.vim'
+  NeoBundle 'megaannum/vimside'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'tpope/vim-bundler'
+
+  NeoBundleLazy 'derekwyatt/vim-scala', {'autoload':{'filetypes':['scala']}}
+  NeoBundleLazy 'henrik/vim-ruby-runner', {'autoload':{'filetypes':['rb']}}
+  NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload':{'filetypes':['rb']}}
+  NeoBundleLazy 'JuliaLang/julia-vim', {'autoload':{'filetypes':['jl']}}
+  NeoBundleLazy 'jimenezrick/vimerl', {'autoload':{'filetypes':['erl']}}
+  NeoBundleLazy 'VimClojure', {'autoload':{'filetypes':['clj']}}
+  NeoBundleLazy 'paredit.vim', {'autoload':{'filetypes':['clj','scm']}}
+  NeoBundleLazy 'jnwhiteh/vim-golang', {'autoload':{'filetypes':['go']}}
+  NeoBundleLazy 'tpope/vim-markdown', {'autoload':{'filetypes':['markdown']}}
+  if executable('redcarpet') && executable('instant-markdown-d')
+    NeoBundleLazy 'suan/vim-instant-markdown', {'autoload':{'filetypes':['markdown']}}
+  endif
+
+  " web
+  NeoBundleLazy 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}
+  NeoBundleLazy 'tpope/vim-haml', {'autoload':{'filetypes':['haml']}}
+  NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
+  NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload':{'filetypes':['css','scss','sass']}}
+  NeoBundleLazy 'ap/vim-css-color', {'autoload':{'filetypes':['css','scss','sass','less','styl']}}
+  NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes':['html']}}
+  NeoBundleLazy 'gregsexton/MatchTag', {'autoload':{'filetypes':['html','xml']}}
+
+  " js
+  NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
+  NeoBundleLazy 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}}
+  NeoBundleLazy 'leafgarland/typescript-vim', {'autoload':{'filetypes':['typescript']}}
+  NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
+  NeoBundleLazy 'mmalecki/vim-node.js', {'autoload':{'filetypes':['javascript']}}
+  NeoBundleLazy 'leshill/vim-json', {'autoload':{'filetypes':['javascript','json']}}
+  NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript','coffee','ls','typescript']}}
 
   " unite
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/unite-outline'
-  NeoBundle 'Shougo/unite-session'
-  NeoBundle 'Shougo/junkfile.vim'
-  NeoBundle 'ujihisa/unite-colorscheme'
-  NeoBundle 'thinca/vim-unite-history'
+  NeoBundleLazy 'Shougo/unite.vim', {'autoload':{'commands':'Unite', 'insert': 1}}
+  NeoBundleLazy 'ujihisa/unite-colorscheme', {'autoload':{'unite_sources':'colorscheme'}} "{{{
+  NeoBundleLazy 'tsukkee/unite-tag', {'autoload':{'unite_sources':['tag','tag/file']}} "{{{
+  NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}} "{{{
+  NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen','unite_sources':['junkfile','junkfile/new']}} "{{{
 
-  " syntax
-  NeoBundle 'kchmck/vim-coffee-script'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'timcharper/textile.vim'
-  NeoBundle 'tpope/vim-haml'
-  NeoBundle 'tpope/vim-markdown'
-  NeoBundle 'vim-ruby/vim-ruby'
-  NeoBundle 'tpope/vim-rails'
-  NeoBundle 'ap/vim-css-color'
-
-  " colors
+  " themes
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'wgibbs/vim-irblack'
 
@@ -104,15 +114,12 @@
   NeoBundle 'tomtom/tlib_vim'
   NeoBundle 'mattn/webapi-vim'
 
-  filetype plugin indent on    " don't move/change this line
-  syntax enable
-  NeoBundleCheck
-
 " ----------------------------------------------------------------------------
 " GENERAL
 " ----------------------------------------------------------------------------
   set encoding=utf-8
   set fileformats=unix
+  set nrformats-=octal
   set ruler
   set cmdheight=2
   set shortmess=aTItoOr
@@ -157,7 +164,7 @@
 " ----------------------------------------------------------------------------
   set ruler                  " show the cursor position all the time
   set noshowcmd              " don't display incomplete commands
-  set lazyredraw           " turn off lazy redraw
+  set lazyredraw             " turn off lazy redraw
   set number                 " line numbers
   set wildmenu               " turn on wild menu
   set wildmode=list:longest,full
@@ -185,7 +192,7 @@
  set nofoldenable
  
 " mouse
-  "set mouse=a  " enable mouse
+  set mouse=a  " enable mouse
   set mousehide " hide mouse when typing
   set mousef    " allows the mouse the change the position of the cursor
 
@@ -209,19 +216,7 @@ if has('gui_running')
     set guifont=Monaco:h11
     " set gfn=Ubuntu_Mono:h14
     set transparency=2
-  else
-    if $TERM_PROGRAM == 'iTerm.app'
-      " different cursors for insert vs normal mode
-      if exists('$TMUX')
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-      else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-      endif
-    endif
-  endif
-"}}}
+endif
 
 " ----------------------------------------------------------------------------
 " VISUAL CUES/SEARCH
@@ -245,7 +240,9 @@ if has('gui_running')
   set tags=./.tags;,~/.vimtags
   set history=1000
   set nobackup                                " do not keep backups after close
+  set backupdir=~/.vim/.cache/backup
   set noswapfile                              " do not keep backups after close
+  set directory=~/.vim/.cache/swap
   " set writebackup                           " do keep a backup while working
   " set backupcopy=yes                        " keep attributes of original file
   " set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
@@ -253,6 +250,16 @@ if has('gui_running')
   " set directory=$HOME/.vim_backup,~/tmp,/tmp  " swapfile directory
   set undolevels=1000                         " number of forgivable mistakes
   set updatecount=100                         " write swap file to disk every 100 chars
+
+  function! EnsureExists(path)
+    if !isdirectory(expand(a:path))
+      call mkdir(expand(a:path))
+    endif
+  endfunction
+
+  call EnsureExists('~/.vim/.cache')
+  call EnsureExists(&backupdir)
+  call EnsureExists(&directory)
 
 " ---------------------------------------------------------------------------
 " COLORS/THEME/VISUAL
@@ -340,6 +347,7 @@ if has('gui_running')
   au FileType python setlocal omnifunc=pythoncomplete#Complete
   au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType markdown,vim let b:loaded_delimitMate=1
   " au FileType html set omnifunc=htmlcomplete#CompleteTags
   au FileType css set omnifunc=csscomplete#CompleteCSS
   au FileType xml set omnifunc=xmlcomplete#CompleteTags
@@ -351,6 +359,7 @@ if has('gui_running')
   au BufReadPost *.rkt,*.rktl set filetype=racket
   au filetype racket set lisp
   au filetype racket set autoindent
+
 
 " ----------------------------------------------------------------------------
 " PLUGINS
@@ -364,6 +373,10 @@ if has('gui_running')
 
 " ACK             
   nmap <Leader>ac :Ack 
+
+" BCCALC
+  vnoremap <Leader>cc "eyy:call CalcLines(1)<CR>" 
+  noremap  <Leader>cc "eyy:call CalcLines(0)<CR>"
 
 " BUFTABS
   let g:buftabs_only_basename=1
@@ -380,13 +393,30 @@ if has('gui_running')
   let g:ConqueTerm_ExecFileKey = '<F11>'
 
 " CTRLP
-  let g:ctrlp_map = ''
-  let g:ctrlp_cmd = ''
   let g:ctrlp_working_path_mode = 'ra'
+
+  let g:ctrlp_open_multiple_files = '1vir'
+  let g:ctrlp_clear_cache_on_exit=1
+  let g:ctrlp_max_height=40
+  let g:ctrlp_show_hidden=0
+  let g:ctrlp_follow_symlinks=1
+  let g:ctrlp_working_path_mode=0
+  let g:ctrlp_max_files=20000
+  let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
+  let g:ctrlp_extensions=['funky']
+
   nmap <silent> <Leader>ff :CtrlP<CR>
   nmap <silent> <Leader>fb :CtrlPBuffer<CR>
   nmap <silent> <Leader>fm :CtrlPMixed<CR>
-  let g:ctrlp_open_multiple_files = '1vir'
+
+  nmap \ [ctrlp]
+  nnoremap [ctrlp] <nop>
+
+  nnoremap [ctrlp]t :CtrlPBufTag<cr>
+  nnoremap [ctrlp]T :CtrlPTag<cr>
+  nnoremap [ctrlp]l :CtrlPLine<cr>
+  nnoremap [ctrlp]o :CtrlPFunky<cr>
+  nnoremap [ctrlp]b :CtrlPBuffer<cr>
 
 " DELIMITMATE
   let g:delimitMate_expand_space = 1
@@ -396,10 +426,17 @@ if has('gui_running')
   let g:EclimCompletionMethod = 'omnifunc'
 
 " EASYGREP
+  let g:EasyGrepRecursive=1
+  let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
+  nnoremap <leader>eg :GrepOptions<cr>
+
 
 " EASYMOTION
   let g:EasyMotion_leader_key = '<Leader><Leader>'
+  let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
+  autocmd ColorScheme * highlight EasyMotionTarget ctermfg=32 guifg=#0087df
+  autocmd ColorScheme * highlight EasyMotionShade ctermfg=237 guifg=#3a3a3a
 
 " EASYTAGS / CTAGS / CSCOPE
   let g:easytags_updatetime_min = 2000
@@ -423,12 +460,14 @@ if has('gui_running')
   let g:gist_clip_command = 'pbcopy'
   let g:gist_detect_filetype = 1
   let g:gist_open_browser_after_post = 1
-
-" GUNDO
-  nnoremap <C-g> :GundoToggle<CR>
+  let g:gist_post_private=1
+  let g:gist_show_privates=1
 
 " INSTANT-MARKDOWN
   let g:instant_markdown_slow = 1
+
+" JS-BEAUTIFY
+  nnoremap <leader>fjs :call JsBeautify()<cr>
 
 " MINIBUFEXPL
   let g:miniBufExplSplitBelow = 0
@@ -436,13 +475,23 @@ if has('gui_running')
 " MRU
   nmap <C-O> :MRU<cr>
 
+" NEOBUNDLE
+  nnoremap <leader>nbu :Unite neobundle/update -vertical -no-start-insert<cr>
+
 " NERDTREE
   let NERDChristmasTree = 1
   let NERDTreeHighlightCursorline = 1
   let NERDTreeShowBookmarks = 1
   let NERDTreeShowHidden = 1
   let NERDTreeWinSize = 50
-  nnoremap <C-e> :execute 'NERDTreeToggle ' . getcwd()<CR>
+  let NERDTreeQuitOnOpen=0
+  let NERDTreeShowLineNumbers=1
+  let NERDTreeChDirMode=0
+  let NERDTreeShowBookmarks=1
+  let NERDTreeIgnore=['\.git','\.hg']
+  let NERDTreeBookmarksFile='~/.vim/.cache/NERDTreeBookmarks'
+  nnoremap <C-e> :NERDTreeToggle<CR>
+  nnoremap <C-f> :NERDTreeFind<CR>
 
 " POWERLINE
   let g:Powerline_symbols = 'fancy'
@@ -469,15 +518,6 @@ if has('gui_running')
 " RUBY RUNNER
   nmap <leader>rr :call :RunRuby<CR>
 
-" SHOWMARKS
-  let g:showmarks_enable = 0
-  let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  let g:showmarks_textlower="\t*"
-  highlight ShowMarksHLl guifg=red guibg=green
-  highlight ShowMarksHLu guifg=red guibg=green
-  highlight ShowMarksHLo guifg=red guibg=green
-  highlight ShowMarksHLm guifg=red guibg=green
-
 " SILVER-SEARCHER
   map <leader>ag :Ag!<space><<C-R><C-W>\><CR>
 
@@ -485,6 +525,11 @@ if has('gui_running')
   let g:SimpleFold_use_subfolds = 0
 
 " SYNTASTIC
+  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_style_error_symbol = '✠'
+  let g:syntastic_warning_symbol = '∆'
+  let g:syntastic_style_warning_symbol = '≈'
+
   let g:syntastic_auto_loc_list=1
   let g:syntastic_enable_signs=1
   let g:syntastic_enable_highlighting=1
@@ -503,14 +548,18 @@ if has('gui_running')
   " let g:SuperTabDefaultCompletionType = "context"
 
 " TABULAR
+  nmap <Leader>a& :Tabularize /&<CR>
+  vmap <Leader>a& :Tabularize /&<CR>
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>A= :Tabularize /=\zs<CR>
-  vmap <Leader>A= :Tabularize /=\zs<CR>
-  nmap <Leader>a- :Tabularize /-<CR>
-  vmap <Leader>a- :Tabularize /-<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>a: :Tabularize /:<CR>
+  vmap <Leader>a: :Tabularize /:<CR>
+  nmap <Leader>a:: :Tabularize /:\zs<CR>
+  vmap <Leader>a:: :Tabularize /:\zs<CR>
+  nmap <Leader>a, :Tabularize /,<CR>
+  vmap <Leader>a, :Tabularize /,<CR>
+  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " TAGBAR
   nmap <C-T> :TagbarToggle<CR>
@@ -528,6 +577,11 @@ if has('gui_running')
   nmap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
   vmap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
   nmap <leader>tv :call Tmux_Vars()<CR>
+
+" UNDOTREE
+  nnoremap <C-g> :UndotreeToggle<CR>
+  let g:undotree_SplitLocation='botright'
+  let g:undotree_SetFocusWhenToggle=1
 
 " UNITE
   let bundle = neobundle#get('unite.vim')
@@ -577,6 +631,19 @@ if has('gui_running')
   nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
   nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
 
+  " plugins
+  nnoremap <silent> [unite]c :<C-u>Unite -winheight=10 -auto-preview -buffer-name=colorschemes colorscheme<cr>
+  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tags tags tags/file<cr>
+  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
+  nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
+  let g:junkfile#directory=expand("~/.vim/.cache/junk")
+
+" UTILSNIPS
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+  let g:UltiSnipsSnippetsDir='~/.vim/bundle/vim-snippets/UltiSnips,~/.vim/snippets'
+
 " VIM-AUTO-SAVE
   let g:auto_save = 1
 
@@ -586,12 +653,54 @@ if has('gui_running')
   let g:vimclojure#HighlightBuiltins = 1
   let g:paredit_mode = 1
 
+" VIM-EXPAND-REGION
+  vmap K <Plug>(expand_region_expand)
+  vmap J <Plug>(expand_region_shrink)
+
+" VIMFUGITIVE
+  nnoremap <silent> <leader>gs :Gstatus<CR>
+  nnoremap <silent> <leader>gd :Gdiff<CR>
+  nnoremap <silent> <leader>gc :Gcommit<CR>
+  nnoremap <silent> <leader>gb :Gblame<CR>
+  nnoremap <silent> <leader>gl :Glog<CR>
+  nnoremap <silent> <leader>gp :Git push<CR>
+  nnoremap <silent> <leader>gw :Gwrite<CR>
+  nnoremap <silent> <leader>gr :Gremove<CR>
+  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+  " gitv extension
+  nnoremap <silent> <leader>gv :Gitv<CR>
+  nnoremap <silent> <leader>gV :Gitv!<CR>
+
+" VIM-INDENT-GUIDES
+  let g:indent_guides_start_level=1
+  let g:indent_guides_guide_size=1
+  let g:indent_guides_enable_on_vim_startup=0
+  let g:indent_guides_color_change_percent=3
+  if !has('gui_running')
+    let g:indent_guides_auto_colors=0
+    function! s:indent_set_console_colors()
+      hi IndentGuidesOdd ctermbg=235
+      hi IndentGuidesEven ctermbg=236
+    endfunction
+    autocmd VimEnter,Colorscheme * call s:indent_set_console_colors()
+  endif
+
 " VIM-MULTIPLE-CURSOR
   let g:multi_cursor_use_default_mapping=0
   let g:multi_cursor_next_key="\<C-w>"
   let g:multi_cursor_prev_key="\<C-q>"
   let g:multi_cursor_skip_key="\<C-x>"
   let g:multi_cursor_exit_key="\<Esc>"
+
+" VIM-RUBY-XMPFILTER
+  nmap <buffer> <F5> <Plug>(xmpfilter-run)
+  xmap <buffer> <F5> <Plug>(xmpfilter-run)
+  imap <buffer> <F5> <Plug>(xmpfilter-run)
+ 
+  nmap <buffer> <F4> <Plug>(xmpfilter-mark)
+  xmap <buffer> <F4> <Plug>(xmpfilter-mark)
+  imap <buffer> <F4> <Plug>(xmpfilter-mark))
 
 " VIM-SESSION
   let g:session_autoload = 'no'
@@ -603,21 +712,51 @@ if has('gui_running')
   nmap <Leader>sd :DeleteSession<CR>
   nmap <Leader>sv :ViewSession<CR>
 
+" VIM-SIGNATURE
+  nmap K [`
+  nmap J ]`
+
 " VIM-SIGNIFY
   let g:signify_disable_by_default = 1
   let g:signify_mapping_toggle_highlight = '<leader>gh'
   let g:signify_mapping_toggle = '<leader>gt'
+
+" VIM-STARTIFY
+  let g:startify_session_dir = '~/.vim/.cache/sessions'
+  let g:startify_show_sessions = 1
+  let g:startify_custom_header = [
+    \ '                                                       ,----,               ',
+    \ '                                ____                 ."   .`|  .--,-``-.    ', 
+    \ '                 ,---,        ,"  , `.            .`   ."   ; /   /     `.  ', 
+    \ '         ,---.,`--.` |     ,-+-,.` _ |          ,---, `    .`/ ../        ; ', 
+    \ '        /__./||   :  :  ,-+-. ;   , ||          |   :     ./ \ ``\  .`-    `', 
+    \ '   ,---.;  ; |:   |  ` ,--.`|`   |  ;|          ;   | .`  /   \___\/   \   :', 
+    \ '  /___/ \  | ||   :  ||   |  ,`, |  `:          `---` /  ;         \   :   |',
+    \ '  \   ;  \ ` |`   `  ;|   | /  | |  ||            /  ;  /          /  /   / ', 
+    \ '   \   \  \: ||   |  |`   | :  | :  |,           ;  /  /           \  \   \ ', 
+    \ '    ;   \  ` .`   :  ;;   . |  ; |--`           /  /  /        ___ /   :   |', 
+    \ '     \   \   `|   |  `|   : |  | ,            ./__;  /        /   /\   /   :', 
+    \ '      \   `  ;`   :  ||   : `  |/             |   : /___     / ,,/  `,-    .', 
+    \ '       :   \ |;   |.` ;   | |`-`              ;   |//  .\    \ ``\        ; ',
+    \ '        `---" `---`   |   ;/                  `---` \  ; |    \   \     .`  ', 
+    \ '                      `---`                          `--"      `--`-,,-`    ', 
+    \ '',                                                                          
+    \ '',                                                                          
+    \ ]                                                                           
 
 " VUNDLE
   nmap <Leader>bi :NeoBundleInstall<CR>
   nmap <Leader>bc :NeoBundleClean<CR>
 
 " YOUCOMPLETEME
+  let g:ycm_complete_in_comments_and_strings=1
+  let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
   let g:ycm_filetype_blacklist = { 
     \ 'notes': 1,  
     \ 'markdown': 1,  
     \ 'text': 1,  
-    \ 'ruby': 1  
+    \ 'unite': 1,  
     \ }
 
 " ZOOMWIN
@@ -736,3 +875,8 @@ if has('gui_running')
 " some C helpers
   nmap <leader>; $a;<Esc>
   nmap <leader>mf $xo{<cr>}<Esc>O
+
+" finish loading
+  filetype plugin indent on    " don't move/change this line
+  syntax enable
+  NeoBundleCheck

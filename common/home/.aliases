@@ -168,6 +168,9 @@ function _alias_tools {
  alias synergy_client='synergyc 192.168.1.100'
  alias synergy_server='synergys --config ~/.synergy'
 
+# go
+ alias go='nocorrect go'
+
 }
 
 # load aliases

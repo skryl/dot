@@ -7,3 +7,4 @@
 *.keys
 *.amazonrc
 *.fuzzy_notes
+logs/

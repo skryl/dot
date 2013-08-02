@@ -15,12 +15,12 @@ end
 Pry.config.history.should_save = true
 Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
-if defined?(PryDebugger)
-  Pry.commands.alias_command 'whr', 'whereami'
-  Pry.commands.alias_command 'con', 'continue'
-  Pry.commands.alias_command 'st',  'step'
-  Pry.commands.alias_command 'nxt', 'next'
-  Pry.commands.alias_command 'fin', 'finish'
+if defined?(Pry)
+  Pry.commands.alias_command '.w', 'whereami'
+  Pry.commands.alias_command '.c', 'continue'
+  Pry.commands.alias_command '.s',  'step'
+  Pry.commands.alias_command '.n', 'next'
+  Pry.commands.alias_command '.f', 'finish'
 end
 
 # scratch buffer
