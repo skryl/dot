@@ -4,9 +4,10 @@ begin
   require 'hirb'
   require 'awesome_print'
   require 'pry'
-  require 'pry-debugger'
-  require 'pry-stack_explorer'
+  #require 'pry-debugger'
+  #require 'pry-stack_explorer'
 rescue LoadError
+  puts "Error loading gems!"
 end
 
 # config
@@ -15,10 +16,10 @@ end
 Pry.config.history.should_save = true
 Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
-if defined?(Pry)
+if defined?(PryDebugger)
   Pry.commands.alias_command '.w', 'whereami'
   Pry.commands.alias_command '.c', 'continue'
-  Pry.commands.alias_command '.s',  'step'
+  Pry.commands.alias_command '.s', 'step'
   Pry.commands.alias_command '.n', 'next'
   Pry.commands.alias_command '.f', 'finish'
 end
@@ -71,8 +72,8 @@ end
 
 class Class
 
-  def metaclass; class << self; self; end; end
-  def meta_eval &blk; metaclass.instance_eval &blk; end
+  #def metaclass; class << self; self; end; end
+  #def meta_eval &blk; metaclass.instance_eval &blk; end
 
 end
 

@@ -1,5 +1,7 @@
 # DEBUG=true
 
+test -e "$HOME/.profile" && source "$HOME/.profile"
+
 _rc_test_shell_bin
 _rc_test_shell_type
 
@@ -11,7 +13,7 @@ _rc_debug_print OHMYZSH
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME=cypher
 
-plugins=(osx vi-mode)
+plugins=(osx)
 test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
 
 
@@ -21,6 +23,7 @@ test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
 _rc_debug_print FASD
 
 # eval "$(fasd --init posix-alias zsh-hook)"
+eval "$(fasd --init auto)"
 
 # -------------------------------------------------------------------
 # COMMON

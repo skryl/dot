@@ -1,5 +1,6 @@
 .vim_backup/
 .vim/
+.emacs.d/
 .oh-my-zsh/
 .chef/
 .aws/
@@ -9,3 +10,4 @@
 *.fuzzy_notes
 logs/
 .floorc
+.dropbox

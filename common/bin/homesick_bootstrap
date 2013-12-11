@@ -8,7 +8,7 @@ fi
 
 homesick clone "$1/common"
 homesick symlink common
-# homesick clone "$1/linux"
-# homesick symlink linux
-homesick clone "$1/osx"
-homesick symlink osx
+homesick clone "$1/linux"
+homesick symlink linux
+# homesick clone "$1/osx"
+# homesick symlink osx

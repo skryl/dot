@@ -6,18 +6,14 @@ LS_OSX="-hG"
 # OSX
 function _alias_osx {
   alias ls="command ls $LS_OSX"
-  alias cheatsheets="qlmanage -p $DROPBOX/reference/cheatsheets/*"
-  alias pinstall='sudo port install'
-  alias psearch='port search'
   alias binstall='brew install'
   alias updatedb='sudo /usr/libexec/locate.updatedb'
-  alias unq='xattr -dr com.apple.quarantine'
-  alias _='sudo'
 }
 
 # linux
 #
 function _alias_linux {
+  alias ls="command ls $LS_LINUX"
   alias install='sudo apt-get install'
   alias search='apt-cache search'
 }
@@ -33,8 +29,9 @@ function _alias_fs {
   alias hi='history | tail -20'
   alias vrc='vim ~/.zshrc'
   alias src='source ~/.zshrc'
-  alias val='vim ~/.aliases'
   alias sal='source ~/.aliases'
+  alias unq='xattr -dr com.apple.quarantine'
+  alias aliases="$EDITOR ~/.aliases"
   alias fix_dir_perms='find . -type d -print0 | xargs -0 chmod 775'
   alias fix_file_perms='find . -type f -print0 | xargs -0 chmod 664' 
   alias fix_all_perms='perm_norm_dir; perm_norm_file'
@@ -57,9 +54,8 @@ function _alias_nav {
   alias proj="cd $DROPBOX/projects"
   alias dev="cd $DROPBOX/dev"
   alias bin="cd ~/bin"
-  alias tc="cd $DROPBOX/dev/trunkclub"
-  alias txi="cd $DROPBOX/dev/tablexi"
-  alias one="cd $DROPBOX/dev/tablexi/dickson"
+  alias courses="cd ~/Dropbox/dev/courses"
+  alias work="cd $HOME/work"
 }
 
 #remotes
@@ -67,17 +63,19 @@ function _alias_nav {
 function _alias_remotes {
   alias skryl='ssh rut216@ssh.skryl.com'
   alias vh='ssh rut216@vh.skryl.com'
-  alias origin='ssh rut216@origin.skryl.com'
   alias vintaget='ssh vintaget@vintagetreasury.com'
-
-  alias pg1='ssh ubuntu@pg1.titlegenius.com'
-  alias pgrep='ssh ubuntu@pgreporting.titlegenius.com'
-  alias pgs='ssh ubuntu@pgstaging.titlegenius.com'
+  alias all='dsh -a -M'
 }
 
 # tools
 #
 function _alias_tools {
+
+# sudo
+  alias _='sudo'
+
+# bash
+  alias cl='clear'
 
 # pygmentize
   alias catrb='pygmentize -l ruby'
@@ -99,9 +97,24 @@ function _alias_tools {
   alias vf='f -e vim'
   alias vimrc="vim ~/.vimrc"
 
+# emacs
+  alias emacs='emacs -nw'
+
+# sublime
+  alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # gems
   alias gi='gem install'
-  alias gems='cd $HOME/.rbenv/versions/`rbenv global`/lib/ruby/gems/1.9.1/gems'
+
+# fasd
+  alias a='fasd -a'        # any
+  alias s='fasd -si'       # show / search / select
+  alias d='fasd -d'        # directory
+  alias f='fasd -f'        # file
+  alias sd='fasd -sid'     # interactive directory selection
+  alias sf='fasd -sif'     # interactive file selection
+  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+  alias zz='fasd_cd -d -i' # cd with interactive selection
 
 # rvm
   alias rvmc='rvm current'
@@ -116,7 +129,7 @@ function _alias_tools {
   alias rbl='rbenv local'
   alias rbg='rbenv global'
   alias rbi='rbenv install'
-  alias rbr='rbenv rehash'
+  alias rbh='rbenv rehash'
   alias rbw='rbenv which'
 
 # rails
@@ -170,6 +183,13 @@ function _alias_tools {
 
 # go
  alias go='nocorrect go'
+
+# repls
+ alias sml='rlwrap sml'
+ alias racket='rlwrap racket'
+
+# eclipse
+ alias eclim='$ECLIPSE_HOME/eclimd'
 
 }
 

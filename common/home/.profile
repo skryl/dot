@@ -66,9 +66,6 @@ _rc_debug_print PATH
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 
-# ~/bin
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
-
 
 # ----------------------------------------------------------------------
 # PACKAGES
@@ -78,12 +75,12 @@ _rc_debug_print PACKAGES
 if [ "$UNAME" = Darwin ]; then
 
   # add macports path
-  test -x /opt/local && {
-      PORTS=/opt/local
-      # setup the PATH and MANPATH
-      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-      MANPATH="$PORTS/share/man:$MANPATH"
-  }
+  # test -x /opt/local && {
+  #     PORTS=/opt/local
+  #     # setup the PATH and MANPATH
+  #     PATH="$PORTS/bin:$PORTS/sbin:$PATH"
+  #     MANPATH="$PORTS/share/man:$MANPATH"
+  # }
 
   # add homebrew path
   test -x /usr/local && {
@@ -117,23 +114,33 @@ export PAGER MANPAGER
 
 
 # -------------------------------------------------------------------
+# ECLIPSE
+# -------------------------------------------------------------------
+export ECLIPSE_HOME=/Applications/eclipse 
+
+# -------------------------------------------------------------------
 # RUBY/RVM/RBENV
 # -------------------------------------------------------------------
 _rc_debug_print RUBY
 
-#  if [[ -s $HOME/.rvm/scripts/rvm ]] ; then 
-#    source $HOME/.rvm/scripts/rvm ; 
-#    # rerun all the rvm scripts to fix the PATH after messing with it
-#    rvm reload
-#  fi
+test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
 
-test -n $(command -v rbenv) && eval "$(rbenv init -)"
+
+# -------------------------------------------------------------------
+# OPAM
+# -------------------------------------------------------------------
+_rc_debug_print OPAM
+
+test -d "/Users/skryl/.spam/opam-init" && . /Users/skryl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
+test -n "$(command -v opam)" && eval `opam config env`
  
 # -------------------------------------------------------------------
 # GO
 # -------------------------------------------------------------------
+_rc_debug_print GO
+
 export GOPATH=$HOME/.go
-PATH=$PATH:$GOPATH/bin
+test -d "$GOPATH/bin" && PATH=$PATH:$GOPATH/bin
 
  #-------------------------------------------------------------------
 # HEROKU
@@ -159,7 +166,9 @@ fi
 # -------------------------------------------------------------------
 _rc_debug_print PYTHON
 
+PYTHONBIN=/usr/local/lib/python2.7/bin
 PYTHONPATH=/usr/local/lib/python2.7/site-packages
+test -d $PYTHONBIN && PATH=$PATH:$PYTHONBIN
 test -d "$PYTHONPATH" && export PYTHONPATH
 
 
@@ -194,6 +203,13 @@ test -d "$HOME/.cabal/bin" && PATH="$HOME/.cabal/bin:$PATH"
 
 export USERWM=`which xmonad`
 
+# -------------------------------------------------------------------
+# I3 
+# -------------------------------------------------------------------
+_rc_debug_print I3 
+
+export TERMINAL=xterm-256color
+
 
 # -------------------------------------------------------------------
 # AVR-GCC
@@ -207,7 +223,14 @@ _rc_debug_print SBT
 
 export SBT_OPTS=-XX:MaxPermSize=512m
 
+# -------------------------------------------------------------------
+# HOME
+# -------------------------------------------------------------------
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
+# -------------------------------------------------------------------
+# AVR
+# -------------------------------------------------------------------
 test -d "/usr/local/CrossPack-AVR" && PATH="/usr/local/CrossPack-AVR/bin:$PATH"
 
 
