@@ -109,6 +109,7 @@ endif
   NeoBundleLazy 'guns/vim-clojure-static', { 'autoload':{'filetypes':['clojure']}}
   NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
   NeoBundleLazy 'tpope/vim-fireplace',     { 'autoload':{'filetypes':['clojure']}}
+  " NeoBundleLazy 'tpope/vim-classpath',     { 'autoload':{'filetypes':['clojure']}}
 
   " markup
   NeoBundleLazy 'Valloric/vim-instant-markdown', { 'autoload':{'filetypes':['markdown']}}
@@ -338,7 +339,7 @@ endif
   set splitbelow  " split horizontally below
   set equalalways " resize windows equally after splits or deletion
 
-" FUNCTIONS
+" FUNCTIONS / COMMANDS
 
   " strip all trailing whitespace in file
   function! StripWhitespace ()
@@ -349,6 +350,8 @@ endif
   function! Make_session_finder (filename)
       exec 'nnoremap ss :!terminal_promote_vim_session ' . a:filename . '<CR>:q!<CR>'
   endfunction
+
+  com! FormatJSON %!python -m json.tool
 
 "  AUTOCOMMANDS
 
@@ -437,9 +440,9 @@ endif
   let g:ctrlp_extensions=['funky']
   let g:ctrlp_map = '<nop>'
 
-  nmap <silent> <Leader>ff :CtrlP<CR>
-  nmap <silent> <Leader>fb :CtrlPBuffer<CR>
-  nmap <silent> <Leader>fm :CtrlPMixed<CR>
+  nmap <Leader>ff :CtrlP<CR>
+  nmap <Leader>fb :CtrlPBuffer<CR>
+  nmap <Leader>fm :CtrlPMixed<CR>
   " nnoremap [ctrlp]t :CtrlPBufTag<cr>
   " nnoremap [ctrlp]T :CtrlPTag<cr>
   " nnoremap [ctrlp]l :CtrlPLine<cr>
@@ -566,7 +569,7 @@ endif
   let g:syntastic_auto_loc_list=1
   let g:syntastic_enable_signs=1
   let g:syntastic_enable_highlighting=1
-  let g:syntastic_quiet_warnings=1
+  " let g:syntastic_quiet_warnings=1
   let g:syntastic_auto_jump=1
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
@@ -610,7 +613,7 @@ endif
   let g:tmux_panenumber = 2
   nmap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
   vmap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
-  nmap <leader>tv :call Tmux_Vars()<CR>
+  nnoremap <leader>tv :call Tmux_Vars()<CR>
 
 " UNDOTREE
 
@@ -807,6 +810,7 @@ endif
 " ----------------------------------------------------------------------------
 " KEYMAPPINGS
 " ----------------------------------------------------------------------------
+" TODO: work out sensible leader system
 
 " GENERAL
 
@@ -950,7 +954,7 @@ endif
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
-  nnoremap <leader>q <C-w>q
+  nnoremap <leader>wq <C-w>q
 
   "" splits and buffers
   nnoremap <leader>sh :split<CR>
