@@ -84,9 +84,9 @@ endif
 
 " UNITE
 
-  NeoBundleLazy 'Shougo/unite-outline',      { 'autoload': { 'unite_sources':'outline'}}
-  NeoBundleLazy 'Shougo/unite.vim',          { 'autoload': { 'commands':'Unite', 'insert': 1}}
-  NeoBundleLazy 'ujihisa/unite-colorscheme', { 'autoload': { 'unite_sources':'colorscheme'}}
+  " NeoBundleLazy 'Shougo/unite-outline',      { 'autoload': { 'unite_sources':'outline'}}
+  " NeoBundleLazy 'Shougo/unite.vim',          { 'autoload': { 'commands':'Unite', 'insert': 1}}
+  " NeoBundleLazy 'ujihisa/unite-colorscheme', { 'autoload': { 'unite_sources':'colorscheme'}}
 
 " LANGUAGE SUPPORT
 
@@ -177,7 +177,7 @@ endif
   set cindent                " smart indent for C like languages
   set copyindent             " copy indentation chars from previous line
   set expandtab              " expand tabs to spaces
-  set formatoptions+=tcroqnj  " autoformats text correctly during Q
+  set formatoptions+=tcroqn  " autoformats text correctly during Q
   set nowrap                 " do not wrap lines visually
   set shiftwidth=2
   set smartindent            " smart indentation for non C languages
@@ -229,7 +229,7 @@ endif
   set matchtime=5            " duration to show matching brace (1/10 sec)
   set showmatch              " show matching parentheses
   set smartcase              " ovverride ignore case if pattern has upcase
-  set cursorline             " hightlight the line that the cursor is on
+  " set cursorline             " hightlight the line that the cursor is on (slow)
 
 " SOUND
 
@@ -279,8 +279,8 @@ endif
   set noswapfile                              " dont keep buffer in a swapfile
   set directory=~/.vim/.cache/swap            " swapfile directory
 
-  set undofile                                " keeps undo history around after file is closed
-  set undodir=~/.vim/.cache/undo
+  " set undofile                                " keeps undo history around after file is closed
+  " set undodir=~/.vim/.cache/undo
   set undolevels=1000                         " number of forgivable mistakes
   set updatecount=100                         " write undo file to disk every 100 chars
 
@@ -412,14 +412,14 @@ endif
 
 " A.VIM
 
-  nmap <Leader>aa :A<CR>
-  nmap <Leader>as :AS<CR>
-  nmap <Leader>av :AV<CR>
-  nmap <Leader>an :AN<CR>
+  nnoremap <Leader>aa :A<CR>
+  nnoremap <Leader>as :AS<CR>
+  nnoremap <Leader>av :AV<CR>
+  nnoremap <Leader>an :AN<CR>
 
 " ACK
 
-  nmap <Leader>ac :Ack
+  nnoremap <Leader>ac :Ack
 
 " BCCALC
 
@@ -440,9 +440,9 @@ endif
   let g:ctrlp_extensions=['funky']
   let g:ctrlp_map = '<nop>'
 
-  nmap <Leader>ff :CtrlP<CR>
-  nmap <Leader>fb :CtrlPBuffer<CR>
-  nmap <Leader>fm :CtrlPMixed<CR>
+  nnoremap <Leader>ff :CtrlP<CR>
+  nnoremap <Leader>fb :CtrlPBuffer<CR>
+  nnoremap <Leader>fm :CtrlPMixed<CR>
   " nnoremap [ctrlp]t :CtrlPBufTag<cr>
   " nnoremap [ctrlp]T :CtrlPTag<cr>
   " nnoremap [ctrlp]l :CtrlPLine<cr>
@@ -506,12 +506,12 @@ endif
 
 " MRU
 
-  nmap <C-O> :MRU<cr>
+  nnoremap <C-O> :MRU<cr>
 
 " NEOBUNDLE
 
-  nmap <Leader>bi :NeoBundleInstall<CR>
-  nmap <Leader>bc :NeoBundleClean<CR>
+  nnoremap <Leader>bi :NeoBundleInstall<CR>
+  nnoremap <Leader>bc :NeoBundleClean<CR>
   nnoremap <leader>nbu :Unite neobundle/update -vertical -no-start-insert<cr>
 
 " NERDTREE
@@ -553,7 +553,7 @@ endif
 
 " RUBY RUNNER
 
-  nmap <leader>rr :call :RunRuby<CR>
+  nnoremap <leader>rr :call :RunRuby<CR>
 
 " SILVER-SEARCHER
 
@@ -574,45 +574,45 @@ endif
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
-  let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml'] }
+  " let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml'] }
 
   set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
+  " set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
 " TABULAR
 
-  nmap <Leader>a& :Tabularize /&<CR>
-  vmap <Leader>a& :Tabularize /&<CR>
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:<CR>
-  vmap <Leader>a: :Tabularize /:<CR>
-  nmap <Leader>a:: :Tabularize /:\zs<CR>
-  vmap <Leader>a:: :Tabularize /:\zs<CR>
-  nmap <Leader>a, :Tabularize /,<CR>
-  vmap <Leader>a, :Tabularize /,<CR>
-  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  nnoremap <Leader>a& :Tabularize /&<CR>
+  vnoremap <Leader>a& :Tabularize /&<CR>
+  nnoremap <Leader>a= :Tabularize /=<CR>
+  vnoremap <Leader>a= :Tabularize /=<CR>
+  nnoremap <Leader>a: :Tabularize /:<CR>
+  vnoremap <Leader>a: :Tabularize /:<CR>
+  nnoremap <Leader>a:: :Tabularize /:\zs<CR>
+  vnoremap <Leader>a:: :Tabularize /:\zs<CR>
+  nnoremap <Leader>a, :Tabularize /,<CR>
+  vnoremap <Leader>a, :Tabularize /,<CR>
+  nnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " TAGBAR
 
-  nmap <C-T> :TagbarToggle<CR>
+  nnoremap <C-T> :TagbarToggle<CR>
   map <C-\> :tnext<CR>
   let g:tagbar_left = 1
 
 " TCOMMENT
 
-  nmap ,c<Space> <C-_><C-_>
-  vmap ,c<Space> <C-_><C-_>
+  noremap ,c<Space> <C-_><C-_>
+  vnoremap ,c<Space> <C-_><C-_>
 
 " TSLIME
 
   let g:tmux_sessionname = 0
   let g:tmux_windowname = 1
   let g:tmux_panenumber = 2
-  nmap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
-  vmap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
+  nnoremap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
+  vnoremap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
   nnoremap <leader>tv :call Tmux_Vars()<CR>
 
 " UNDOTREE
@@ -622,50 +622,50 @@ endif
 
 " UNITE
 
-  let bundle = neobundle#get('unite.vim')
-  function! bundle.hooks.on_source(bundle)
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    call unite#set_profile('files', 'smartcase', 1)
-    call unite#custom#source('line,outline','matchers','matcher_fuzzy')
-  endfunction
+  " let bundle = neobundle#get('unite.vim')
+  " function! bundle.hooks.on_source(bundle)
+  "   call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  "   call unite#filters#sorter_default#use(['sorter_rank'])
+  "   call unite#set_profile('files', 'smartcase', 1)
+  "   call unite#custom#source('line,outline','matchers','matcher_fuzzy')
+  " endfunction
 
-  " let g:unite_enable_start_insert=1
-  let g:unite_data_directory='~/.vim/.cache/unite'
-  let g:unite_source_history_yank_enable=1
-  let g:unite_source_rec_max_cache_files=5000
-  let g:unite_prompt='» '
+  " " let g:unite_enable_start_insert=1
+  " let g:unite_data_directory='~/.vim/.cache/unite'
+  " let g:unite_source_history_yank_enable=1
+  " let g:unite_source_rec_max_cache_files=5000
+  " let g:unite_prompt='» '
 
-  if executable('ag')
-    let g:unite_source_grep_command='ag'
-    let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
-    let g:unite_source_grep_recursive_opt=''
-  elseif executable('ack')
-    let g:unite_source_grep_command='ack'
-    let g:unite_source_grep_default_opts='--no-heading --no-color -a'
-    let g:unite_source_grep_recursive_opt=''
-  endif
+  " if executable('ag')
+  "   let g:unite_source_grep_command='ag'
+  "   let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
+  "   let g:unite_source_grep_recursive_opt=''
+  " elseif executable('ack')
+  "   let g:unite_source_grep_command='ack'
+  "   let g:unite_source_grep_default_opts='--no-heading --no-color -a'
+  "   let g:unite_source_grep_recursive_opt=''
+  " endif
 
-  function! s:unite_settings()
-    nmap <buffer> Q <plug>(unite_exit)
-    nmap <buffer> <esc> <plug>(unite_exit)
-    imap <buffer> <esc> <plug>(unite_exit)
-  endfunction
-  autocmd FileType unite call s:unite_settings()
+  " function! s:unite_settings()
+  "   nnoremap <buffer> Q <plug>(unite_exit)
+  "   nnoremap <buffer> <esc> <plug>(unite_exit)
+  "   inoremap <buffer> <esc> <plug>(unite_exit)
+  " endfunction
+  " autocmd FileType unite call s:unite_settings()
 
-  nmap <space> [unite]
-  nnoremap [unite] <nop>
+  " nnoremap <space> [unite]
+  " nnoremap [unite] <nop>
 
-  nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async<cr><c-u>
-  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
-  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-  nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tags tags tags/file<cr>
-  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
+  " nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+  " nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async<cr><c-u>
+  " nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
+  " nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+  " nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+  " nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+  " nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+  " nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tags tags tags/file<cr>
+  " nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
+  " nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
 
 " UTILSNIPS
 
@@ -691,17 +691,17 @@ endif
 
 " VIM-DRAGVISUALS
 
-  vmap  <expr>  <C-h>   DVB_Drag('left')
-  vmap  <expr>  <C-l>   DVB_Drag('right')
-  vmap  <expr>  <C-j>   DVB_Drag('down')
-  vmap  <expr>  <C-k>   DVB_Drag('up')
-  vmap  <expr>  D       DVB_Duplicate()
+  vnoremap  <expr>  <C-h>   DVB_Drag('left')
+  vnoremap  <expr>  <C-l>   DVB_Drag('right')
+  vnoremap  <expr>  <C-j>   DVB_Drag('down')
+  vnoremap  <expr>  <C-k>   DVB_Drag('up')
+  vnoremap  <expr>  D       DVB_Duplicate()
 
 
 " VIM-EXPAND-REGION
 
-  " vmap K <Plug>(expand_region_expand)
-  " vmap J <Plug>(expand_region_shrink)
+  " vnoremap K <Plug>(expand_region_expand)
+  " vnoremap J <Plug>(expand_region_shrink)
 
 " VIMFUGITIVE
 
@@ -713,7 +713,7 @@ endif
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
   nnoremap <silent> <leader>gr :Gremove<CR>
-  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+  autocmd FileType gitcommit nnoremap <buffer> U :Git checkout -- <C-r><C-g><CR>
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
   " gitv extension
@@ -737,24 +737,24 @@ endif
 
 " VIM-RUBY-XMPFILTER
 
-  nmap <buffer> <F5> <Plug>(xmpfilter-run)
-  xmap <buffer> <F5> <Plug>(xmpfilter-run)
-  imap <buffer> <F5> <Plug>(xmpfilter-run)
+  nnoremap <buffer> <F5> <Plug>(xmpfilter-run)
+  xnoremap <buffer> <F5> <Plug>(xmpfilter-run)
+  inoremap <buffer> <F5> <Plug>(xmpfilter-run)
 
-  nmap <buffer> <F4> <Plug>(xmpfilter-mark)
-  xmap <buffer> <F4> <Plug>(xmpfilter-mark)
-  imap <buffer> <F4> <Plug>(xmpfilter-mark))
+  nnoremap <buffer> <F4> <Plug>(xmpfilter-mark)
+  xnoremap <buffer> <F4> <Plug>(xmpfilter-mark)
+  inoremap <buffer> <F4> <Plug>(xmpfilter-mark))
 
 " VIM-SESSION
 
   let g:session_autoload = 'no'
   let g:session_autosave = 'no'
 
-  nmap <Leader>ss :SaveSession<CR>
-  nmap <Leader>so :OpenSession<CR>
-  nmap <Leader>sc :CloseSession<CR>
-  nmap <Leader>sd :DeleteSession<CR>
-  nmap <Leader>sv :ViewSession<CR>
+  nnoremap <Leader>ss :SaveSession<CR>
+  nnoremap <Leader>so :OpenSession<CR>
+  nnoremap <Leader>sc :CloseSession<CR>
+  nnoremap <Leader>sd :DeleteSession<CR>
+  nnoremap <Leader>sv :ViewSession<CR>
 
 " VIMSHELL
 
@@ -781,8 +781,8 @@ endif
 
 " VIM-SIGNATURE
 
-  " nmap K [`
-  " nmap J ]`
+  " nnoremap K [`
+  " nnoremap J ]`
 
 " VIM-SIGNIFY
 

@@ -13,7 +13,7 @@ _rc_debug_print PROMPT
 
 export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1 
+export CLICOLOR=1
 
 RED="\[\033[0;31m\]"
 BROWN="\[\033[0;33m\]"
@@ -73,6 +73,7 @@ if test -z "$BASH_COMPLETION" ; then
       /usr/local/etc/bash_completion \
       /opt/local/etc/bash_completion \
       /etc/bash_completion \
+      ~/.launcher \
       ~/.bash_completion ;
     do
       test -f $f && {

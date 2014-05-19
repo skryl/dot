@@ -33,7 +33,7 @@ function _alias_fs {
   alias unq='xattr -dr com.apple.quarantine'
   alias aliases="$EDITOR ~/.aliases"
   alias fix_dir_perms='find . -type d -print0 | xargs -0 chmod 775'
-  alias fix_file_perms='find . -type f -print0 | xargs -0 chmod 664' 
+  alias fix_file_perms='find . -type f -print0 | xargs -0 chmod 664'
   alias fix_all_perms='perm_norm_dir; perm_norm_file'
 }
 
@@ -55,7 +55,10 @@ function _alias_nav {
   alias dev="cd $DROPBOX/dev"
   alias bin="cd ~/bin"
   alias courses="cd ~/Dropbox/dev/courses"
-  alias work="cd $HOME/work"
+  alias drw="cd $DROPBOX/dev/drw"
+  alias txi="cd $DROPBOX/dev/tablexi"
+  alias enova="cd $DROPBOX/dev/enova"
+  alias 8b="cd $DROPBOX/dev/enova/8b"
 }
 
 #remotes
@@ -64,7 +67,11 @@ function _alias_remotes {
   alias skryl='ssh rut216@ssh.skryl.com'
   alias vh='ssh rut216@vh.skryl.com'
   alias vintaget='ssh vintaget@vintagetreasury.com'
+  alias miner1='mosh root@10.0.0.145'
+  alias miner2='mosh root@10.0.0.101'
+  alias miner3='mosh root@10.0.0.146'
   alias all='dsh -a -M'
+  alias miners='dsh -M -g miners'
 }
 
 # tools
@@ -140,11 +147,11 @@ function _alias_tools {
   alias rs='rails server'
   alias guard='be guard'
   alias rt='tail -f log/development.log'
-  alias db_create='rake db:create' 
-  alias db_drop='rake db:drop && rake db:drop RAILS_ENV=test' 
+  alias db_create='rake db:create'
+  alias db_drop='rake db:drop && rake db:drop RAILS_ENV=test'
   alias db_migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
   alias db_seed='rake db:seed && rake db:seed RAILS_ENV=test'
-  alias db_dance='rake db:dance && rake db:dance RAILS_ENV=test' 
+  alias db_dance='rake db:dance && rake db:dance RAILS_ENV=test'
   alias dance_all='for dir in $(find . -type f -name Rakefile | xargs -n 1 dirname | sort); do; cd $dir; pwd; rake db:dance; cd -; done;'
 
 # git

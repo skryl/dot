@@ -40,6 +40,7 @@ _rc_debug_print ENV
 export HOME=~
 export TERM=xterm-256color
 export DROPBOX=$HOME/Dropbox
+export DEV=$DROPBOX/dev
 
 # enable en_US locale w/ utf-8 encodings if not already configured
 : ${LANG:="en_US.UTF-8"}
@@ -116,7 +117,7 @@ export PAGER MANPAGER
 # -------------------------------------------------------------------
 # ECLIPSE
 # -------------------------------------------------------------------
-export ECLIPSE_HOME=/Applications/eclipse 
+export ECLIPSE_HOME=/Applications/eclipse
 
 # -------------------------------------------------------------------
 # RUBY/RVM/RBENV
@@ -133,7 +134,7 @@ _rc_debug_print OPAM
 
 test -d "/Users/skryl/.spam/opam-init" && . /Users/skryl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 test -n "$(command -v opam)" && eval `opam config env`
- 
+
 # -------------------------------------------------------------------
 # GO
 # -------------------------------------------------------------------
@@ -204,9 +205,9 @@ test -d "$HOME/.cabal/bin" && PATH="$HOME/.cabal/bin:$PATH"
 export USERWM=`which xmonad`
 
 # -------------------------------------------------------------------
-# I3 
+# I3
 # -------------------------------------------------------------------
-_rc_debug_print I3 
+_rc_debug_print I3
 
 export TERMINAL=xterm-256color
 
@@ -233,5 +234,9 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 # -------------------------------------------------------------------
 test -d "/usr/local/CrossPack-AVR" && PATH="/usr/local/CrossPack-AVR/bin:$PATH"
 
+# -------------------------------------------------------------------
+# ENOVA
+# -------------------------------------------------------------------
+test -d "$DEV/enova/8b/bin" && PATH="$DEV/enova/8b/bin:$PATH"
 
 _rc_export_paths
