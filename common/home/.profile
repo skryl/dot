@@ -39,6 +39,7 @@ _rc_debug_print ENV
 
 export HOME=~
 export TERM=xterm-256color
+export TERMINAL=xterm-256color
 export DROPBOX=$HOME/Dropbox
 export DEV=$DROPBOX/dev
 
@@ -54,10 +55,10 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 export FTP_PASSIVE
 
 # See what we have to work with ...
+[ "$UNAME" = Darwin ] && OSX=1 || LINUX=1
 HAVE_VIM=$(command -v vim)
 HAVE_GVIM=$(command -v gvim)
 HAVE_XSET=$(test -n "$DISPLAY" && test -z "$UNAME" && command -v xset)
-
 
 # ----------------------------------------------------------------------
 # PATH
@@ -66,32 +67,6 @@ _rc_debug_print PATH
 
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
-
-
-# ----------------------------------------------------------------------
-# PACKAGES
-# ----------------------------------------------------------------------
-_rc_debug_print PACKAGES
-
-if [ "$UNAME" = Darwin ]; then
-
-  # add macports path
-  # test -x /opt/local && {
-  #     PORTS=/opt/local
-  #     # setup the PATH and MANPATH
-  #     PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-  #     MANPATH="$PORTS/share/man:$MANPATH"
-  # }
-
-  # add homebrew path
-  test -x /usr/local && {
-      BREW=/usr/local
-      # setup the PATH and MANPATH
-      PATH="$BREW/bin:$BREW/sbin:$PATH"
-      MANPATH="$BREW/share/man:$MANPATH"
-  }
-
-fi
 
 
 # ----------------------------------------------------------------------
@@ -112,6 +87,32 @@ else
     MANPAGER="$PAGER"
 fi
 export PAGER MANPAGER
+
+
+# ----------------------------------------------------------------------
+# PACKAGES
+# ----------------------------------------------------------------------
+_rc_debug_print PACKAGES
+
+if test -n "$OSX"; then
+
+  # add macports path
+  test -x /opt/local && {
+      PORTS=/opt/local
+      # setup the PATH and MANPATH
+      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
+      MANPATH="$PORTS/share/man:$MANPATH"
+  }
+
+  # add homebrew path
+  test -x /usr/local && {
+      BREW=/usr/local
+      # setup the PATH and MANPATH
+      PATH="$BREW/bin:$BREW/sbin:$PATH"
+      MANPATH="$BREW/share/man:$MANPATH"
+  }
+
+fi
 
 
 # -------------------------------------------------------------------
@@ -141,14 +142,14 @@ test -n "$(command -v opam)" && eval `opam config env`
 _rc_debug_print GO
 
 export GOPATH=$HOME/.go
-test -d "$GOPATH/bin" && PATH=$PATH:$GOPATH/bin
+test -d "$GOPATH/bin" && PATH="$PATH:$GOPATH/bin"
 
  #-------------------------------------------------------------------
 # HEROKU
 # -------------------------------------------------------------------
 _rc_debug_print HEROKU
 
-test -d "/usr/local/heroku/bin" && PATH="/usr/local/heroku/bin:$PATH"
+test -d "/usr/local/heroku/bin" && PATH="$PATH:/usr/local/heroku/bin"
 
 
 # -------------------------------------------------------------------
@@ -169,7 +170,7 @@ _rc_debug_print PYTHON
 
 PYTHONBIN=/usr/local/lib/python2.7/bin
 PYTHONPATH=/usr/local/lib/python2.7/site-packages
-test -d $PYTHONBIN && PATH=$PATH:$PYTHONBIN
+test -d "$PYTHONBIN" && PATH="$PATH:$PYTHONBIN"
 test -d "$PYTHONPATH" && export PYTHONPATH
 
 
@@ -179,10 +180,12 @@ test -d "$PYTHONPATH" && export PYTHONPATH
 _rc_debug_print AWS
 
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
-source $HOME/.aws/current.keys
-PATH=$PATH:$EC2_HOME/bin
+export AWS_KEYS="$HOME/.aws/current.keys"
 
-if [ "$UNAME" = Darwin ]; then
+test -f "$AWS_HOME" && source "$AWS_HOME"
+test -d "$EC2_HOME/bin" && PATH="$PATH:$EC2_HOME/bin"
+
+if test -n $OSX; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
 else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
@@ -193,29 +196,16 @@ fi
 # -------------------------------------------------------------------
 _rc_debug_print NODE
 
-PATH=$PATH:/usr/local/share/npm/bin
+test -d "/usr/local/share/npm/bin" && PATH="$PATH:/usr/local/share/npm/bin"
 
 # -------------------------------------------------------------------
-# XMONAD
+# HASKELL/XMONAD
 # -------------------------------------------------------------------
 _rc_debug_print XMONAD
 
-test -d "$HOME/.cabal/bin" && PATH="$HOME/.cabal/bin:$PATH"
+test -d "$HOME/.cabal/bin" && PATH="$PATH:$HOME/.cabal/bin"
 
 export USERWM=`which xmonad`
-
-# -------------------------------------------------------------------
-# I3
-# -------------------------------------------------------------------
-_rc_debug_print I3
-
-export TERMINAL=xterm-256color
-
-
-# -------------------------------------------------------------------
-# AVR-GCC
-# -------------------------------------------------------------------
-_rc_debug_print AVR
 
 # -------------------------------------------------------------------
 # SBT
@@ -225,18 +215,18 @@ _rc_debug_print SBT
 export SBT_OPTS=-XX:MaxPermSize=512m
 
 # -------------------------------------------------------------------
-# HOME
-# -------------------------------------------------------------------
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
-
-# -------------------------------------------------------------------
 # AVR
 # -------------------------------------------------------------------
-test -d "/usr/local/CrossPack-AVR" && PATH="/usr/local/CrossPack-AVR/bin:$PATH"
+test -d "/usr/local/CrossPack-AVR" && PATH="$PATH:/usr/local/CrossPack-AVR/bin"
 
 # -------------------------------------------------------------------
 # ENOVA
 # -------------------------------------------------------------------
 test -d "$DEV/enova/8b/bin" && PATH="$DEV/enova/8b/bin:$PATH"
+
+# -------------------------------------------------------------------
+# HOME
+# -------------------------------------------------------------------
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 _rc_export_paths

@@ -47,7 +47,6 @@ endif
   NeoBundle     'Rename'
   NeoBundle     'SirVer/ultisnips'
   " NeoBundle     'Valloric/ListToggle' " conflict with ,q
-  NeoBundle     'Valloric/MatchTagAlways'
   NeoBundle     'ZoomWin'
   NeoBundle     'bling/vim-airline'
   NeoBundle     'bufkill.vim'
@@ -279,8 +278,8 @@ endif
   set noswapfile                              " dont keep buffer in a swapfile
   set directory=~/.vim/.cache/swap            " swapfile directory
 
-  " set undofile                                " keeps undo history around after file is closed
-  " set undodir=~/.vim/.cache/undo
+  set undofile                                " keeps undo history around after file is closed
+  set undodir=~/.vim/.cache/undo
   set undolevels=1000                         " number of forgivable mistakes
   set updatecount=100                         " write undo file to disk every 100 chars
 

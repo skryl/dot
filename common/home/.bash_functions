@@ -1,5 +1,18 @@
 #!/bin/bash
 
+function _bootstrap {
+  ln -sf $DROPBOX/customization/common/home/.* ~
+  ln -sf $DROPBOX/customization/common/bin/* ~/bin
+
+  if test -n $OSX; then
+    ln -sf $DROPBOX/customization/osx/home/.* ~
+    ln -sf $DROPBOX/customization/osx/bin/* ~/bin
+  else
+    ln -sf $DROPBOX/customization/linux/home/.* ~
+    ln -sf $DROPBOX/customization/linux/bin/* ~/bin
+  fi
+}
+
 function _rc_test_shell_type {
   # detect interactive shell
   case "$-" in
@@ -41,9 +54,11 @@ function _rc_export_paths {
   export PATH MANPATH
 }
 
+
 function _rc_aliases {
   test -e "$HOME/.aliases" && source "$HOME/.aliases"
 }
+
 
 function _rc_xset {
   test -n "$HAVE_XSET" && set r rate 250 50

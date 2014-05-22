@@ -13,7 +13,7 @@ _rc_debug_print OHMYZSH
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME=cypher
 
-plugins=(osx)
+plugins=(extract osx)
 test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
 
 # -------------------------------------------------------------------
@@ -21,7 +21,6 @@ test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
 # -------------------------------------------------------------------
 _rc_debug_print FASD
 
-# eval "$(fasd --init posix-alias zsh-hook)"
 eval "$(fasd --init auto)"
 
 # -------------------------------------------------------------------
@@ -32,6 +31,3 @@ _rc_debug_print COMMON
 _rc_aliases
 _rc_xset
 _rc_motd
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
