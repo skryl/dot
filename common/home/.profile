@@ -1,13 +1,13 @@
-test -e "$HOME/.bash_functions" && source "$HOME/.bash_functions"
+test -e "$HOME/.functions" && source "$HOME/.functions"
 
+_rc_debug_print PROFILE
 _rc_test_shell_bin
 _rc_test_shell_type
+
 
 # ----------------------------------------------------------------------
 # OPTIONS
 # ----------------------------------------------------------------------
-_rc_debug_print OPTS
-
 # notify of bg job completion immediately
 set -o notify
 
@@ -30,8 +30,6 @@ umask 0022
 # ----------------------------------------------------------------------
 # ENVIRONMENT
 # ----------------------------------------------------------------------
-_rc_debug_print ENV
-
 : ${UNAME=$(uname)}
 : ${LOGNAME=$(id -un)}
 : ${HOSTFILE=~/.ssh/known_hosts}
@@ -60,25 +58,15 @@ HAVE_VIM=$(command -v vim)
 HAVE_GVIM=$(command -v gvim)
 HAVE_XSET=$(test -n "$DISPLAY" && test -z "$UNAME" && command -v xset)
 
-# ----------------------------------------------------------------------
-# PATH
-# ----------------------------------------------------------------------
-_rc_debug_print PATH
-
-# we want the various sbins on the path along with /usr/local/bin
-PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
-_rc_debug_print EDITOR
-
-# EDITOR
 test -n "$HAVE_VIM" && EDITOR=vim || EDITOR=vi
 export EDITOR
 
-# PAGER
 if test -n "$(command -v less)" ; then
     PAGER="less -FirSwX"
     MANPAGER="less -FiRswX"
@@ -89,32 +77,6 @@ fi
 export PAGER MANPAGER
 
 
-# ----------------------------------------------------------------------
-# PACKAGES
-# ----------------------------------------------------------------------
-_rc_debug_print PACKAGES
-
-if test -n "$OSX"; then
-
-  # add macports path
-  test -x /opt/local && {
-      PORTS=/opt/local
-      # setup the PATH and MANPATH
-      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-      MANPATH="$PORTS/share/man:$MANPATH"
-  }
-
-  # add homebrew path
-  test -x /usr/local && {
-      BREW=/usr/local
-      # setup the PATH and MANPATH
-      PATH="$BREW/bin:$BREW/sbin:$PATH"
-      MANPATH="$BREW/share/man:$MANPATH"
-  }
-
-fi
-
-
 # -------------------------------------------------------------------
 # ECLIPSE
 # -------------------------------------------------------------------
@@ -123,68 +85,47 @@ export ECLIPSE_HOME=/Applications/eclipse
 # -------------------------------------------------------------------
 # RUBY/RVM/RBENV
 # -------------------------------------------------------------------
-_rc_debug_print RUBY
-
 test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
-
 
 # -------------------------------------------------------------------
 # OPAM
 # -------------------------------------------------------------------
-_rc_debug_print OPAM
-
 test -d "/Users/skryl/.spam/opam-init" && . /Users/skryl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 test -n "$(command -v opam)" && eval `opam config env`
 
 # -------------------------------------------------------------------
 # GO
 # -------------------------------------------------------------------
-_rc_debug_print GO
-
 export GOPATH=$HOME/.go
-test -d "$GOPATH/bin" && PATH="$PATH:$GOPATH/bin"
-
- #-------------------------------------------------------------------
-# HEROKU
-# -------------------------------------------------------------------
-_rc_debug_print HEROKU
-
-test -d "/usr/local/heroku/bin" && PATH="$PATH:/usr/local/heroku/bin"
-
 
 # -------------------------------------------------------------------
 # KEYCHAIN
 # -------------------------------------------------------------------
-_rc_debug_print KEYCHAIN
+if test -n "$LINUX"; then
+  keychain --quiet id_rsa git_skryl
 
-KEYCHAIN_SCRIPT="$HOME/.keychain/$(hostname)-sh"
-if [ -f "$KEYCHAIN_SCRIPT" ]; then
-    source $KEYCHAIN_SCRIPT
+  KEYCHAIN_SCRIPT="$HOME/.keychain/$(hostname)-sh"
+  if [ -f "$KEYCHAIN_SCRIPT" ]; then
+      source $KEYCHAIN_SCRIPT
+  fi
 fi
-
 
 # -------------------------------------------------------------------
 # PYTHON
 # -------------------------------------------------------------------
-_rc_debug_print PYTHON
-
-PYTHONBIN=/usr/local/lib/python2.7/bin
-PYTHONPATH=/usr/local/lib/python2.7/site-packages
-test -d "$PYTHONBIN" && PATH="$PATH:$PYTHONBIN"
-test -d "$PYTHONPATH" && export PYTHONPATH
-
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 # -------------------------------------------------------------------
 # EC2 / AWS
 # -------------------------------------------------------------------
-_rc_debug_print AWS
-
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export AWS_KEYS="$HOME/.aws/current.keys"
 
 test -f "$AWS_HOME" && source "$AWS_HOME"
-test -d "$EC2_HOME/bin" && PATH="$PATH:$EC2_HOME/bin"
 
+# -------------------------------------------------------------------
+# JAVA
+# -------------------------------------------------------------------
 if test -n $OSX; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
 else
@@ -192,41 +133,43 @@ else
 fi
 
 # -------------------------------------------------------------------
-# NODE
-# -------------------------------------------------------------------
-_rc_debug_print NODE
-
-test -d "/usr/local/share/npm/bin" && PATH="$PATH:/usr/local/share/npm/bin"
-
-# -------------------------------------------------------------------
 # HASKELL/XMONAD
 # -------------------------------------------------------------------
-_rc_debug_print XMONAD
-
-test -d "$HOME/.cabal/bin" && PATH="$PATH:$HOME/.cabal/bin"
-
 export USERWM=`which xmonad`
 
 # -------------------------------------------------------------------
 # SBT
 # -------------------------------------------------------------------
-_rc_debug_print SBT
-
 export SBT_OPTS=-XX:MaxPermSize=512m
 
 # -------------------------------------------------------------------
-# AVR
+# PATH
 # -------------------------------------------------------------------
-test -d "/usr/local/CrossPack-AVR" && PATH="$PATH:/usr/local/CrossPack-AVR/bin"
+PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 
-# -------------------------------------------------------------------
-# ENOVA
-# -------------------------------------------------------------------
-test -d "$DEV/enova/8b/bin" && PATH="$DEV/enova/8b/bin:$PATH"
+if test -n "$OSX"; then
+  # macports
+  test -x /opt/local && {
+      PORTS=/opt/local
+      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
+      MANPATH="$PORTS/share/man:$MANPATH"
+  }
 
-# -------------------------------------------------------------------
-# HOME
-# -------------------------------------------------------------------
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+  # homebrew
+  test -x /usr/local && {
+      BREW=/usr/local
+      PATH="$BREW/bin:$BREW/sbin:$PATH"
+      MANPATH="$BREW/share/man:$MANPATH"
+  }
+fi
 
+_rc_path_append "$GOPATH/bin"
+_rc_path_append "/usr/local/heroku/bin"
+_rc_path_append "/usr/local/lib/python2.7/bin"
+_rc_path_append "$EC2_HOME/bin"
+_rc_path_append "/usr/local/share/npm/bin"
+_rc_path_append "$HOME/.cabal/bin"
+_rc_path_append "/usr/local/CrossPack-AVR"
+_rc_path_append "$DEV/work/enova/8b/bin"
+_rc_path_prepend "$HOME/bin"
 _rc_export_paths

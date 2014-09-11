@@ -1,20 +1,20 @@
-#/bin/bash
+_rc_debug_print ALIASES
 
-LS_LINUX="-hB --color=auto"
 LS_OSX="-hG"
+LS_LINUX="-hB --color=auto"
 
+# ----------------------------------------------------------------------
 # OSX
+# ----------------------------------------------------------------------
 function _alias_osx {
   alias ls="command ls $LS_OSX"
   alias unq='xattr -dr com.apple.quarantine'
-  alias updatedb='sudo /usr/libexec/locate.updatedb'
+  alias updatedb='LC_ALL='C' sudo gupdatedb'
+  alias locate='sudo glocate'
 
   #homebrew
-  alias bi='brew install'
-  alias bu='brew uninstall'
-  alias bl='brew link'
-  alias bul='brew unlink'
-  alias br='brew remove -f'
+  alias brewi='brew install'
+  alias brewr='brew uninstall'
 }
 
 # linux
@@ -23,34 +23,34 @@ function _alias_linux {
   alias ls="command ls $LS_LINUX"
 
   # aptitude
-  alias ai='sudo apt-get install'
-  alias as='apt-cache search'
+  alias apti='sudo apt-get install'
+  alias aptr='sudo apt-get remove'
+  alias aptf='apt-cache search'
 }
 
-# filesystem
-#
+# ----------------------------------------------------------------------
+# FILESYSTEM
+# ----------------------------------------------------------------------
 function _alias_fs {
   alias l.="ls -d .*"
   alias lal='ls -hal'
 
-  alias ddiff='diff -rq'
   alias duh='du -h --max-depth=1'
+  alias dfh='df -h'
 
   alias fn='find . -name'
   alias loc='locate'
 
-  alias profile="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.bash_functions ~/.aliases"
-  alias src='source ~/.zshrc'
-  alias sal='source ~/.aliases'
-
+  alias ddiff='diff -rq'
   alias fix_dir_perms='find . -type d -print0 | xargs -0 chmod 775'
   alias fix_file_perms='find . -type f -print0 | xargs -0 chmod 664'
-  alias fix_all_perms='perm_norm_dir; perm_norm_file'
+  alias fix_perms='fix_dir_perms; fix_file_perms'
   alias bootstrap='_bootstrap'
 }
 
-# navigation
-#
+# ----------------------------------------------------------------------
+# NAVIGATION
+# ----------------------------------------------------------------------
 function _alias_nav {
   alias h="cd ~"
   alias b="cd .."
@@ -62,7 +62,7 @@ function _alias_nav {
   alias down="cd ~/Downloads"
   alias proj="cd $DROPBOX/dev/projects"
   alias notes="cd $DROPBOX/notes"
-  alias courses="cd ~/Dropbox/dev/edu/courses"
+  alias edu="cd ~/Dropbox/dev/edu"
 
   alias enova="cd $DROPBOX/dev/work/enova"
   alias drw="cd $DROPBOX/dev/work/drw"
@@ -70,39 +70,41 @@ function _alias_nav {
   alias 8b="cd $DROPBOX/dev/work/enova/8b"
 }
 
-#remotes
-#
+# ----------------------------------------------------------------------
+# REMOTES
+# ----------------------------------------------------------------------
 function _alias_remotes {
-  alias skryl='ssh rut216@ssh.skryl.com'
+  alias skryl='ssh rut216@ssh.skryl.org'
   alias minimac='ssh rut216@home.skryl.org'
   alias vintaget='ssh vintaget@vintagetreasury.com'
 }
 
-# tools
-#
+# ----------------------------------------------------------------------
+# TOOLS
+# ----------------------------------------------------------------------
 function _alias_tools {
 
-# sudo
+# system
   alias _='sudo'
-
-# pygmentize
-  alias catrb='pygmentize -l ruby'
-  alias catjs='pygmentize -l javascript'
-  alias catyml='pygmentize -l yaml'
-  alias cathtml='pygmentize -l html'
+  alias path="echo $PATH | sed 's/:/  /g'"
 
 # fasd
   fasd_cd() { [ $# -gt 1 ] && cd "$(fasd -e echo "$@")" || fasd "$@"; }
-  alias j='fasd_cd -d'
+  alias j='fasd_cd -d'      # jump
+  alias jj='fasd_cd -d -i'  # jump with interactive selection
+  alias jstat='fasd -a'     # file statistics
+  alias v='fasd -f -e vim'  # open file in vim
+  alias o='fasd -f -e open' # open file through OS
 
 # tmux
   alias tm="tmux -u"
   alias tma="tmux attach-session"
-  alias tmls="tmux -u list-sessions"
+  alias tml="tmux -u list-sessions"
 
-# vim
-  alias v='vim'
-  alias vimrc="vim ~/.vimrc"
+# dotfiles
+  alias profile="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.bash_functions ~/.aliases"
+  alias src='source ~/.zshrc'
+  alias vrc="vim ~/.vimrc"
 
 # emacs
   alias emacs='emacs -nw'
@@ -110,39 +112,28 @@ function _alias_tools {
 # sublime
   alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-# fasd
-  alias a='fasd -a'        # any
-  alias s='fasd -si'       # show / search / select
-  alias d='fasd -d'        # directory
-  alias f='fasd -f'        # file
-  alias sd='fasd -sid'     # interactive directory selection
-  alias sf='fasd -sif'     # interactive file selection
-  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-  alias zz='fasd_cd -d -i' # cd with interactive selection
-
 # rbenv
   alias rb='rbenv'
   alias rbv='rbenv version'
   alias rbl='rbenv local'
   alias rbg='rbenv global'
   alias rbi='rbenv install'
-  alias rbh='rbenv rehash'
+  alias rbr='rbenv rehash'
   alias rbw='rbenv which'
 
 # ruby/rails
-  alias gi='gem install'
   alias be='bundle exec'
-  alias rc='rails console'
-  alias rs='rails server'
-  alias rl='tail -f log/development.log'
-  alias pryc='bundle exec pry -r ./config/environment'
-  alias rspec='nocorrect rspec'
+  alias gem='gem install'
+  alias rake='be rake'
   alias guard='be guard'
-  alias db_create='rake db:create'
-  alias db_drop='rake db:drop'
-  alias db_migrate='rake db:migrate'
-  alias db_seed='rake db:seed'
-  alias db_reset='rake db:reset'
+  alias rs='be rails server'
+  alias rc='be pry -r ./config/environment'
+  alias rl='tail -f log/development.log'
+  alias db_create='be rake db:create'
+  alias db_drop='be rake db:drop'
+  alias db_migrate='be rake db:migrate'
+  alias db_seed='be rake db:seed'
+  alias db_reset='be rake db:reset'
 
 # git
   alias ga='git add -A'
@@ -151,16 +142,21 @@ function _alias_tools {
   alias gph='git push heroku'
   alias gps='git push staging'
   alias gpp='git push production'
+
   alias gl='git lg'
   alias gs='git status'
   alias gd='git diff'
   alias gdc='git diff --cached'
+
   alias gb='git branch'
-  alias gc='git clone'
   alias gco='git checkout'
+  alias gcl='git clone'
   alias gm='git merge'
-  alias gcm='git commit -a -m'
+  alias gr='git rebase'
+
+  alias gc='git commit'
   alias gca='git commit -a'
+  alias gcm='git commit -a -m'
   alias gra='git remote add'
   alias grr='git remote rm'
   alias grh='git reset --hard'
@@ -173,21 +169,17 @@ function _alias_tools {
   alias hr='heroku run rake'
   alias hl='heroku logs'
   alias hps='heroku ps'
-  alias hconf='heroku config'
+  alias henv='heroku config'
 
 # synergy
  alias synergy_client='synergyc 192.168.1.100'
  alias synergy_server='synergys --config ~/.synergy'
 
-# go
- alias go='nocorrect go'
-
-# repls
- alias sml='rlwrap sml'
- alias racket='rlwrap racket'
-
-# eclipse
- alias eclim='$ECLIPSE_HOME/eclimd'
+# nocorrect / rlwrap
+  alias rspec='nocorrect rspec'
+  alias go='nocorrect go'
+  alias sml='rlwrap sml'
+  alias racket='rlwrap racket'
 
 }
 

@@ -4,6 +4,10 @@
 set nocompatible                       " Vim doesn't act like Vi
 let s:is_macvim  = has('gui_macvim')   " used later
 let g:is_posix = 1                     " bash scripts are not highlighted as sh
+let mapleader = ","
+let g:mapleader=","
+vnoremap . :norm.<cr>
+
 
 if system('uname') =~ 'Darwin'
   let $PATH = $HOME .
@@ -42,25 +46,23 @@ endif
 " FUNCTIONALITY
 
   NeoBundle     '907th/vim-auto-save'
-  NeoBundle     'Lokaltog/vim-easymotion'
   NeoBundle     'Raimondi/delimitMate'
   NeoBundle     'Rename'
   NeoBundle     'SirVer/ultisnips'
-  " NeoBundle     'Valloric/ListToggle' " conflict with ,q
-  NeoBundle     'ZoomWin'
+  " NeoBundle     'Valloric/YouCompleteMe', { 'build': {'mac': 'install.sh', 'unix': 'install.sh'}}
   NeoBundle     'bling/vim-airline'
   NeoBundle     'bufkill.vim'
   NeoBundle     'dahu/vim-fanfingtastic'
   NeoBundle     'epmatsw/ag.vim'
   NeoBundle     'gavinbeatty/dragvisuals.vim'
   NeoBundle     'godlygeek/tabular'
+  NeoBundle     'kien/ctrlp.vim',         { 'depends': 'tacahiroy/ctrlp-funky' }
   NeoBundle     'kien/rainbow_parentheses.vim'
   NeoBundle     'kshenoy/vim-signature'
-  NeoBundle     'matthias-guenther/hammer.vim'
   NeoBundle     'michaeljsmith/vim-indent-object'
   NeoBundle     'mileszs/ack.vim'
   NeoBundle     'nathanaelkane/vim-indent-guides'
-  NeoBundle     'scrooloose/syntastic'
+  " NeoBundle     'scrooloose/syntastic'
   NeoBundle     'skryl/tslime.vim'
   NeoBundle     'skryl/vimdoc'
   NeoBundle     'terryma/vim-expand-region'
@@ -69,10 +71,9 @@ endif
   NeoBundle     'tpope/vim-surround'
   NeoBundle     'tpope/vim-unimpaired'
   NeoBundle     'vis'
-  NeoBundle     'Valloric/YouCompleteMe', { 'build': {'mac': 'install.sh', 'unix': 'install.sh'}}
-  NeoBundle     'kien/ctrlp.vim',         { 'depends': 'tacahiroy/ctrlp-funky' }
-  NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
+  " NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
   NeoBundle     'xolox/vim-session',      { 'depends': 'xolox/vim-misc' }
+
   NeoBundleLazy 'EasyGrep',               { 'autoload':{'commands':'GrepOptions'}}
   " NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
   NeoBundleLazy 'majutsushi/tagbar',      { 'autoload':{'commands':'TagbarToggle'}}
@@ -80,12 +81,6 @@ endif
   NeoBundleLazy 'mbbill/undotree',        { 'autoload':{'commands':'UndotreeToggle'}}
   NeoBundleLazy 'scrooloose/nerdtree',    { 'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
   NeoBundleLazy 'tpope/vim-endwise',      { 'autoload':{'filetypes':['lua','ruby','sh','zsh','vb','vbnet','aspvbs','vim','c','cpp','xdefaults']}}
-
-" UNITE
-
-  " NeoBundleLazy 'Shougo/unite-outline',      { 'autoload': { 'unite_sources':'outline'}}
-  " NeoBundleLazy 'Shougo/unite.vim',          { 'autoload': { 'commands':'Unite', 'insert': 1}}
-  " NeoBundleLazy 'ujihisa/unite-colorscheme', { 'autoload': { 'unite_sources':'colorscheme'}}
 
 " LANGUAGE SUPPORT
 
@@ -112,16 +107,18 @@ endif
 
   " markup
   NeoBundleLazy 'Valloric/vim-instant-markdown', { 'autoload':{'filetypes':['markdown']}}
-  NeoBundleLazy 'tpope/vim-markdown',        { 'autoload':{'filetypes':['markdown']}}
+  NeoBundleLazy 'tpope/vim-markdown',            { 'autoload':{'filetypes':['markdown']}}
 
   " html/css
-  NeoBundleLazy 'ap/vim-css-color',          { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
-  NeoBundleLazy 'cakebaker/scss-syntax.vim', { 'autoload': { 'filetypes':['scss','sass']}}
-  NeoBundleLazy 'gregsexton/MatchTag',       { 'autoload': { 'filetypes':['html','xml']}}
-  NeoBundleLazy 'groenewege/vim-less',       { 'autoload': { 'filetypes':['less']}}
-  NeoBundleLazy 'hail2u/vim-css3-syntax',    { 'autoload': { 'filetypes':['css','scss','sass']}}
-  NeoBundleLazy 'othree/html5.vim',          { 'autoload': { 'filetypes':['html']}}
-  NeoBundleLazy 'tpope/vim-haml',            { 'autoload': { 'filetypes':['haml']}}
+  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
+  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
+  NeoBundleLazy 'gregsexton/MatchTag',          { 'autoload': { 'filetypes':['html','xml']}}
+  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
+  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
+  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
+  NeoBundleLazy 'othree/html5.vim',             { 'autoload': { 'filetypes':['html']}}
+  NeoBundleLazy 'slim-template/vim-slim',       { 'autoload': { 'filetypes':['slim']}}
+  NeoBundleLazy 'tpope/vim-haml',               { 'autoload': { 'filetypes':['haml']}}
 
   " js
   NeoBundleLazy 'kchmck/vim-coffee-script',   { 'autoload': { 'filetypes':['coffee']}}
@@ -162,13 +159,7 @@ endif
   set ttimeoutlen=50         " sets the keycode delay, eliminates delays on ESC presses
   set ttyfast                " set this for modern terminals, improves smoothness of redrawing
   set winaltkeys=no          " turn off the Alt key bindings in the gui menu
-
-  " fix clipboard in osx/tmux
-  if exists('$TMUX')
-    set clipboard=
-  else
-    set clipboard=unnamed
-  end
+  set clipboard=             " copy to osx clipboard
 
 " TEXT FORMATTING/INDENTATION
 
@@ -460,12 +451,6 @@ endif
 
   nnoremap <leader>eg :GrepOptions<cr>
 
-" EASYMOTION
-
-  let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
-  autocmd ColorScheme * highlight EasyMotionTarget ctermfg=32 guifg=#0087df
-  autocmd ColorScheme * highlight EasyMotionShade ctermfg=237 guifg=#3a3a3a
-
 " EASYTAGS / CTAGS / CSCOPE
 
   let g:easytags_file = '~/.vim/.cache/tags'
@@ -511,7 +496,6 @@ endif
 
   nnoremap <Leader>bi :NeoBundleInstall<CR>
   nnoremap <Leader>bc :NeoBundleClean<CR>
-  nnoremap <leader>nbu :Unite neobundle/update -vertical -no-start-insert<cr>
 
 " NERDTREE
 
@@ -573,7 +557,7 @@ endif
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
-  " let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml'] }
+  let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml','ruby'] }
 
   set statusline+=%#warningmsg#
   " set statusline+=%{SyntasticStatuslineFlag()}
@@ -618,53 +602,6 @@ endif
 
   nnoremap <C-g> :UndotreeToggle<CR>
   let g:undotree_SetFocusWhenToggle=1
-
-" UNITE
-
-  " let bundle = neobundle#get('unite.vim')
-  " function! bundle.hooks.on_source(bundle)
-  "   call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  "   call unite#filters#sorter_default#use(['sorter_rank'])
-  "   call unite#set_profile('files', 'smartcase', 1)
-  "   call unite#custom#source('line,outline','matchers','matcher_fuzzy')
-  " endfunction
-
-  " " let g:unite_enable_start_insert=1
-  " let g:unite_data_directory='~/.vim/.cache/unite'
-  " let g:unite_source_history_yank_enable=1
-  " let g:unite_source_rec_max_cache_files=5000
-  " let g:unite_prompt='» '
-
-  " if executable('ag')
-  "   let g:unite_source_grep_command='ag'
-  "   let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
-  "   let g:unite_source_grep_recursive_opt=''
-  " elseif executable('ack')
-  "   let g:unite_source_grep_command='ack'
-  "   let g:unite_source_grep_default_opts='--no-heading --no-color -a'
-  "   let g:unite_source_grep_recursive_opt=''
-  " endif
-
-  " function! s:unite_settings()
-  "   nnoremap <buffer> Q <plug>(unite_exit)
-  "   nnoremap <buffer> <esc> <plug>(unite_exit)
-  "   inoremap <buffer> <esc> <plug>(unite_exit)
-  " endfunction
-  " autocmd FileType unite call s:unite_settings()
-
-  " nnoremap <space> [unite]
-  " nnoremap [unite] <nop>
-
-  " nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-  " nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async<cr><c-u>
-  " nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
-  " nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-  " nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-  " nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-  " nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-  " nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tags tags tags/file<cr>
-  " nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-  " nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
 
 " UTILSNIPS
 
@@ -758,30 +695,25 @@ endif
 " VIMSHELL
 
   " nnoremap <leader>cmd :VimShell -split<CR>
-
+  "
   " if s:is_macvim
   "   let g:vimshell_editor_command='mvim'
   " else
   "   let g:vimshell_editor_command='vim'
   " endif
-
+  "
   " let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 	" let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
 	" let g:vimshell_enable_smart_case = 1
   " let g:vimshell_prompt = $USER."% "
   " let g:vimshell_temporary_directory='~/.vim/.cache/vimshell'
   " let g:vimshell_vimshrc_path='~/.vim/vimshrc'
-
+  "
 	" autocmd FileType vimshell
 	"  call vimshell#altercmd#define('g', 'git')
 	" \| call vimshell#altercmd#define('i', 'iexe')
 	" \| call vimshell#altercmd#define('l', 'll')
 	" \| call vimshell#altercmd#define('ll', 'ls -l')
-
-" VIM-SIGNATURE
-
-  " nnoremap K [`
-  " nnoremap J ]`
 
 " VIM-SIGNIFY
 
@@ -791,20 +723,13 @@ endif
 
 " YOUCOMPLETEME
 
-  let g:EclimCompletionMethod = 'omnifunc'
   let g:ycm_complete_in_comments_and_strings=1
   let g:ycm_autoclose_preview_window_after_completion=1
   let g:ycm_filetype_blacklist = {
     \ 'notes': 1,
     \ 'markdown': 1,
     \ 'text': 1,
-    \ 'unite': 1,
     \ }
-
-" ZOOMWIN
-
-  map <leader>zz :ZoomWin<CR>
-
 
 " ----------------------------------------------------------------------------
 " KEYMAPPINGS
@@ -812,10 +737,6 @@ endif
 " TODO: work out sensible leader system
 
 " GENERAL
-
-  let mapleader = ","
-  let g:mapleader=","
-  vnoremap . :norm.<cr>
 
   " remap semicolon to colon
   nnoremap ; :

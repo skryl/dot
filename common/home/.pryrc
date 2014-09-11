@@ -34,7 +34,7 @@ Pry.config.commands.command "vim", "Edit scratch buffer" do |path|
   unless File.exists?(scratch)
     puts "Cannot find ''#{scratch}''"
   else
-    run('edit', scratch) 
+    run('edit', scratch)
   end
 end
 
