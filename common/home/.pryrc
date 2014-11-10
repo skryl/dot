@@ -1,7 +1,7 @@
 require 'pp'
 
 begin
-  require 'hirb'
+# require 'hirb'
   require 'awesome_print'
   require 'pry'
   #require 'pry-debugger'
@@ -17,11 +17,8 @@ Pry.config.history.should_save = true
 Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
 if defined?(PryDebugger)
-  Pry.commands.alias_command '.w', 'whereami'
-  Pry.commands.alias_command '.c', 'continue'
-  Pry.commands.alias_command '.s', 'step'
-  Pry.commands.alias_command '.n', 'next'
-  Pry.commands.alias_command '.f', 'finish'
+  Pry.commands.alias_command '.where', 'whereami'
+  Pry.commands.alias_command '.cont', 'continue'
 end
 
 # scratch buffer
@@ -41,12 +38,12 @@ end
 # pretty
 # -------------------------------------------------------------------------------
 
-if defined? Hirb
-  Pry.config.print = proc do |output, value|
-    Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
-  end
-  Hirb.enable
-end
+# if defined? Hirb
+#   Pry.config.print = proc do |output, value|
+#     Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+#   end
+#   Hirb.enable
+# end
 
 # trace
 # -------------------------------------------------------------------------------

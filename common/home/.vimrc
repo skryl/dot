@@ -35,9 +35,9 @@ endif
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
 
-  NeoBundle 'Shougo/neobundle.vim'
+  NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/vimproc', { 'build': {
         \   'mac': 'make -f make_mac.mak',
         \   'unix': 'make -f make_unix.mak',
@@ -45,11 +45,11 @@ endif
 
 " FUNCTIONALITY
 
-  NeoBundle     '907th/vim-auto-save'
+  " NeoBundle     '907th/vim-auto-save'
   NeoBundle     'Raimondi/delimitMate'
   NeoBundle     'Rename'
-  NeoBundle     'SirVer/ultisnips'
-  " NeoBundle     'Valloric/YouCompleteMe', { 'build': {'mac': 'install.sh', 'unix': 'install.sh'}}
+  " NeoBundle     'SirVer/ultisnips'
+  " NeoBundle     'Valloric/YouCompleteMe'
   NeoBundle     'bling/vim-airline'
   NeoBundle     'bufkill.vim'
   NeoBundle     'dahu/vim-fanfingtastic'
@@ -96,6 +96,11 @@ endif
   NeoBundleLazy 'tpope/vim-bundler',       { 'autoload':{'filetypes':['ruby']}}
   NeoBundleLazy 'tpope/vim-rails',         { 'autoload':{'filetypes':['ruby']}}
 
+  " swift / objc
+  NeoBundle 'Keithbsmiley/swift.vim'
+  NeoBundle 'b4winckler/vim-objc'
+  NeoBundle 'eraserhd/vim-ios.git'
+
   " racket
   NeoBundleLazy 'wlangstroth/vim-racket',  {'autoload':{'filetypes':['racket','scheme']}}
 
@@ -131,7 +136,7 @@ endif
 
   " random
   NeoBundle     'bccalc.vim'                                                     " inline calc
-  NeoBundleLazy 'JuliaLang/julia-vim',  { 'autoload': { 'filetypes':['julia']}}  " julia
+  " NeoBundleLazy 'JuliaLang/julia-vim',  { 'autoload': { 'filetypes':['julia']}}  " julia
   NeoBundleLazy 'a.vim',                { 'autoload': { 'filetypes':['c']}}      " c
   NeoBundleLazy 'def-lkb/ocp-indent',   { 'autoload': { 'filetypes':['sml']}}    " sml
   NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes':['scala']}}  " scala
@@ -142,6 +147,8 @@ endif
 " THEMES
 
   NeoBundle 'altercation/vim-colors-solarized'
+
+  call neobundle#end()
 
 
 " ----------------------------------------------------------------------------
@@ -557,7 +564,7 @@ endif
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
-  let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml','ruby'] }
+  let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml'] }
 
   set statusline+=%#warningmsg#
   " set statusline+=%{SyntasticStatuslineFlag()}

@@ -61,6 +61,34 @@ HAVE_XSET=$(test -n "$DISPLAY" && test -z "$UNAME" && command -v xset)
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 
+# -------------------------------------------------------------------
+# PATH
+# -------------------------------------------------------------------
+PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+
+if test -n "$OSX"; then
+  # macports
+  test -x /opt/local && {
+      PORTS=/opt/local
+      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
+      MANPATH="$PORTS/share/man:$MANPATH"
+  }
+
+  # homebrew
+  test -x /usr/local && {
+      BREW=/usr/local
+      PATH="$BREW/bin:$BREW/sbin:$PATH"
+      MANPATH="$BREW/share/man:$MANPATH"
+  }
+fi
+
+_rc_path_append "/usr/local/heroku/bin"
+_rc_path_append "/usr/local/share/npm/bin"
+_rc_path_append "$HOME/.cabal/bin"
+_rc_path_append "/usr/local/CrossPack-AVR"
+_rc_path_append "$DEV/work/enova/8b/bin"
+_rc_path_prepend "$HOME/bin"
+
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
@@ -83,20 +111,21 @@ export PAGER MANPAGER
 export ECLIPSE_HOME=/Applications/eclipse
 
 # -------------------------------------------------------------------
-# RUBY/RVM/RBENV
-# -------------------------------------------------------------------
-test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
-
-# -------------------------------------------------------------------
 # OPAM
 # -------------------------------------------------------------------
 test -d "/Users/skryl/.spam/opam-init" && . /Users/skryl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 test -n "$(command -v opam)" && eval `opam config env`
 
 # -------------------------------------------------------------------
+# RUBY/RVM/RBENV
+# -------------------------------------------------------------------
+test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
+
+# -------------------------------------------------------------------
 # GO
 # -------------------------------------------------------------------
 export GOPATH=$HOME/.go
+_rc_path_append "$GOPATH/bin"
 
 # -------------------------------------------------------------------
 # KEYCHAIN
@@ -114,6 +143,7 @@ fi
 # PYTHON
 # -------------------------------------------------------------------
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+_rc_path_append "/usr/local/lib/python2.7/bin"
 
 # -------------------------------------------------------------------
 # EC2 / AWS
@@ -122,6 +152,7 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export AWS_KEYS="$HOME/.aws/current.keys"
 
 test -f "$AWS_HOME" && source "$AWS_HOME"
+_rc_path_append "$EC2_HOME/bin"
 
 # -------------------------------------------------------------------
 # JAVA
@@ -143,33 +174,16 @@ export USERWM=`which xmonad`
 export SBT_OPTS=-XX:MaxPermSize=512m
 
 # -------------------------------------------------------------------
-# PATH
+# ANDROID
 # -------------------------------------------------------------------
-PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+_rc_path_append /Applications/Android\ Studio.app/sdk/tools
+_rc_path_append /Applications/Android\ Studio.app/sdk/platform-tools
 
-if test -n "$OSX"; then
-  # macports
-  test -x /opt/local && {
-      PORTS=/opt/local
-      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-      MANPATH="$PORTS/share/man:$MANPATH"
-  }
 
-  # homebrew
-  test -x /usr/local && {
-      BREW=/usr/local
-      PATH="$BREW/bin:$BREW/sbin:$PATH"
-      MANPATH="$BREW/share/man:$MANPATH"
-  }
-fi
+# -------------------------------------------------------------------
+# ENOVA
+# -------------------------------------------------------------------
+export FIX_VPN_POW=yes
+export FIX_VPN_MINIRAISER=yes
 
-_rc_path_append "$GOPATH/bin"
-_rc_path_append "/usr/local/heroku/bin"
-_rc_path_append "/usr/local/lib/python2.7/bin"
-_rc_path_append "$EC2_HOME/bin"
-_rc_path_append "/usr/local/share/npm/bin"
-_rc_path_append "$HOME/.cabal/bin"
-_rc_path_append "/usr/local/CrossPack-AVR"
-_rc_path_append "$DEV/work/enova/8b/bin"
-_rc_path_prepend "$HOME/bin"
 _rc_export_paths

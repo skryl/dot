@@ -14,7 +14,10 @@ function _alias_osx {
 
   #homebrew
   alias brewi='brew install'
-  alias brewr='brew uninstall'
+  alias brewu='brew uninstall'
+  alias caski='brew cask install --appdir="/Applications"'
+  alias casku='brew cask uninstall'
+  alias casks='brew cask search'
 }
 
 # linux
@@ -102,7 +105,7 @@ function _alias_tools {
   alias tml="tmux -u list-sessions"
 
 # dotfiles
-  alias profile="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.bash_functions ~/.aliases"
+  alias profile="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.functions ~/.aliases"
   alias src='source ~/.zshrc'
   alias vrc="vim ~/.vimrc"
 
@@ -123,7 +126,7 @@ function _alias_tools {
 
 # ruby/rails
   alias be='bundle exec'
-  alias gem='gem install'
+  alias gemi='gem install'
   alias rake='be rake'
   alias guard='be guard'
   alias rs='be rails server'
@@ -134,6 +137,10 @@ function _alias_tools {
   alias db_migrate='be rake db:migrate'
   alias db_seed='be rake db:seed'
   alias db_reset='be rake db:reset'
+
+# swift
+  alias swift='xcrun swift'
+  alias swiftc='xcrun swiftc'
 
 # git
   alias ga='git add -A'
