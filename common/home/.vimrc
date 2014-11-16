@@ -8,24 +8,12 @@ let mapleader = ","
 let g:mapleader=","
 vnoremap . :norm.<cr>
 
-
 if system('uname') =~ 'Darwin'
   let $PATH = $HOME .
     \ '/usr/local/bin:/usr/local/sbin:' .
     \ '/usr/pkg/bin:' .
     \ '/opt/local/bin:/opt/local/sbin:' .
     \ $PATH
-endif
-
-" set grepprg
-if executable('ack')
-  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
-  set grepformat=%f:%l:%c:%m
-endif
-
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
-  set grepformat=%f:%l:%c:%m
 endif
 
 " ----------------------------------------------------------------------------
@@ -45,42 +33,41 @@ endif
 
 " FUNCTIONALITY
 
-  " NeoBundle     '907th/vim-auto-save'
+  NeoBundle     '907th/vim-auto-save'
   NeoBundle     'Raimondi/delimitMate'
-  NeoBundle     'Rename'
-  " NeoBundle     'SirVer/ultisnips'
-  " NeoBundle     'Valloric/YouCompleteMe'
+  NeoBundle     'SirVer/ultisnips'
+  NeoBundle     'Valloric/YouCompleteMe'
+  NeoBundle     'bccalc.vim'
   NeoBundle     'bling/vim-airline'
   NeoBundle     'bufkill.vim'
   NeoBundle     'dahu/vim-fanfingtastic'
   NeoBundle     'epmatsw/ag.vim'
   NeoBundle     'gavinbeatty/dragvisuals.vim'
   NeoBundle     'godlygeek/tabular'
-  NeoBundle     'kien/ctrlp.vim',         { 'depends': 'tacahiroy/ctrlp-funky' }
+  NeoBundle     'honza/vim-snippets'
+  NeoBundle     'kien/ctrlp.vim',         { 'depends': ['tacahiroy/ctrlp-funky', 'FelikZ/ctrlp-py-matcher'] }
   NeoBundle     'kien/rainbow_parentheses.vim'
   NeoBundle     'kshenoy/vim-signature'
-  NeoBundle     'michaeljsmith/vim-indent-object'
   NeoBundle     'mileszs/ack.vim'
   NeoBundle     'nathanaelkane/vim-indent-guides'
-  " NeoBundle     'scrooloose/syntastic'
+  NeoBundle     'scrooloose/syntastic'
   NeoBundle     'skryl/tslime.vim'
   NeoBundle     'skryl/vimdoc'
   NeoBundle     'terryma/vim-expand-region'
   NeoBundle     'tomtom/tcomment_vim'
+  NeoBundle     'tpope/vim-endwise'
   NeoBundle     'tpope/vim-repeat'
   NeoBundle     'tpope/vim-surround'
   NeoBundle     'tpope/vim-unimpaired'
   NeoBundle     'vis'
-  " NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
+  NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
   NeoBundle     'xolox/vim-session',      { 'depends': 'xolox/vim-misc' }
 
-  NeoBundleLazy 'EasyGrep',               { 'autoload':{'commands':'GrepOptions'}}
-  " NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
+  NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
   NeoBundleLazy 'majutsushi/tagbar',      { 'autoload':{'commands':'TagbarToggle'}}
   NeoBundleLazy 'mattn/gist-vim',         { 'autoload':{'commands':'Gist' }, 'depends': 'mattn/webapi-vim'}
   NeoBundleLazy 'mbbill/undotree',        { 'autoload':{'commands':'UndotreeToggle'}}
   NeoBundleLazy 'scrooloose/nerdtree',    { 'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
-  NeoBundleLazy 'tpope/vim-endwise',      { 'autoload':{'filetypes':['lua','ruby','sh','zsh','vb','vbnet','aspvbs','vim','c','cpp','xdefaults']}}
 
 " LANGUAGE SUPPORT
 
@@ -94,55 +81,54 @@ endif
   NeoBundleLazy 'henrik/vim-ruby-runner',  { 'autoload':{'filetypes':['ruby']}}
   NeoBundleLazy 't9md/vim-ruby-xmpfilter', { 'autoload':{'filetypes':['ruby']}}
   NeoBundleLazy 'tpope/vim-bundler',       { 'autoload':{'filetypes':['ruby']}}
+  NeoBundleLazy 'vim-ruby/vim-ruby',       { 'autoload':{'filetypes':['ruby']}}
   NeoBundleLazy 'tpope/vim-rails',         { 'autoload':{'filetypes':['ruby']}}
 
   " swift / objc
-  NeoBundle 'Keithbsmiley/swift.vim'
-  NeoBundle 'b4winckler/vim-objc'
-  NeoBundle 'eraserhd/vim-ios.git'
-
-  " racket
-  NeoBundleLazy 'wlangstroth/vim-racket',  {'autoload':{'filetypes':['racket','scheme']}}
+  NeoBundleLazy 'Keithbsmiley/swift.vim',  { 'autoload':{'filetypes':['swift']}}
+  NeoBundleLazy 'b4winckler/vim-objc',     { 'autoload':{'filetypes':['objc']}}
+  NeoBundleLazy 'eraserhd/vim-ios.git',    { 'autoload':{'filetypes':['objc','swift']}}
 
   " clojure
   NeoBundleLazy 'guns/vim-clojure-static', { 'autoload':{'filetypes':['clojure']}}
-  NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
   NeoBundleLazy 'tpope/vim-fireplace',     { 'autoload':{'filetypes':['clojure']}}
-  " NeoBundleLazy 'tpope/vim-classpath',     { 'autoload':{'filetypes':['clojure']}}
+  NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
 
   " markup
-  NeoBundleLazy 'Valloric/vim-instant-markdown', { 'autoload':{'filetypes':['markdown']}}
-  NeoBundleLazy 'tpope/vim-markdown',            { 'autoload':{'filetypes':['markdown']}}
+  NeoBundleLazy 'suan/vim-instant-markdown',    { 'autoload':{'filetypes':['markdown']}}
+  NeoBundleLazy 'tpope/vim-markdown',           { 'autoload':{'filetypes':['markdown']}}
+  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
 
   " html/css
-  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
-  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
   NeoBundleLazy 'gregsexton/MatchTag',          { 'autoload': { 'filetypes':['html','xml']}}
-  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
-  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
-  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
   NeoBundleLazy 'othree/html5.vim',             { 'autoload': { 'filetypes':['html']}}
+  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
   NeoBundleLazy 'slim-template/vim-slim',       { 'autoload': { 'filetypes':['slim']}}
   NeoBundleLazy 'tpope/vim-haml',               { 'autoload': { 'filetypes':['haml']}}
+  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
+  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
+  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
 
   " js
+  NeoBundleLazy 'pangloss/vim-javascript',    { 'autoload': { 'filetypes':['javascript']}}
+  NeoBundleLazy 'marijnh/tern_for_vim',       { 'autoload': { 'filetypes':['javascript']}, 'build': {'mac': 'npm install'}}
+  NeoBundleLazy 'maksimr/vim-jsbeautify',     { 'autoload': { 'filetypes':['javascript']}}
+  NeoBundleLazy 'leshill/vim-json',           { 'autoload': { 'filetypes':['javascript','json']}}
+  NeoBundleLazy 'mmalecki/vim-node.js',       { 'autoload': { 'filetypes':['javascript']}}
   NeoBundleLazy 'kchmck/vim-coffee-script',   { 'autoload': { 'filetypes':['coffee']}}
   NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes':['typescript']}}
-  NeoBundleLazy 'leshill/vim-json',           { 'autoload': { 'filetypes':['javascript','json']}}
-  NeoBundleLazy 'maksimr/vim-jsbeautify',     { 'autoload': { 'filetypes':['javascript']}}
-  NeoBundleLazy 'mmalecki/vim-node.js',       { 'autoload': { 'filetypes':['javascript']}}
-  NeoBundleLazy 'pangloss/vim-javascript',    { 'autoload': { 'filetypes':['javascript']}}
   NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': { 'filetypes':['javascript','coffee','typescript']}}
 
   " random
-  NeoBundle     'bccalc.vim'                                                     " inline calc
-  " NeoBundleLazy 'JuliaLang/julia-vim',  { 'autoload': { 'filetypes':['julia']}}  " julia
-  NeoBundleLazy 'a.vim',                { 'autoload': { 'filetypes':['c']}}      " c
-  NeoBundleLazy 'def-lkb/ocp-indent',   { 'autoload': { 'filetypes':['sml']}}    " sml
-  NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes':['scala']}}  " scala
-  NeoBundleLazy 'jimenezrick/vimerl',   { 'autoload': { 'filetypes':['erlang']}} " erlang
-  NeoBundleLazy 'jnwhiteh/vim-golang',  { 'autoload': { 'filetypes':['go']}}     " go
-  NeoBundleLazy 'salinasv/vim-vhdl',    { 'autoload': { 'filetypes':['vhdl']}}   " vhdl
+  NeoBundleLazy 'michaeljsmith/vim-indent-object', { 'autoload': { 'filetypes':['python']}}
+  NeoBundleLazy 'a.vim',                           { 'autoload': { 'filetypes':['c','cpp']}}
+  NeoBundleLazy 'def-lkb/ocp-indent',              { 'autoload': { 'filetypes':['sml']}}
+  NeoBundleLazy 'derekwyatt/vim-scala',            { 'autoload': { 'filetypes':['scala']}}
+  NeoBundleLazy 'jimenezrick/vimerl',              { 'autoload': { 'filetypes':['erlang']}}
+  NeoBundleLazy 'jnwhiteh/vim-golang',             { 'autoload': { 'filetypes':['go']}}
+  NeoBundleLazy 'salinasv/vim-vhdl',               { 'autoload': { 'filetypes':['vhdl']}}
+  NeoBundleLazy 'wlangstroth/vim-racket',          { 'autoload': { 'filetypes':['racket','scheme']}}
+
 
 " THEMES
 
@@ -267,7 +253,7 @@ endif
 
 " HISTORY/BACKUPS
 
-  set tags=.git/tags,tags,~/.vim/.cache/tags  " places to check for tags
+  set tags=./tags                             " places to check for tags
   set history=1000                            " command line history
 
   set nobackup                                " do not keep backups after close
@@ -348,37 +334,26 @@ endif
       exec 'nnoremap ss :!terminal_promote_vim_session ' . a:filename . '<CR>:q!<CR>'
   endfunction
 
-  com! FormatJSON %!python -m json.tool
-
 "  AUTOCOMMANDS
+
+  au BufNewFile,BufRead *.csv setf csv
+  au BufRead,BufNewFile *Makefile* set filetype=make
+  au BufReadPost *.rkt,*.rktl set filetype=racket
+  au FileType c setlocal cindent
+  au FileType cpp setlocal cindent
+  au filetype racket set autoindent
+  au filetype racket set lisp
+
+  " ruby omnifunc settings
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " enable brace matching
   runtime! macros/matchit.vim
-
-" Language autocmds
-  command! FR set filetype=ruby
-  au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-  au BufRead,BufNewFile *Makefile* set filetype=make
-  au FileType c setlocal omnifunc=ClangComplete
-  au FileType c setlocal cindent
-  au FileType cpp setlocal omnifunc=ClangComplete
-  au FileType cpp setlocal cindent
-  au FileType ruby,eruby set omnifunc=rubycomplete#Complete
-  au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-  au FileType ruby,eruby let g:rubycomplete_rails = 1
-  au FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-  au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  au FileType python setlocal omnifunc=pythoncomplete#Complete
-  au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-  au FileType markdown,vim let b:loaded_delimitMate=1
-  au FileType css set omnifunc=csscomplete#CompleteCSS
-  au FileType xml set omnifunc=xmlcomplete#CompleteTags
-  au BufNewFile,BufRead *.csv setf csv
-  au BufReadPost *.rkt,*.rktl set filetype=racket
-  au filetype racket set lisp
-  au filetype racket set autoindent
 
   " delete trailing DOS-returns and whitespace on file open and write.
   augroup vimrc
@@ -414,10 +389,6 @@ endif
   nnoremap <Leader>av :AV<CR>
   nnoremap <Leader>an :AN<CR>
 
-" ACK
-
-  nnoremap <Leader>ac :Ack
-
 " BCCALC
 
   vnoremap <Leader>cc "eyy:call CalcLines(1)"<CR>
@@ -425,11 +396,8 @@ endif
 
 " CTRLP
 
-  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:40'
   let g:ctrlp_open_multiple_files = '1vir'
-  let g:ctrlp_clear_cache_on_exit=1
-  let g:ctrlp_max_height=40
-  let g:ctrlp_show_hidden=0
   let g:ctrlp_follow_symlinks=1
   let g:ctrlp_working_path_mode=0
   let g:ctrlp_max_files=20000
@@ -437,44 +405,37 @@ endif
   let g:ctrlp_extensions=['funky']
   let g:ctrlp_map = '<nop>'
 
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore .svn
+        \ --ignore .hg
+        \ --ignore .DS_Store
+        \ --ignore "**/*.pyc"
+        \ -g ""'
+
   nnoremap <Leader>ff :CtrlP<CR>
+  nnoremap <Leader>ft :CtrlPTag<CR>
   nnoremap <Leader>fb :CtrlPBuffer<CR>
   nnoremap <Leader>fm :CtrlPMixed<CR>
-  " nnoremap [ctrlp]t :CtrlPBufTag<cr>
-  " nnoremap [ctrlp]T :CtrlPTag<cr>
-  " nnoremap [ctrlp]l :CtrlPLine<cr>
-  " nnoremap [ctrlp]o :CtrlPFunky<cr>
+  nnoremap <Leader>fu :CtrlPFunky<CR>
+  nnoremap <Leader>fl :CtrlPLine<CR>
 
 " DELIMITMATE
 
   let g:delimitMate_expand_space = 1
   let g:delimitMate_balance_matchpairs = 1
 
-" EASYGREP
-
-  let g:EasyGrepRecursive=1
-  let g:EasyGrepAllOptionsInExplorer=1
-  let g:EasyGrepCommand=1
-
-  nnoremap <leader>eg :GrepOptions<cr>
-
 " EASYTAGS / CTAGS / CSCOPE
 
   let g:easytags_file = '~/.vim/.cache/tags'
-  let g:easytags_auto_update = 0
-  let g:easytags_updatetime_min = 2000
-  let g:easytags_python_enabled = 1
-  let g:easytags_resolve_links = 1
-  let g:easytags_dynamic_files = 2  " write tags to current dir
+  " let g:easytags_auto_update = 0
+  let g:easytags_python_enabled  = 1
+  let g:easytags_resolve_links   = 1
+  let g:easytags_dynamic_files   = 1
+  let g:easytags_suppress_report = 1
 
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
-
-  map <Leader>tu :UpdateTags -R `pwd`<CR>
+  map <Leader>tu :UpdateTags -R --exclude='.git' `pwd`<CR>
   map <Leader>tsu :!cscope -bR<CR><CR>
   set cscopetag cscopeverbose
   set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -489,15 +450,13 @@ endif
 
 " INSTANT-MARKDOWN
 
+  let g:instant_markdown_autostart = 0
   let g:instant_markdown_slow = 1
+  nnoremap <leader>md :InstantMarkdownPreview<cr>
 
 " JS-BEAUTIFY
 
-  nnoremap <leader>fjs :call JsBeautify()<cr>
-
-" MRU
-
-  nnoremap <C-O> :MRU<cr>
+  nnoremap <leader>jsb :call JsBeautify()<cr>
 
 " NEOBUNDLE
 
@@ -519,7 +478,6 @@ endif
   let NERDTreeBookmarksFile='~/.vim/.cache/NERDTreeBookmarks'
 
   nnoremap <C-e> :NERDTreeToggle<CR>
-  nnoremap <C-f> :NERDTreeFind<CR>
 
 " RAINBOW PARENS
 
@@ -541,13 +499,15 @@ endif
       \ ['red',         'firebrick3'],
       \ ]
 
-" RUBY RUNNER
+" RUBY-RUNNER
 
-  nnoremap <leader>rr :call :RunRuby<CR>
+  nnoremap <leader>rb :RunRuby<CR>
 
 " SILVER-SEARCHER
 
-  map <leader>ag :Ag!<space><<C-R><C-W>\><CR>
+  " search for word under cursor
+  set grepprg=ag\ --nogroup\ --nocolor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " SYNTASTIC
 
@@ -564,10 +524,10 @@ endif
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
-  let g:syntastic_mode_map = { 'passive_filetypes': ['scala','ml','sml','ocaml'] }
+  let g:syntastic_mode_map = { 'passive_filetypes': [] }
 
   set statusline+=%#warningmsg#
-  " set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
 " TABULAR
@@ -576,25 +536,22 @@ endif
   vnoremap <Leader>a& :Tabularize /&<CR>
   nnoremap <Leader>a= :Tabularize /=<CR>
   vnoremap <Leader>a= :Tabularize /=<CR>
-  nnoremap <Leader>a: :Tabularize /:<CR>
-  vnoremap <Leader>a: :Tabularize /:<CR>
-  nnoremap <Leader>a:: :Tabularize /:\zs<CR>
-  vnoremap <Leader>a:: :Tabularize /:\zs<CR>
-  nnoremap <Leader>a, :Tabularize /,<CR>
-  vnoremap <Leader>a, :Tabularize /,<CR>
+  nnoremap <Leader>a: :Tabularize /:\zs<CR>
+  vnoremap <Leader>a: :Tabularize /:\zs<CR>
+  nnoremap <Leader>a, :Tabularize /,\zs<CR>
+  vnoremap <Leader>a, :Tabularize /,\zs<CR>
   nnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
   vnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " TAGBAR
 
   nnoremap <C-T> :TagbarToggle<CR>
-  map <C-\> :tnext<CR>
   let g:tagbar_left = 1
 
 " TCOMMENT
 
-  noremap ,c<Space> <C-_><C-_>
-  vnoremap ,c<Space> <C-_><C-_>
+  noremap <leader>c<Space> :TComment<CR>
+  vnoremap <leader>c<Space> :TComment<CR>
 
 " TSLIME
 
@@ -607,13 +564,11 @@ endif
 
 " UNDOTREE
 
-  nnoremap <C-g> :UndotreeToggle<CR>
+  nnoremap <C-z> :UndotreeToggle<CR>
   let g:undotree_SetFocusWhenToggle=1
 
 " UTILSNIPS
 
-  " let g:UltiSnipsExpandTrigger="<c-tab>"
-  " let g:UltiSnipsListSnippets="<c-s-tab>"
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -627,6 +582,8 @@ endif
 " VIM-AUTO-SAVE
 
   let g:auto_save = 1
+  let g:auto_save_no_updatetime = 1
+  let g:auto_save_in_insert_mode = 0
 
 " VIM-CLOJURE-STATIC
 
@@ -634,19 +591,19 @@ endif
 
 " VIM-DRAGVISUALS
 
-  vnoremap  <expr>  <C-h>   DVB_Drag('left')
-  vnoremap  <expr>  <C-l>   DVB_Drag('right')
-  vnoremap  <expr>  <C-j>   DVB_Drag('down')
-  vnoremap  <expr>  <C-k>   DVB_Drag('up')
+  " FIXME
+  vnoremap  <expr>  <Left>  DVB_Drag('left')
+  vnoremap  <expr>  <Right> DVB_Drag('right')
+  vnoremap  <expr>  <Down>  DVB_Drag('down')
+  vnoremap  <expr>  <Up>    DVB_Drag('up')
   vnoremap  <expr>  D       DVB_Duplicate()
-
 
 " VIM-EXPAND-REGION
 
-  " vnoremap K <Plug>(expand_region_expand)
-  " vnoremap J <Plug>(expand_region_shrink)
+  map + <Plug>(expand_region_expand)
+  map _ <Plug>(expand_region_shrink)
 
-" VIMFUGITIVE
+" VIM-FUGITIVE
 
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -668,25 +625,20 @@ endif
   let g:indent_guides_start_level=1
   let g:indent_guides_guide_size=1
   let g:indent_guides_enable_on_vim_startup=0
-  let g:indent_guides_color_change_percent=3
-  if !has('gui_running')
-    let g:indent_guides_auto_colors=0
-    function! s:indent_set_console_colors()
-      hi IndentGuidesOdd ctermbg=235
-      hi IndentGuidesEven ctermbg=236
-    endfunction
-    autocmd VimEnter,Colorscheme * call s:indent_set_console_colors()
-  endif
+  let g:indent_guides_color_change_percent=5
+
+  nnoremap <silent> <leader>ig :IndentGuidesToggle<CR>
 
 " VIM-RUBY-XMPFILTER
 
-  nnoremap <buffer> <F5> <Plug>(xmpfilter-run)
-  xnoremap <buffer> <F5> <Plug>(xmpfilter-run)
-  inoremap <buffer> <F5> <Plug>(xmpfilter-run)
+  nmap <buffer> <F5> <Plug>(xmpfilter-run)
+  xmap <buffer> <F5> <Plug>(xmpfilter-run)
+  imap <buffer> <F5> <Plug>(xmpfilter-run)
 
-  nnoremap <buffer> <F4> <Plug>(xmpfilter-mark)
-  xnoremap <buffer> <F4> <Plug>(xmpfilter-mark)
-  inoremap <buffer> <F4> <Plug>(xmpfilter-mark))
+  nmap <buffer> <F4> <Plug>(xmpfilter-mark)
+  xmap <buffer> <F4> <Plug>(xmpfilter-mark)
+  imap <buffer> <F4> <Plug>(xmpfilter-mark)
+
 
 " VIM-SESSION
 
@@ -701,47 +653,40 @@ endif
 
 " VIMSHELL
 
-  " nnoremap <leader>cmd :VimShell -split<CR>
-  "
-  " if s:is_macvim
-  "   let g:vimshell_editor_command='mvim'
-  " else
-  "   let g:vimshell_editor_command='vim'
-  " endif
-  "
-  " let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-	" let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-	" let g:vimshell_enable_smart_case = 1
-  " let g:vimshell_prompt = $USER."% "
-  " let g:vimshell_temporary_directory='~/.vim/.cache/vimshell'
-  " let g:vimshell_vimshrc_path='~/.vim/vimshrc'
-  "
-	" autocmd FileType vimshell
-	"  call vimshell#altercmd#define('g', 'git')
-	" \| call vimshell#altercmd#define('i', 'iexe')
-	" \| call vimshell#altercmd#define('l', 'll')
-	" \| call vimshell#altercmd#define('ll', 'ls -l')
+  nnoremap <leader>cmd :VimShell -split<CR>
+
+  let g:vimshell_prompt = $USER."% "
+  let g:vimshell_temporary_directory='~/.vim/.cache/vimshell'
+
+  " nnoremap <Leader><CR> :VimShellSendString<CR>
+  " vnoremap <Leader><CR> :VimShellSendString<CR>
+  " nnoremap <Leader>pry :VimShellInteractive pry<CR>
 
 " VIM-SIGNIFY
 
   let g:signify_disable_by_default = 1
-  let g:signify_mapping_toggle_highlight = '<leader>gh'
-  let g:signify_mapping_toggle = '<leader>gt'
+  let g:signify_line_highlight = 1
+  nnoremap <C-g> :SignifyToggle<CR>
+  nnoremap <Leader>gh :SignifyToggleHighlight<CR>
 
 " YOUCOMPLETEME
 
-  let g:ycm_complete_in_comments_and_strings=1
+  " make ycm play nice with UltiSnips
+  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+  let g:ycm_collect_identifiers_from_tags_files=1
+  let g:ycm_min_num_of_chars_for_completion=1
+  " let g:ycm_complete_in_comments_and_strings=1
   let g:ycm_autoclose_preview_window_after_completion=1
-  let g:ycm_filetype_blacklist = {
-    \ 'notes': 1,
-    \ 'markdown': 1,
-    \ 'text': 1,
-    \ }
+  let g:ycm_filetype_blacklist = { 'notes': 1, 'text': 1 }
+  let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+  nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ----------------------------------------------------------------------------
 " KEYMAPPINGS
 " ----------------------------------------------------------------------------
-" TODO: work out sensible leader system
 
 " GENERAL
 
@@ -891,6 +836,11 @@ endif
   nnoremap <C-p> :bprev<CR>
   nnoremap <C-n> :bnext<CR>
   nnoremap <C-x> :BW<CR>
+
+  "" Linting
+
+  nnoremap <leader>js %!python -m json.tool<CR>
+  nnoremap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 
 " ----------------------------------------------------------------------------
 " FINISH STARTUP
