@@ -179,6 +179,13 @@ export SBT_OPTS=-XX:MaxPermSize=512m
 _rc_path_append /Applications/Android\ Studio.app/sdk/tools
 _rc_path_append /Applications/Android\ Studio.app/sdk/platform-tools
 
+# -------------------------------------------------------------------
+# DOCKER
+# -------------------------------------------------------------------
+export DOCKER_CERT_PATH=/Users/skryl/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+
 
 # -------------------------------------------------------------------
 # ENOVA

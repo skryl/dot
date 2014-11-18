@@ -96,6 +96,3 @@ layout 1monitor 'Finder':REPEAT ${topleft}
 layout 1monitor 'Xcode':REPEAT ${full}
 
 bind l:${hyper} layout 1monitor
-
-#Run Applications
-bind f4 shell /Applications/iTerm.app/Contents/MacOS/iTerm
