@@ -426,6 +426,7 @@ endif
   let g:delimitMate_balance_matchpairs = 1
 
 " EASYMOTION
+
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
   nmap s <Plug>(easymotion-s)
