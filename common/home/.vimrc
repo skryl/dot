@@ -26,112 +26,112 @@ endif
   call neobundle#begin(expand('~/.vim/bundle/'))
 
   NeoBundleFetch 'Shougo/neobundle.vim'
-  NeoBundle 'Shougo/vimproc', { 'build': {
-        \   'mac': 'make -f make_mac.mak',
-        \   'unix': 'make -f make_unix.mak',
-        \ }  }
-
-" FUNCTIONALITY
-
-  NeoBundle     '907th/vim-auto-save'
-  NeoBundle     'Lokaltog/vim-easymotion'
-  NeoBundle     'Raimondi/delimitMate'
-  NeoBundle     'SirVer/ultisnips'
-  NeoBundle     'Valloric/YouCompleteMe'
-  NeoBundle     'bccalc.vim'
-  NeoBundle     'bling/vim-airline'
-  NeoBundle     'bufkill.vim'
-  NeoBundle     'dahu/vim-fanfingtastic'
-  NeoBundle     'epmatsw/ag.vim'
-  NeoBundle     'gavinbeatty/dragvisuals.vim'
-  NeoBundle     'godlygeek/tabular'
-  NeoBundle     'honza/vim-snippets'
-  NeoBundle     'kien/ctrlp.vim',         { 'depends': ['tacahiroy/ctrlp-funky', 'FelikZ/ctrlp-py-matcher'] }
-  NeoBundle     'kien/rainbow_parentheses.vim'
-  NeoBundle     'kshenoy/vim-signature'
-  NeoBundle     'mileszs/ack.vim'
-  NeoBundle     'nathanaelkane/vim-indent-guides'
-  NeoBundle     'scrooloose/syntastic'
-  NeoBundle     'skryl/tslime.vim'
-  NeoBundle     'skryl/vimdoc'
-  NeoBundle     'terryma/vim-expand-region'
-  NeoBundle     'tomtom/tcomment_vim'
-  NeoBundle     'tpope/vim-endwise'
-  NeoBundle     'tpope/vim-repeat'
-  NeoBundle     'tpope/vim-surround'
-  NeoBundle     'tpope/vim-unimpaired'
-  NeoBundle     'vis'
-  NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
-  NeoBundle     'xolox/vim-session',      { 'depends': 'xolox/vim-misc' }
-
-  NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
-  NeoBundleLazy 'majutsushi/tagbar',      { 'autoload':{'commands':'TagbarToggle'}}
-  NeoBundleLazy 'mattn/gist-vim',         { 'autoload':{'commands':'Gist' }, 'depends': 'mattn/webapi-vim'}
-  NeoBundleLazy 'mbbill/undotree',        { 'autoload':{'commands':'UndotreeToggle'}}
-  NeoBundleLazy 'scrooloose/nerdtree',    { 'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
-  NeoBundleLazy 'Shougo/unite.vim',       { 'autoload':{'commands':'Unite'},
-        \  'depends': ['shougo/neomru.vim', 'shougo/unite-outline',
-        \              'shougo/unite-help', 'shougo/unite-session' ]}
-
-" LANGUAGE SUPPORT
-
- " git
-  NeoBundle     'tpope/vim-fugitive'
-  NeoBundle     'tpope/vim-git'
-  NeoBundle     'mhinz/vim-signify'
-  NeoBundleLazy 'gregsexton/gitv',  {'depends':['tpope/vim-fugitive'], 'autoload':{'commands':'Gitv'}}
-
-  " ruby
-  NeoBundleLazy 'henrik/vim-ruby-runner',  { 'autoload':{'filetypes':['ruby']}}
-  NeoBundleLazy 't9md/vim-ruby-xmpfilter', { 'autoload':{'filetypes':['ruby']}}
-  NeoBundleLazy 'tpope/vim-bundler',       { 'autoload':{'filetypes':['ruby']}}
-  NeoBundleLazy 'vim-ruby/vim-ruby',       { 'autoload':{'filetypes':['ruby']}}
-  NeoBundleLazy 'tpope/vim-rails',         { 'autoload':{'filetypes':['ruby']}}
-
-  " swift / objc
-  NeoBundleLazy 'Keithbsmiley/swift.vim',  { 'autoload':{'filetypes':['swift']}}
-  NeoBundleLazy 'b4winckler/vim-objc',     { 'autoload':{'filetypes':['objc']}}
-  NeoBundleLazy 'eraserhd/vim-ios.git',    { 'autoload':{'filetypes':['objc','swift']}}
-
-  " clojure
-  NeoBundleLazy 'guns/vim-clojure-static', { 'autoload':{'filetypes':['clojure']}}
-  NeoBundleLazy 'tpope/vim-fireplace',     { 'autoload':{'filetypes':['clojure']}}
-  NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
-
-  " markup
-  NeoBundleLazy 'suan/vim-instant-markdown',    { 'autoload':{'filetypes':['markdown']}}
-  NeoBundleLazy 'tpope/vim-markdown',           { 'autoload':{'filetypes':['markdown']}}
-  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
-
-  " html/css
-  NeoBundleLazy 'gregsexton/MatchTag',          { 'autoload': { 'filetypes':['html','xml']}}
-  NeoBundleLazy 'othree/html5.vim',             { 'autoload': { 'filetypes':['html']}}
-  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
-  NeoBundleLazy 'slim-template/vim-slim',       { 'autoload': { 'filetypes':['slim']}}
-  NeoBundleLazy 'tpope/vim-haml',               { 'autoload': { 'filetypes':['haml']}}
-  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
-  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
-  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
-
-  " js
-  NeoBundleLazy 'pangloss/vim-javascript',    { 'autoload': { 'filetypes':['javascript']}}
-  NeoBundleLazy 'marijnh/tern_for_vim',       { 'autoload': { 'filetypes':['javascript']}, 'build': {'mac': 'npm install'}}
-  NeoBundleLazy 'maksimr/vim-jsbeautify',     { 'autoload': { 'filetypes':['javascript']}}
-  NeoBundleLazy 'leshill/vim-json',           { 'autoload': { 'filetypes':['javascript','json']}}
-  NeoBundleLazy 'mmalecki/vim-node.js',       { 'autoload': { 'filetypes':['javascript']}}
-  NeoBundleLazy 'kchmck/vim-coffee-script',   { 'autoload': { 'filetypes':['coffee']}}
-  NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes':['typescript']}}
-  NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': { 'filetypes':['javascript','coffee','typescript']}}
-
-  " random
-  NeoBundleLazy 'michaeljsmith/vim-indent-object', { 'autoload': { 'filetypes':['python']}}
-  NeoBundleLazy 'a.vim',                           { 'autoload': { 'filetypes':['c','cpp']}}
-  NeoBundleLazy 'def-lkb/ocp-indent',              { 'autoload': { 'filetypes':['sml']}}
-  NeoBundleLazy 'derekwyatt/vim-scala',            { 'autoload': { 'filetypes':['scala']}}
-  NeoBundleLazy 'jimenezrick/vimerl',              { 'autoload': { 'filetypes':['erlang']}}
-  NeoBundleLazy 'jnwhiteh/vim-golang',             { 'autoload': { 'filetypes':['go']}}
-  NeoBundleLazy 'salinasv/vim-vhdl',               { 'autoload': { 'filetypes':['vhdl']}}
-  NeoBundleLazy 'wlangstroth/vim-racket',          { 'autoload': { 'filetypes':['racket','scheme']}}
+"  NeoBundle 'Shougo/vimproc', { 'build': {
+"        \   'mac': 'make -f make_mac.mak',
+"        \   'unix': 'make -f make_unix.mak',
+"        \ }  }
+"
+"" FUNCTIONALITY
+"
+"  NeoBundle     '907th/vim-auto-save'
+"  NeoBundle     'Lokaltog/vim-easymotion'
+"  NeoBundle     'Raimondi/delimitMate'
+"  NeoBundle     'SirVer/ultisnips'
+"  NeoBundle     'Valloric/YouCompleteMe'
+"  NeoBundle     'bccalc.vim'
+"  NeoBundle     'bling/vim-airline'
+"  NeoBundle     'bufkill.vim'
+"  NeoBundle     'dahu/vim-fanfingtastic'
+"  NeoBundle     'epmatsw/ag.vim'
+"  NeoBundle     'gavinbeatty/dragvisuals.vim'
+"  NeoBundle     'godlygeek/tabular'
+"  NeoBundle     'honza/vim-snippets'
+"  NeoBundle     'kien/ctrlp.vim',         { 'depends': ['tacahiroy/ctrlp-funky', 'FelikZ/ctrlp-py-matcher'] }
+"  NeoBundle     'kien/rainbow_parentheses.vim'
+"  NeoBundle     'kshenoy/vim-signature'
+"  NeoBundle     'mileszs/ack.vim'
+"  NeoBundle     'nathanaelkane/vim-indent-guides'
+"  NeoBundle     'scrooloose/syntastic'
+"  NeoBundle     'skryl/tslime.vim'
+"  NeoBundle     'skryl/vimdoc'
+"  NeoBundle     'terryma/vim-expand-region'
+"  NeoBundle     'tomtom/tcomment_vim'
+"  NeoBundle     'tpope/vim-endwise'
+"  NeoBundle     'tpope/vim-repeat'
+"  NeoBundle     'tpope/vim-surround'
+"  NeoBundle     'tpope/vim-unimpaired'
+"  NeoBundle     'vis'
+"  NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
+"  NeoBundle     'xolox/vim-session',      { 'depends': 'xolox/vim-misc' }
+"
+"  NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
+"  NeoBundleLazy 'majutsushi/tagbar',      { 'autoload':{'commands':'TagbarToggle'}}
+"  NeoBundleLazy 'mattn/gist-vim',         { 'autoload':{'commands':'Gist' }, 'depends': 'mattn/webapi-vim'}
+"  NeoBundleLazy 'mbbill/undotree',        { 'autoload':{'commands':'UndotreeToggle'}}
+"  NeoBundleLazy 'scrooloose/nerdtree',    { 'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
+"  NeoBundleLazy 'Shougo/unite.vim',       { 'autoload':{'commands':'Unite'},
+"        \  'depends': ['shougo/neomru.vim', 'shougo/unite-outline',
+"        \              'shougo/unite-help', 'shougo/unite-session' ]}
+"
+"" LANGUAGE SUPPORT
+"
+" " git
+"  NeoBundle     'tpope/vim-fugitive'
+"  NeoBundle     'tpope/vim-git'
+"  NeoBundle     'mhinz/vim-signify'
+"  NeoBundleLazy 'gregsexton/gitv',  {'depends':['tpope/vim-fugitive'], 'autoload':{'commands':'Gitv'}}
+"
+"  " ruby
+"  NeoBundleLazy 'henrik/vim-ruby-runner',  { 'autoload':{'filetypes':['ruby']}}
+"  NeoBundleLazy 't9md/vim-ruby-xmpfilter', { 'autoload':{'filetypes':['ruby']}}
+"  NeoBundleLazy 'tpope/vim-bundler',       { 'autoload':{'filetypes':['ruby']}}
+"  NeoBundleLazy 'vim-ruby/vim-ruby',       { 'autoload':{'filetypes':['ruby']}}
+"  NeoBundleLazy 'tpope/vim-rails',         { 'autoload':{'filetypes':['ruby']}}
+"
+"  " swift / objc
+"  NeoBundleLazy 'toyamarinyon/vim-swift',  { 'autoload':{'filetypes':['swift']}}
+"  NeoBundleLazy 'b4winckler/vim-objc',     { 'autoload':{'filetypes':['objc']}}
+"  NeoBundleLazy 'eraserhd/vim-ios.git',    { 'autoload':{'filetypes':['objc','swift']}}
+"
+"  " clojure
+"  NeoBundleLazy 'guns/vim-clojure-static', { 'autoload':{'filetypes':['clojure']}}
+"  NeoBundleLazy 'tpope/vim-fireplace',     { 'autoload':{'filetypes':['clojure']}}
+"  NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
+"
+"  " markup
+"  NeoBundleLazy 'suan/vim-instant-markdown',    { 'autoload':{'filetypes':['markdown']}}
+"  NeoBundleLazy 'tpope/vim-markdown',           { 'autoload':{'filetypes':['markdown']}}
+"  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
+"
+"  " html/css
+"  NeoBundleLazy 'gregsexton/MatchTag',          { 'autoload': { 'filetypes':['html','xml']}}
+"  NeoBundleLazy 'othree/html5.vim',             { 'autoload': { 'filetypes':['html']}}
+"  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
+"  NeoBundleLazy 'slim-template/vim-slim',       { 'autoload': { 'filetypes':['slim']}}
+"  NeoBundleLazy 'tpope/vim-haml',               { 'autoload': { 'filetypes':['haml']}}
+"  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
+"  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
+"  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
+"
+"  " js
+"  NeoBundleLazy 'pangloss/vim-javascript',    { 'autoload': { 'filetypes':['javascript']}}
+"  NeoBundleLazy 'marijnh/tern_for_vim',       { 'autoload': { 'filetypes':['javascript']}, 'build': {'mac': 'npm install'}}
+"  NeoBundleLazy 'maksimr/vim-jsbeautify',     { 'autoload': { 'filetypes':['javascript']}}
+"  NeoBundleLazy 'leshill/vim-json',           { 'autoload': { 'filetypes':['javascript','json']}}
+"  NeoBundleLazy 'mmalecki/vim-node.js',       { 'autoload': { 'filetypes':['javascript']}}
+"  NeoBundleLazy 'kchmck/vim-coffee-script',   { 'autoload': { 'filetypes':['coffee']}}
+"  NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes':['typescript']}}
+"  NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': { 'filetypes':['javascript','coffee','typescript']}}
+"
+"  " random
+"  NeoBundleLazy 'michaeljsmith/vim-indent-object', { 'autoload': { 'filetypes':['python']}}
+"  NeoBundleLazy 'a.vim',                           { 'autoload': { 'filetypes':['c','cpp']}}
+"  NeoBundleLazy 'def-lkb/ocp-indent',              { 'autoload': { 'filetypes':['sml']}}
+"  NeoBundleLazy 'derekwyatt/vim-scala',            { 'autoload': { 'filetypes':['scala']}}
+"  NeoBundleLazy 'jimenezrick/vimerl',              { 'autoload': { 'filetypes':['erlang']}}
+"  NeoBundleLazy 'jnwhiteh/vim-golang',             { 'autoload': { 'filetypes':['go']}}
+"  NeoBundleLazy 'salinasv/vim-vhdl',               { 'autoload': { 'filetypes':['vhdl']}}
+"  NeoBundleLazy 'wlangstroth/vim-racket',          { 'autoload': { 'filetypes':['racket','scheme']}}
 
 
 " THEMES
@@ -165,7 +165,7 @@ endif
   set copyindent             " copy indentation chars from previous line
   set expandtab              " expand tabs to spaces
   set formatoptions+=tcroqn  " autoformats text correctly during Q
-  set nowrap                 " do not wrap lines visually
+"  set nowrap                 " do not wrap lines visually
   set shiftwidth=2
   set smartindent            " smart indentation for non C languages
   set smarttab               " only insert blanks up to shiftwidth
@@ -540,7 +540,7 @@ endif
   let g:syntastic_auto_loc_list=1
   let g:syntastic_enable_signs=1
   let g:syntastic_enable_highlighting=1
-  " let g:syntastic_quiet_warnings=1
+  let g:syntastic_quiet_messages = {'level': 'warnings'}
   let g:syntastic_auto_jump=1
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
@@ -743,15 +743,14 @@ endif
 " YOUCOMPLETEME
 
   " make ycm play nice with UltiSnips
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+  " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
   let g:ycm_collect_identifiers_from_tags_files=1
   let g:ycm_min_num_of_chars_for_completion=1
-  " let g:ycm_complete_in_comments_and_strings=1
+  let g:ycm_complete_in_comments_and_strings=0
   let g:ycm_autoclose_preview_window_after_completion=1
   let g:ycm_filetype_blacklist = { 'notes': 1, 'text': 1 }
-  let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
   nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 

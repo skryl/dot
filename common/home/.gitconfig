@@ -23,11 +23,13 @@
   keepBackup = false;
 	tool = Kaleidoscope
 
-[mergetool "p4_merge"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$REMOTE" "$PWD/$MERGED"
-  keepTemporaries = false
-  trustExitCode = false
-  keepBackup = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
@@ -37,23 +39,8 @@
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
   prompt = false
 
-[difftool "p4_diff"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$LOCAL" "$PWD/$REMOTE"
-  trustExitCode = false
-  prompt = false
-
-[difftool "diffmerge"]
-  cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge "$LOCAL" "$REMOTE"
-  trustExitCode = false
-  prompt = false
-
 [difftool "filemerge"]
   cmd = opendiff "$LOCAL" "$REMOTE"
-  trustExitCode = false
-  prompt = false
-
-[difftool "meldmerge"]
-  cmd = meld "$LOCAL" "$REMOTE"
   trustExitCode = false
   prompt = false
 
@@ -61,17 +48,11 @@
   diffall = !~/bin/common/git-diffall
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
-[gui]
-	recentrepo = /Volumes/gtech/Dropbox/dev/enova/identity.auto
-
 [difftool]
 	prompt = false
 
 [mergetool]
 	prompt = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
+[heroku]
+	account = trusted

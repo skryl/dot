@@ -25,7 +25,7 @@ config undoOps move,resize
 # The HYPER key (bound using Seil and Karabiner)
 # ===============================================
 
-alias hyper ctrl;shift;alt;cmd
+alias hyper ctrl;alt
 
 bind space:${hyper} hint ASDFGHJKLQWERTYUIOPCVBN
 bind g:${hyper} grid padding:3 0:6,4 1:6:4
@@ -48,15 +48,15 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 # Location Bindings
-bind 1:${hyper} ${bottomleft}
-bind 2:${hyper} push bottom bar-resize:screenSizeY/2
-bind 3:${hyper} ${bottomright}
-bind 4:${hyper} ${lefthalf}
-bind 5:${hyper} ${full}
+bind 1:${hyper} ${topleft}
+bind 2:${hyper} ${topright}
+bind 3:${hyper} ${bottomleft}
+bind 4:${hyper} ${bottomright}
+bind 5:${hyper} ${lefthalf}
 bind 6:${hyper} ${righthalf}
-bind 7:${hyper} ${topleft}
-bind 8:${hyper} push top bar-resize:screenSizeY/2
-bind 9:${hyper} ${topright}
+# bind 7:${hyper} push top bar-resize:screenSizeY/2
+# bind 8:${hyper} push bottom bar-resize:screenSizeY/2
+bind 7:${hyper} ${full}
 
 # Throws (move to screen)
 bind n:${hyper} throw right resize

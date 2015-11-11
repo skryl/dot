@@ -36,14 +36,6 @@ Icon?
 Thumbs.db
 -MiniBufExplorer-
 
-# Ruby Config #
-##############
-Gemfile.lock
-.rvmrc
-.rbenv-version
-.ruby-version
-.ruby-gemset
-
 # VM #
 ######
 *.jar

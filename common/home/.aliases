@@ -18,6 +18,7 @@ function _alias_osx {
   alias caski='brew cask install --appdir="/Applications"'
   alias casku='brew cask uninstall'
   alias casks='brew cask search'
+  alias caskz='brew cask zap'
 }
 
 # linux
@@ -67,10 +68,13 @@ function _alias_nav {
   alias notes="cd $DROPBOX/notes"
   alias edu="cd ~/Dropbox/dev/edu"
 
+  alias work="cd $DROPBOX/dev/work"
   alias enova="cd $DROPBOX/dev/work/enova"
   alias drw="cd $DROPBOX/dev/work/drw"
   alias txi="cd $DROPBOX/dev/work/tablexi"
   alias 8b="cd $DROPBOX/dev/work/enova/8b"
+  alias iq="cd $DROPBOX/dev/work/persistiq"
+  alias trusted="cd $DROPBOX/dev/projects/trustedapp"
 }
 
 # ----------------------------------------------------------------------
@@ -90,6 +94,7 @@ function _alias_tools {
 # system
   alias _='sudo'
   alias path="echo $PATH | sed 's/:/  /g'"
+  alias psa="ps aux | grep "
 
 # fasd
   fasd_cd() { [ $# -gt 1 ] && cd "$(fasd -e echo "$@")" || fasd "$@"; }
@@ -135,8 +140,10 @@ function _alias_tools {
   alias db_create='be rake db:create'
   alias db_drop='be rake db:drop'
   alias db_migrate='be rake db:migrate'
+  alias db_rollback='be rake db:rollback'
   alias db_seed='be rake db:seed'
   alias db_reset='be rake db:reset'
+  alias db_dance='be rake db:drop db:create db:migrate db:seed'
 
 # swift
   alias swift='xcrun swift'
@@ -163,7 +170,7 @@ function _alias_tools {
 
   alias gc='git commit'
   alias gca='git commit -a'
-  alias gcm='git commit -a -m'
+  alias gcm='git commit -m'
   alias gra='git remote add'
   alias grr='git remote rm'
   alias grh='git reset --hard'
@@ -174,7 +181,7 @@ function _alias_tools {
 # heroku
   alias hc='heroku run console'
   alias hr='heroku run rake'
-  alias hl='heroku logs'
+  alias hl='heroku logs -t'
   alias hps='heroku ps'
   alias henv='heroku config'
 

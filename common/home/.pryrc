@@ -17,8 +17,8 @@ Pry.config.history.should_save = true
 Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
 if defined?(PryDebugger)
-  Pry.commands.alias_command '.where', 'whereami'
-  Pry.commands.alias_command '.cont', 'continue'
+  # Pry.commands.alias_command '.where', 'whereami'
+  # Pry.commands.alias_command '.cont', 'continue'
 end
 
 # scratch buffer
@@ -64,14 +64,14 @@ def disable_trace
   set_trace_func nil
 end
 
-# meta
+# Rails
 # -------------------------------------------------------------------------------
-
-class Class
-
-  #def metaclass; class << self; self; end; end
-  #def meta_eval &blk; metaclass.instance_eval &blk; end
-
+def ar_toggle_logger
+  if ActiveRecord::Base.logger
+    ActiveRecord::Base.logger = nil
+  else
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+  end
 end
 
 # alias

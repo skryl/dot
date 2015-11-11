@@ -61,34 +61,6 @@ HAVE_XSET=$(test -n "$DISPLAY" && test -z "$UNAME" && command -v xset)
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 
-# -------------------------------------------------------------------
-# PATH
-# -------------------------------------------------------------------
-PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
-
-if test -n "$OSX"; then
-  # macports
-  test -x /opt/local && {
-      PORTS=/opt/local
-      PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-      MANPATH="$PORTS/share/man:$MANPATH"
-  }
-
-  # homebrew
-  test -x /usr/local && {
-      BREW=/usr/local
-      PATH="$BREW/bin:$BREW/sbin:$PATH"
-      MANPATH="$BREW/share/man:$MANPATH"
-  }
-fi
-
-_rc_path_append "/usr/local/heroku/bin"
-_rc_path_append "/usr/local/share/npm/bin"
-_rc_path_append "$HOME/.cabal/bin"
-_rc_path_append "/usr/local/CrossPack-AVR"
-_rc_path_append "$DEV/work/enova/8b/bin"
-_rc_path_prepend "$HOME/bin"
-
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
@@ -106,9 +78,29 @@ export PAGER MANPAGER
 
 
 # -------------------------------------------------------------------
+# PATH
+# -------------------------------------------------------------------
+PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+
+if test -n "$OSX"; then
+  BREW=/usr/local
+  PATH="$BREW/bin:$BREW/sbin:$PATH"
+  MANPATH="$BREW/share/man:$MANPATH"
+fi
+
+_rc_path_append "/usr/local/heroku/bin"
+_rc_path_append "/usr/local/share/npm/bin"
+_rc_path_prepend "$HOME/bin"
+_rc_path_prepend "./bin"
+
+_rc_export_paths
+
+
+# -------------------------------------------------------------------
 # ECLIPSE
 # -------------------------------------------------------------------
 export ECLIPSE_HOME=/Applications/eclipse
+
 
 # -------------------------------------------------------------------
 # OPAM
@@ -116,16 +108,26 @@ export ECLIPSE_HOME=/Applications/eclipse
 test -d "/Users/skryl/.spam/opam-init" && . /Users/skryl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 test -n "$(command -v opam)" && eval `opam config env`
 
+
 # -------------------------------------------------------------------
 # RUBY/RVM/RBENV
 # -------------------------------------------------------------------
 test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
+
+
+# -------------------------------------------------------------------
+# JS/NODE/NVM
+# -------------------------------------------------------------------
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 
 # -------------------------------------------------------------------
 # GO
 # -------------------------------------------------------------------
 export GOPATH=$HOME/.go
 _rc_path_append "$GOPATH/bin"
+
 
 # -------------------------------------------------------------------
 # KEYCHAIN
@@ -139,11 +141,13 @@ if test -n "$LINUX"; then
   fi
 fi
 
+
 # -------------------------------------------------------------------
 # PYTHON
 # -------------------------------------------------------------------
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 _rc_path_append "/usr/local/lib/python2.7/bin"
+
 
 # -------------------------------------------------------------------
 # EC2 / AWS
@@ -154,6 +158,7 @@ export AWS_KEYS="$HOME/.aws/current.keys"
 test -f "$AWS_HOME" && source "$AWS_HOME"
 _rc_path_append "$EC2_HOME/bin"
 
+
 # -------------------------------------------------------------------
 # JAVA
 # -------------------------------------------------------------------
@@ -163,15 +168,18 @@ else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 fi
 
+
 # -------------------------------------------------------------------
 # HASKELL/XMONAD
 # -------------------------------------------------------------------
 export USERWM=`which xmonad`
 
+
 # -------------------------------------------------------------------
 # SBT
 # -------------------------------------------------------------------
 export SBT_OPTS=-XX:MaxPermSize=512m
+
 
 # -------------------------------------------------------------------
 # ANDROID
@@ -179,18 +187,10 @@ export SBT_OPTS=-XX:MaxPermSize=512m
 _rc_path_append /Applications/Android\ Studio.app/sdk/tools
 _rc_path_append /Applications/Android\ Studio.app/sdk/platform-tools
 
+
 # -------------------------------------------------------------------
 # DOCKER
 # -------------------------------------------------------------------
 export DOCKER_CERT_PATH=/Users/skryl/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
-
-
-# -------------------------------------------------------------------
-# ENOVA
-# -------------------------------------------------------------------
-export FIX_VPN_POW=yes
-export FIX_VPN_MINIRAISER=yes
-
-_rc_export_paths
