@@ -1,6 +1,3 @@
-test -e "$HOME/.profile" && source "$HOME/.profile"
-
-_rc_debug_print ZSHRC
 _rc_test_shell_bin
 _rc_test_shell_type
 
@@ -12,7 +9,6 @@ eval "$(fasd --init auto)"
 # -------------------------------------------------------------------
 # COMMON
 # -------------------------------------------------------------------
-_rc_aliases
 _rc_xset
 # _rc_motd
 
@@ -28,3 +24,6 @@ plugins=(osx bower brew brew-cask bundler chruby coffee cp docker extract fasd g
          rsync ruby sublime sudo tmux vagrant xcode zsh_reload)
 
 test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
+
+
+_rc_debug_print ZSHRC

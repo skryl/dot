@@ -1,6 +1,5 @@
 test -e "$HOME/.profile" && source "$HOME/.profile"
 
-_rc_debug_print BASHRC
 _rc_test_shell_bin
 _rc_test_shell_type
 
@@ -20,6 +19,8 @@ _expand() {
 # ----------------------------------------------------------------------
 # COMMON
 # ----------------------------------------------------------------------
-_rc_aliases
 _rc_xset
 # _rc_motd
+
+
+_rc_debug_print BASHRC

@@ -1,4 +1,4 @@
-_rc_debug_print ALIASES
+#!/bin/bash
 
 LS_OSX="-hG"
 LS_LINUX="-hB --color=auto"
@@ -110,7 +110,7 @@ function _alias_tools {
   alias tml="tmux -u list-sessions"
 
 # dotfiles
-  alias profile="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.functions ~/.aliases"
+  alias dot="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.functions ~/.aliases"
   alias src='source ~/.zshrc'
   alias vrc="vim ~/.vimrc"
 
@@ -208,3 +208,6 @@ _alias_fs
 _alias_nav
 _alias_remotes
 _alias_tools
+
+
+_rc_debug_print ALIASES

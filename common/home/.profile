@@ -1,6 +1,6 @@
 test -e "$HOME/.functions" && source "$HOME/.functions"
+test -e "$HOME/.aliases"   && source "$HOME/.aliases"
 
-_rc_debug_print PROFILE
 _rc_test_shell_bin
 _rc_test_shell_type
 
@@ -94,7 +94,7 @@ _rc_path_prepend "$HOME/bin"
 _rc_path_prepend "./bin"
 
 _rc_export_paths
-
+_rc_debug_print "PATH: $PATH"
 
 # -------------------------------------------------------------------
 # ECLIPSE
@@ -194,3 +194,6 @@ _rc_path_append /Applications/Android\ Studio.app/sdk/platform-tools
 export DOCKER_CERT_PATH=/Users/skryl/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
+
+
+_rc_debug_print PROFILE

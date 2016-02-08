@@ -50,7 +50,7 @@ _rc_motd() {
 
 
 _rc_debug_print() {
-  test -n "$DEBUG" && test "$INTERACTIVE" && echo $1
+  test -n "$DEBUG" && echo $1
 }
 
 
@@ -66,11 +66,6 @@ _rc_path_prepend() {
 
 _rc_export_paths() {
   export PATH MANPATH
-}
-
-
-_rc_aliases() {
-  test -e "$HOME/.aliases" && source "$HOME/.aliases"
 }
 
 
@@ -149,3 +144,5 @@ _rc_setup_completion() {
     unset bash bmajor bminor
   fi
 }
+
+_rc_debug_print FUNCTIONS
