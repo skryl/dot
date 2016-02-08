@@ -54,13 +54,23 @@ _rc_debug_print() {
 }
 
 
-_rc_path_append() {
+_rc_path_append_check() {
   test -d "$1" && PATH="$PATH:$1"
 }
 
 
-_rc_path_prepend() {
+_rc_path_prepend_check() {
   test -d "$1" && PATH="$1:$PATH"
+}
+
+
+_rc_path_append() {
+  PATH="$PATH:$1"
+}
+
+
+_rc_path_prepend() {
+  PATH="$1:$PATH"
 }
 
 

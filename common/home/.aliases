@@ -93,7 +93,7 @@ function _alias_tools {
 
 # system
   alias _='sudo'
-  alias path="echo $PATH | sed 's/:/  /g'"
+  alias path="echo $PATH | sed 's/:/ /g' | xargs -n 1 echo"
   alias psa="ps aux | grep "
 
 # fasd

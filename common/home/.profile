@@ -88,10 +88,11 @@ if test -n "$OSX"; then
   MANPATH="$BREW/share/man:$MANPATH"
 fi
 
-_rc_path_append "/usr/local/heroku/bin"
-_rc_path_append "/usr/local/share/npm/bin"
-_rc_path_prepend "$HOME/bin"
-_rc_path_prepend "./bin"
+_rc_debug_print "PATH: $PATH"
+_rc_path_append_check  "/usr/local/heroku/bin"
+_rc_path_append_check  "/usr/local/share/npm/bin"
+_rc_path_prepend_check "$HOME/bin"
+_rc_path_prepend       "./bin"
 
 _rc_export_paths
 _rc_debug_print "PATH: $PATH"
@@ -126,7 +127,7 @@ source $(brew --prefix nvm)/nvm.sh
 # GO
 # -------------------------------------------------------------------
 export GOPATH=$HOME/.go
-_rc_path_append "$GOPATH/bin"
+_rc_path_append_check "$GOPATH/bin"
 
 
 # -------------------------------------------------------------------
@@ -146,7 +147,7 @@ fi
 # PYTHON
 # -------------------------------------------------------------------
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-_rc_path_append "/usr/local/lib/python2.7/bin"
+_rc_path_append_check "/usr/local/lib/python2.7/bin"
 
 
 # -------------------------------------------------------------------
@@ -156,7 +157,7 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export AWS_KEYS="$HOME/.aws/current.keys"
 
 test -f "$AWS_HOME" && source "$AWS_HOME"
-_rc_path_append "$EC2_HOME/bin"
+_rc_path_append_check "$EC2_HOME/bin"
 
 
 # -------------------------------------------------------------------
@@ -184,8 +185,8 @@ export SBT_OPTS=-XX:MaxPermSize=512m
 # -------------------------------------------------------------------
 # ANDROID
 # -------------------------------------------------------------------
-_rc_path_append /Applications/Android\ Studio.app/sdk/tools
-_rc_path_append /Applications/Android\ Studio.app/sdk/platform-tools
+_rc_path_append_check /Applications/Android\ Studio.app/sdk/tools
+_rc_path_append_check /Applications/Android\ Studio.app/sdk/platform-tools
 
 
 # -------------------------------------------------------------------
