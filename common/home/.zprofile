@@ -1,3 +1,5 @@
+DEBUG=1
+
 test -e "$HOME/.functions" && source "$HOME/.functions"
 test -e "$HOME/.aliases"   && source "$HOME/.aliases"
 
@@ -93,9 +95,6 @@ _rc_path_append_check  "/usr/local/heroku/bin"
 _rc_path_append_check  "/usr/local/share/npm/bin"
 _rc_path_prepend_check "$HOME/bin"
 _rc_path_prepend       "./bin"
-
-_rc_export_paths
-_rc_debug_print "PATH: $PATH"
 
 # -------------------------------------------------------------------
 # ECLIPSE
@@ -197,4 +196,6 @@ export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 
 
+_rc_export_paths
+_rc_debug_print "PATH: $PATH"
 _rc_debug_print PROFILE

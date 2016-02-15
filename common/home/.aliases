@@ -93,7 +93,7 @@ function _alias_tools {
 
 # system
   alias _='sudo'
-  alias path="echo $PATH | sed 's/:/ /g' | xargs -n 1 echo"
+  alias path="echo \$PATH | sed 's/:/ /g' | xargs -n 1 echo"
   alias psa="ps aux | grep "
 
 # fasd
@@ -110,7 +110,7 @@ function _alias_tools {
   alias tml="tmux -u list-sessions"
 
 # dotfiles
-  alias dot="$EDITOR ~/.profile ~/.zshrc ~/.bashrc ~/.functions ~/.aliases"
+  alias dot="$EDITOR ~/.zprofile ~/.zshrc ~/.bashrc ~/.functions ~/.aliases"
   alias src='source ~/.zshrc'
   alias vrc="vim ~/.vimrc"
 

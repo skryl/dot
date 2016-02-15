@@ -1,4 +1,4 @@
-test -e "$HOME/.profile" && source "$HOME/.profile"
+test -e "$HOME/.zprofile" && source "$HOME/.zprofile"
 
 _rc_test_shell_bin
 _rc_test_shell_type
