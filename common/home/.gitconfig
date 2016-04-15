@@ -56,3 +56,7 @@
 
 [heroku]
 	account = trusted
+
+[pager]
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+	diff = diff-so-fancy | less --tabs=1,5 -RFX

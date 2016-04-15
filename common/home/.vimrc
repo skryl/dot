@@ -19,126 +19,110 @@ endif
 " ----------------------------------------------------------------------------
 " PACKAGES
 " ----------------------------------------------------------------------------
-  if has ('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-  endif
+  call plug#begin('~/.config/nvim/bundle')
 
-  call neobundle#begin(expand('~/.vim/bundle/'))
 
-  NeoBundleFetch 'Shougo/neobundle.vim'
-"  NeoBundle 'Shougo/vimproc', { 'build': {
-"        \   'mac': 'make -f make_mac.mak',
-"        \   'unix': 'make -f make_unix.mak',
-"        \ }  }
+"" CORE FUNCTIONALITY
 "
-"" FUNCTIONALITY
-"
-"  NeoBundle     '907th/vim-auto-save'
-"  NeoBundle     'Lokaltog/vim-easymotion'
-"  NeoBundle     'Raimondi/delimitMate'
-"  NeoBundle     'SirVer/ultisnips'
-"  NeoBundle     'Valloric/YouCompleteMe'
-"  NeoBundle     'bccalc.vim'
-"  NeoBundle     'bling/vim-airline'
-"  NeoBundle     'bufkill.vim'
-"  NeoBundle     'dahu/vim-fanfingtastic'
-"  NeoBundle     'epmatsw/ag.vim'
-"  NeoBundle     'gavinbeatty/dragvisuals.vim'
-"  NeoBundle     'godlygeek/tabular'
-"  NeoBundle     'honza/vim-snippets'
-"  NeoBundle     'kien/ctrlp.vim',         { 'depends': ['tacahiroy/ctrlp-funky', 'FelikZ/ctrlp-py-matcher'] }
-"  NeoBundle     'kien/rainbow_parentheses.vim'
-"  NeoBundle     'kshenoy/vim-signature'
-"  NeoBundle     'mileszs/ack.vim'
-"  NeoBundle     'nathanaelkane/vim-indent-guides'
-"  NeoBundle     'scrooloose/syntastic'
-"  NeoBundle     'skryl/tslime.vim'
-"  NeoBundle     'skryl/vimdoc'
-"  NeoBundle     'terryma/vim-expand-region'
-"  NeoBundle     'tomtom/tcomment_vim'
-"  NeoBundle     'tpope/vim-endwise'
-"  NeoBundle     'tpope/vim-repeat'
-"  NeoBundle     'tpope/vim-surround'
-"  NeoBundle     'tpope/vim-unimpaired'
-"  NeoBundle     'vis'
-"  NeoBundle     'xolox/vim-easytags',     { 'depends': 'xolox/vim-misc' }
-"  NeoBundle     'xolox/vim-session',      { 'depends': 'xolox/vim-misc' }
-"
-"  NeoBundleLazy 'Shougo/vimshell.vim',    { 'autoload':{'commands':'VimShell'}}
-"  NeoBundleLazy 'majutsushi/tagbar',      { 'autoload':{'commands':'TagbarToggle'}}
-"  NeoBundleLazy 'mattn/gist-vim',         { 'autoload':{'commands':'Gist' }, 'depends': 'mattn/webapi-vim'}
-"  NeoBundleLazy 'mbbill/undotree',        { 'autoload':{'commands':'UndotreeToggle'}}
-"  NeoBundleLazy 'scrooloose/nerdtree',    { 'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}}
-"  NeoBundleLazy 'Shougo/unite.vim',       { 'autoload':{'commands':'Unite'},
-"        \  'depends': ['shougo/neomru.vim', 'shougo/unite-outline',
-"        \              'shougo/unite-help', 'shougo/unite-session' ]}
-"
-"" LANGUAGE SUPPORT
-"
-" " git
-"  NeoBundle     'tpope/vim-fugitive'
-"  NeoBundle     'tpope/vim-git'
-"  NeoBundle     'mhinz/vim-signify'
-"  NeoBundleLazy 'gregsexton/gitv',  {'depends':['tpope/vim-fugitive'], 'autoload':{'commands':'Gitv'}}
-"
-"  " ruby
-"  NeoBundleLazy 'henrik/vim-ruby-runner',  { 'autoload':{'filetypes':['ruby']}}
-"  NeoBundleLazy 't9md/vim-ruby-xmpfilter', { 'autoload':{'filetypes':['ruby']}}
-"  NeoBundleLazy 'tpope/vim-bundler',       { 'autoload':{'filetypes':['ruby']}}
-"  NeoBundleLazy 'vim-ruby/vim-ruby',       { 'autoload':{'filetypes':['ruby']}}
-"  NeoBundleLazy 'tpope/vim-rails',         { 'autoload':{'filetypes':['ruby']}}
-"
-"  " swift / objc
-"  NeoBundleLazy 'toyamarinyon/vim-swift',  { 'autoload':{'filetypes':['swift']}}
-"  NeoBundleLazy 'b4winckler/vim-objc',     { 'autoload':{'filetypes':['objc']}}
-"  NeoBundleLazy 'eraserhd/vim-ios.git',    { 'autoload':{'filetypes':['objc','swift']}}
-"
-"  " clojure
-"  NeoBundleLazy 'guns/vim-clojure-static', { 'autoload':{'filetypes':['clojure']}}
-"  NeoBundleLazy 'tpope/vim-fireplace',     { 'autoload':{'filetypes':['clojure']}}
-"  NeoBundleLazy 'paredit.vim',             { 'autoload':{'filetypes':['clojure','scheme','racket','lisp']}}
-"
-"  " markup
-"  NeoBundleLazy 'suan/vim-instant-markdown',    { 'autoload':{'filetypes':['markdown']}}
-"  NeoBundleLazy 'tpope/vim-markdown',           { 'autoload':{'filetypes':['markdown']}}
-"  NeoBundleLazy 'matthias-guenther/hammer.vim', { 'autoload': { 'filetypes':['markdown','textile', 'rdoc']}}
-"
-"  " html/css
-"  NeoBundleLazy 'gregsexton/MatchTag',          { 'autoload': { 'filetypes':['html','xml']}}
-"  NeoBundleLazy 'othree/html5.vim',             { 'autoload': { 'filetypes':['html']}}
-"  NeoBundleLazy 'groenewege/vim-less',          { 'autoload': { 'filetypes':['less']}}
-"  NeoBundleLazy 'slim-template/vim-slim',       { 'autoload': { 'filetypes':['slim']}}
-"  NeoBundleLazy 'tpope/vim-haml',               { 'autoload': { 'filetypes':['haml']}}
-"  NeoBundleLazy 'hail2u/vim-css3-syntax',       { 'autoload': { 'filetypes':['css','scss','sass']}}
-"  NeoBundleLazy 'cakebaker/scss-syntax.vim',    { 'autoload': { 'filetypes':['scss','sass']}}
-"  NeoBundleLazy 'ap/vim-css-color',             { 'autoload': { 'filetypes':['css','scss','sass','less','styl']}}
-"
-"  " js
-"  NeoBundleLazy 'pangloss/vim-javascript',    { 'autoload': { 'filetypes':['javascript']}}
-"  NeoBundleLazy 'marijnh/tern_for_vim',       { 'autoload': { 'filetypes':['javascript']}, 'build': {'mac': 'npm install'}}
-"  NeoBundleLazy 'maksimr/vim-jsbeautify',     { 'autoload': { 'filetypes':['javascript']}}
-"  NeoBundleLazy 'leshill/vim-json',           { 'autoload': { 'filetypes':['javascript','json']}}
-"  NeoBundleLazy 'mmalecki/vim-node.js',       { 'autoload': { 'filetypes':['javascript']}}
-"  NeoBundleLazy 'kchmck/vim-coffee-script',   { 'autoload': { 'filetypes':['coffee']}}
-"  NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes':['typescript']}}
-"  NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': { 'filetypes':['javascript','coffee','typescript']}}
-"
-"  " random
-"  NeoBundleLazy 'michaeljsmith/vim-indent-object', { 'autoload': { 'filetypes':['python']}}
-"  NeoBundleLazy 'a.vim',                           { 'autoload': { 'filetypes':['c','cpp']}}
-"  NeoBundleLazy 'def-lkb/ocp-indent',              { 'autoload': { 'filetypes':['sml']}}
-"  NeoBundleLazy 'derekwyatt/vim-scala',            { 'autoload': { 'filetypes':['scala']}}
-"  NeoBundleLazy 'jimenezrick/vimerl',              { 'autoload': { 'filetypes':['erlang']}}
-"  NeoBundleLazy 'jnwhiteh/vim-golang',             { 'autoload': { 'filetypes':['go']}}
-"  NeoBundleLazy 'salinasv/vim-vhdl',               { 'autoload': { 'filetypes':['vhdl']}}
-"  NeoBundleLazy 'wlangstroth/vim-racket',          { 'autoload': { 'filetypes':['racket','scheme']}}
+  " Plug  'Shougo/unite.vim'     |
+  " Plug  'shougo/neomru.vim'    |
+  " Plug  'shougo/unite-outline' |
+  " Plug  'shougo/unite-help'    |
+  " Plug  'shougo/unite-session'
+
+  Plug  'altercation/vim-colors-solarized'
+  Plug  'scrooloose/nerdtree',    { 'on': 'NERDTreeToggle' }
+  Plug  'scrooloose/syntastic'
+  Plug  'scrooloose/nerdcommenter'
+  Plug  'Valloric/YouCompleteMe'
+  Plug  'kien/ctrlp.vim'
+  Plug  'SirVer/ultisnips' |  Plug 'honza/vim-snippets'
+  Plug  'tpope/vim-endwise'
+  Plug  'tpope/vim-repeat'
+  Plug  'tpope/vim-surround'
+  Plug  'tpope/vim-unimpaired'
+  Plug  'junegunn/rainbow_parentheses.vim'
+  Plug  'xolox/vim-misc'   |  Plug 'xolox/vim-easytags'
+  Plug  'majutsushi/tagbar'
+  Plug  'mbbill/undotree',        { 'on': 'UndotreeToggle' }
+  Plug  'rking/ag.vim'
+	Plug  'vim-airline/vim-airline'
+	Plug  'vim-airline/vim-airline-themes'
+  Plug  'Raimondi/delimitMate'
+  Plug  'bronson/vim-trailing-whitespace'
+  Plug  'terryma/vim-multiple-cursors'
+  Plug  'gavinbeatty/dragvisuals.vim'
+  Plug  'junegunn/vim-easy-align'
+  "Plug  'kshenoy/vim-signature'
+  Plug  'skryl/tslime.vim'
+  Plug  'bufkill.vim'
+  Plug  'bccalc.vim'
+  Plug  'vis'
+
+" LANGUAGE SUPPORT
+
+ " git
+  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist' }
+  Plug  'tpope/vim-fugitive'
+  Plug  'junegunn/gv.vim'
+
+
+  " ruby
+  Plug  't9md/vim-ruby-xmpfilter',    { 'for': 'ruby' }
+  Plug  'vim-ruby/vim-ruby',          { 'for': 'ruby' }
+  Plug  'tpope/vim-rails',            { 'for': 'ruby' }
+
+
+  " ios / swift / objc
+  Plug  'keith/swift.vim',            { 'for': 'swift' }
+  Plug  'b4winckler/vim-objc',        { 'for': 'objc'  }
+
+
+  " clojure
+  Plug  'guns/vim-clojure-static',    { 'for': 'clojure' }
+  Plug  'tpope/vim-fireplace',        { 'for': 'clojure' }
+
+
+  " plaintext / markup
+  Plug  'majutsushi/tagbar'
+  Plug  'junegunn/goyo.vim',          { 'for': ['txt', 'markdown']      }
+  Plug  'junegunn/vim-xmark',         { 'do': 'make', 'for': 'markdown' }
+  Plug  'plasticboy/vim-markdown',    { 'for': 'markdown'               }
+
+
+  " html/css
+  Plug  'othree/html5.vim',           { 'for': 'html'                }
+  Plug  'Valloric/MatchTagAlways',    { 'for': ['html', 'xml']       }
+  Plug  'groenewege/vim-less',        { 'for': 'less'                }
+  Plug  'slim-template/vim-slim',     { 'for': 'slim'                }
+  Plug  'digitaltoad/vim-pug',        { 'for': 'jade'                }
+  Plug  'tpope/vim-haml',             { 'for': 'haml'                }
+  Plug  'hail2u/vim-css3-syntax',     { 'for': ['css','scss','sass'] }
+  Plug  'cakebaker/scss-syntax.vim',  { 'for': ['scss','sass']       }
+  Plug  'ap/vim-css-color',           { 'for': ['css','scss','sass','less','styl'] }
+
+
+  " js
+  Plug  'pangloss/vim-javascript',    { 'for': ['javascript','json'] }
+  Plug  'marijnh/tern_for_vim',       { 'for': 'javascript'          }
+  Plug  'moll/vim-node',              { 'for': 'javascript'          }
+  Plug  'kchmck/vim-coffee-script',   { 'for': 'coffee'              }
+  Plug  'leafgarland/typescript-vim', { 'for': 'typescript'          }
+
+
+  " random
+  Plug  'OCamlPro/ocp-indent',        { 'for': ['sml', 'ocaml']    }
+  Plug  'derekwyatt/vim-scala',       { 'for': 'scala'             }
+  Plug  'elixir-lang/vim-elixir',     { 'for': 'elixir'            }
+  Plug  'jnwhiteh/vim-golang',        { 'for': 'go'                }
+  Plug  'wlangstroth/vim-racket',     { 'for': ['racket','scheme'] }
+  Plug  'tmux-plugins/vim-tmux',      { 'for': 'tmux'              }
 
 
 " THEMES
 
-  NeoBundle 'altercation/vim-colors-solarized'
 
-  call neobundle#end()
+  call plug#end()
 
 
 " ----------------------------------------------------------------------------
@@ -226,9 +210,9 @@ endif
 
 " MOUSE
 
-  set mouse=a                " enable mouse
-  set mousehide              " hide mouse when typing
-  set mousef                 " allows the mouse to change the position of the cursor
+  " set mouse=a                " enable mouse
+  " set mousehide              " hide mouse when typing
+  " set mousef                 " allows the mouse to change the position of the cursor
 
 " COMPLETION
 
@@ -375,13 +359,6 @@ endif
     autocmd SwapExists *  sleep 2
   augroup END
 
-  " rainbow parens
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax   * RainbowParenthesesLoadRound
-  au Syntax   * RainbowParenthesesLoadSquare
-  au Syntax   * RainbowParenthesesLoadBraces
-
-
 " ----------------------------------------------------------------------------
 " PACKAGE SETTINGS
 " ----------------------------------------------------------------------------
@@ -450,7 +427,7 @@ endif
 " EASYTAGS / CTAGS / CSCOPE
 
   let g:easytags_file = '~/.vim/.cache/tags'
-  " let g:easytags_auto_update = 0
+  let g:easytags_async=1
   let g:easytags_python_enabled  = 1
   let g:easytags_resolve_links   = 1
   let g:easytags_dynamic_files   = 1
@@ -520,6 +497,12 @@ endif
       \ ['red',         'firebrick3'],
       \ ]
 
+  augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure,scheme RainbowParentheses
+  augroup END
+
+
 " RUBY-RUNNER
 
   nnoremap <leader>rb :RunRuby<CR>
@@ -528,7 +511,7 @@ endif
 
   " search for word under cursor
   set grepprg=ag\ --nogroup\ --nocolor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap F :Ag "<C-R><C-W>"
 
 " SYNTASTIC
 
@@ -541,14 +524,14 @@ endif
   let g:syntastic_enable_signs=1
   let g:syntastic_enable_highlighting=1
   let g:syntastic_quiet_messages = {'level': 'warnings'}
-  let g:syntastic_auto_jump=1
+  let g:syntastic_auto_jump=0
   let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
   let g:syntastic_cpp_check_header = 1
   let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
   let g:syntastic_mode_map = { 'passive_filetypes': [] }
 
   set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
+"  set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
 " TABULAR
@@ -569,11 +552,6 @@ endif
   nnoremap <C-T> :TagbarToggle<CR>
   let g:tagbar_left = 1
 
-" TCOMMENT
-
-  noremap <leader>c<Space> :TComment<CR>
-  vnoremap <leader>c<Space> :TComment<CR>
-
 " TSLIME
 
   let g:tmux_sessionname = 0
@@ -590,53 +568,53 @@ endif
 
 " UNITE
 
-  let g:unite_force_overwrite_statusline = 0
-  let g:unite_source_history_yank_enable = 1
-	let g:unite_source_grep_max_candidates = 200
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_default_opts =
-  \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-  \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-
-	" Like ctrlp.vim settings.
-	call unite#custom#profile('default', 'context', {
-  \   'prompt': '>>>',
-	\   'winheight': 25,
-  \   'max-multi-lines': 1,
-	\   'direction': 'topleft',
-	\ })
-
-  function! s:unite_settings()
-    let b:SuperTabDisabled=1
-    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-    imap <silent><buffer><expr> <C-x> unite#do_action('split')
-    imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-    imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-    imap <buffer> <ESC> <Plug>(unite_exit)
-    nmap <buffer> <ESC> <Plug>(unite_exit)
-  endfunction
-
-	autocmd FileType unite call s:unite_settings()
-
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  nnoremap <leader>fb :<C-u>Unite  -auto-resize buffer<cr>
-  nnoremap <leader>fc :<C-u>Unite  -auto-resize -start-insert command<cr>
-  " nnoremap <leader>ff :<C-u>Unite  -auto-resize -start-insert file_rec/async:!<cr>
-  nnoremap <leader>fg :<C-u>Unite  -auto-resize grep:.<cr>
-  nnoremap <leader>fh :<C-u>Unite  -auto-resize -start-insert help<cr>
-  nnoremap <leader>fm :<C-u>Unite  -auto-resize -start-insert mapping<cr>
-  nnoremap <leader>fo :<C-u>Unite  -auto-resize -start-insert outline<cr>
-  nnoremap <leader>f" :<C-u>Unite  -auto-resize register<cr>
-  nnoremap <leader>fr :<C-u>Unite  -auto-resize file_mru<cr>
-  nnoremap <leader>fs :<C-u>Unite  -auto-resize session<cr>
-  nnoremap <leader>fu :<C-u>Unite  -auto-resize source<cr>
-  nnoremap <leader>fy :<C-u>Unite  -auto-resize history/yank<cr>
-  nnoremap <leader>fp :<C-u>Unite  -auto-resize -start-insert process<cr>
-  nnoremap <leader>fnl :<C-u>Unite -auto-resize neobundle<cr>
-  nnoremap <leader>fns :<C-u>Unite -auto-resize neobundle/search<cr>
-  nnoremap <leader>fnu :<C-u>Unite -auto-resize neobundle/update<cr>
+  " let g:unite_force_overwrite_statusline = 0
+  " let g:unite_source_history_yank_enable = 1
+	" let g:unite_source_grep_max_candidates = 200
+  " let g:unite_source_grep_command = 'ag'
+  " let g:unite_source_grep_recursive_opt = ''
+  " let g:unite_source_grep_default_opts =
+  " \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+  " \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  "
+	" " Like ctrlp.vim settings.
+	" call unite#custom#profile('default', 'context', {
+  " \   'prompt': '>>>',
+	" \   'winheight': 25,
+  " \   'max-multi-lines': 1,
+	" \   'direction': 'topleft',
+	" \ })
+  "
+  " function! s:unite_settings()
+  "   let b:SuperTabDisabled=1
+  "   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  "   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  "   imap <silent><buffer><expr> <C-x> unite#do_action('split')
+  "   imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  "   imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  "   imap <buffer> <ESC> <Plug>(unite_exit)
+  "   nmap <buffer> <ESC> <Plug>(unite_exit)
+  " endfunction
+  "
+	" autocmd FileType unite call s:unite_settings()
+  "
+  " call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  " nnoremap <leader>fb :<C-u>Unite  -auto-resize buffer<cr>
+  " nnoremap <leader>fc :<C-u>Unite  -auto-resize -start-insert command<cr>
+  " " nnoremap <leader>ff :<C-u>Unite  -auto-resize -start-insert file_rec/async:!<cr>
+  " nnoremap <leader>fg :<C-u>Unite  -auto-resize grep:.<cr>
+  " nnoremap <leader>fh :<C-u>Unite  -auto-resize -start-insert help<cr>
+  " nnoremap <leader>fm :<C-u>Unite  -auto-resize -start-insert mapping<cr>
+  " nnoremap <leader>fo :<C-u>Unite  -auto-resize -start-insert outline<cr>
+  " nnoremap <leader>f" :<C-u>Unite  -auto-resize register<cr>
+  " nnoremap <leader>fr :<C-u>Unite  -auto-resize file_mru<cr>
+  " nnoremap <leader>fs :<C-u>Unite  -auto-resize session<cr>
+  " nnoremap <leader>fu :<C-u>Unite  -auto-resize source<cr>
+  " nnoremap <leader>fy :<C-u>Unite  -auto-resize history/yank<cr>
+  " nnoremap <leader>fp :<C-u>Unite  -auto-resize -start-insert process<cr>
+  " nnoremap <leader>fnl :<C-u>Unite -auto-resize neobundle<cr>
+  " nnoremap <leader>fns :<C-u>Unite -auto-resize neobundle/search<cr>
+  " nnoremap <leader>fnu :<C-u>Unite -auto-resize neobundle/update<cr>
 
 " UTILSNIPS
 
@@ -710,29 +688,6 @@ endif
   xmap <buffer> <F4> <Plug>(xmpfilter-mark)
   imap <buffer> <F4> <Plug>(xmpfilter-mark)
 
-
-" VIM-SESSION
-
-  let g:session_autoload = 'no'
-  let g:session_autosave = 'no'
-
-  nnoremap <Leader>ss :SaveSession<CR>
-  nnoremap <Leader>so :OpenSession<CR>
-  nnoremap <Leader>sc :CloseSession<CR>
-  nnoremap <Leader>sd :DeleteSession<CR>
-  nnoremap <Leader>sv :ViewSession<CR>
-
-" VIMSHELL
-
-  nnoremap <leader>cmd :VimShell -split<CR>
-
-  let g:vimshell_prompt = $USER."% "
-  let g:vimshell_temporary_directory='~/.vim/.cache/vimshell'
-
-  " nnoremap <Leader><CR> :VimShellSendString<CR>
-  " vnoremap <Leader><CR> :VimShellSendString<CR>
-  " nnoremap <Leader>pry :VimShellInteractive pry<CR>
-
 " VIM-SIGNIFY
 
   let g:signify_disable_by_default = 1
@@ -743,8 +698,8 @@ endif
 " YOUCOMPLETEME
 
   " make ycm play nice with UltiSnips
-  " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+  let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
   let g:ycm_collect_identifiers_from_tags_files=1
   let g:ycm_min_num_of_chars_for_completion=1
@@ -918,4 +873,3 @@ endif
 
   filetype plugin indent on  " don't move/change this line
   syntax on
-  NeoBundleCheck             " check for new packages

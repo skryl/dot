@@ -135,7 +135,7 @@ function _alias_tools {
   alias rake='be rake'
   alias guard='be guard'
   alias rs='be rails server'
-  alias rc='be pry -r ./config/environment'
+  alias rc='be rails console'
   alias rl='tail -f log/development.log'
   alias db_create='be rake db:create'
   alias db_drop='be rake db:drop'

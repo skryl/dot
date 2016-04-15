@@ -1,4 +1,4 @@
-DEBUG=1
+# DEBUG=1
 
 test -e "$HOME/.functions" && source "$HOME/.functions"
 test -e "$HOME/.aliases"   && source "$HOME/.aliases"
@@ -186,6 +186,8 @@ export SBT_OPTS=-XX:MaxPermSize=512m
 # -------------------------------------------------------------------
 _rc_path_append_check /Applications/Android\ Studio.app/sdk/tools
 _rc_path_append_check /Applications/Android\ Studio.app/sdk/platform-tools
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
+
 
 
 # -------------------------------------------------------------------

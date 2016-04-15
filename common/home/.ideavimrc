@@ -1,0 +1,182 @@
+" ----------------------------------------------------------------------------
+" SETTINGS
+" ----------------------------------------------------------------------------
+
+set clipboard=      " clipboard options
+set gdefault        " the :substitute flag g is default on
+set history=1000    " number of command-lines that are remembered
+set hlsearch        " highlight matches with last search pattern
+set ignorecase      " ignore case in search patterns
+set incsearch       " show where search pattern typed so far matches
+set matchpairs      " pairs of characters that % can match
+set number          " print the line number in front of each line
+set scroll=20       " lines to scroll with CTRL-U and CTRL-D
+set scrolljump      " minimum number of lines to scroll
+set scrolloff=3     " minimum nr. of lines above and below cursor
+set selection       " what type of selection to use
+set showmode        " message on status line to show current mode
+set smartcase       " no ignore case when pattern has uppercase
+set timeoutlen=300  " time that is waited for a mapped key sequence
+set undolevels=1000 " maximum number of changes that can be undone
+set novisualbell    " use visual bell instead of beeping
+set wrapscan        " searches wrap around the end of the file
+set virtualedit=all " virtual cursor
+
+
+" ----------------------------------------------------------------------------
+" KEYMAPPINGS
+" ----------------------------------------------------------------------------
+
+" GENERAL
+
+  " remap semicolon to colon
+  nnoremap ; :
+  vnoremap ; :
+
+  "" Keep search matches in the middle of the window.
+  " zz centers the screen on the cursor, zv unfolds any fold if the cursor
+  " suddenly appears inside a fold.
+  nnoremap * *zzzv
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
+
+  "" Also center the screen when jumping through the changelist
+  nnoremap g; g;zz
+  nnoremap g, g,zz
+
+  "" Map the arrow keys to be based on display lines, not physical lines
+  nnoremap j gj
+  nnoremap k gk
+  nnoremap <Down> gj
+  nnoremap <Up> gk
+
+  "" edit/reload vimrc
+  nnoremap <leader>v :e ~/.vimrc<CR>
+  nnoremap <leader>V :source ~/.vimrc<CR>
+
+  "" turn on spellcheck
+  nnoremap <silent> <leader>sp s:set spell!<CR>
+
+  "" fast saving
+  " nnoremap <leader>ww :w !sudo tee %<CR>
+  " nnoremap <leader>w :w!<cr>
+
+  "" for faster scrolling
+  nnoremap <C-f> 15gj
+  nnoremap <C-b> 15gk
+
+
+" VISUAL CUES / SEARCH
+
+  " highlight cursor column
+  nnoremap <Leader>hc :set cursorcolumn!<CR>
+
+  "" Make vaa select the entire file...
+  vnoremap aa VGo1G
+
+  "" Make BS/DEL delete in visual mode
+  vnoremap <BS> x
+
+  "" Visual Block mode is more useful than Visual mode, swap v and C-v
+  nnoremap v <C-V>
+  nnoremap <C-V> v
+  vnoremap v <C-V>
+  vnoremap <C-V> v
+
+  "" Toggle hlsearch with <leader>hs
+  nnoremap <leader>hs :set hlsearch! hlsearch?<CR>
+
+  "" find merge conflict markers
+  nnoremap <silent> <leader>hm <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+  "" set text wrapping toggles
+  nnoremap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
+
+
+" SYMBOL LOOKUP
+
+  "" call :help for word under cursor
+  noremap <leader>d "zyiw:exe "h ".@z.""<CR>
+
+  "" g<c-]> is jump to tag if there's only one matching tag,
+  "but show list of options when there is more than one definition
+  nnoremap <leader>go g<c-]>
+
+
+" EDITING
+
+  "" upper/lower word
+  nnoremap <leader>U mQviwU`Q
+  nnoremap <leader>L mQviwu`Q
+
+  "" upper/lower first char of word
+  nnoremap <leader>C mQgewvU`Q
+  nnoremap <leader>N mQgewvu`Q
+
+  "" underscore/camelcase
+  noremap + /\$\w\+_<CR>
+  noremap _ f_x~
+
+  "" Some helpers to edit mode
+  cnoremap %% <C-R>=expand('%:h').'/'<cr>
+  noremap <leader>ew :e %%         " open file in current path
+  noremap <leader>es :sp %%        " open file for h split
+  noremap <leader>ev :vsp %%       " open file for vsplit
+  noremap <leader>cd :cd %:p:h<cr> " switch to the directory
+
+  "" swap two words
+  nnoremap <silent> sw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+  "" Underline the current line with '='
+  nnoremap <silent> <leader>ul :t.\|s/./=/g\|:nohls<cr>
+
+  " show whitespace
+  nnoremap <Leader>ws :set list!<CR>
+
+  " strip all trailing whitespace
+  noremap <leader>wt :call StripWhitespace ()<CR>
+
+  "" reflow paragraph with Q in normal and visual mode
+  nnoremap Q gqap
+  vnoremap Q gq
+
+  "" Dont exit visual mode when shifting code
+  vnoremap < <gv
+  vnoremap > >gv
+
+
+" WINDOWS / NAVIGATION
+
+  "" Adjust viewports to the same size
+  noremap <Leader>= <C-w>=
+
+  "" Switches to the previous buffer that was shown
+  noremap <leader>p <c-^> :bd #<cr>
+
+  "" This is quit all
+  noremap <Leader>qa :wqa<cr>
+
+  " rotates the orientation of all windows on screen
+  nnoremap <leader>rv :windo wincmd H<CR>
+  nnoremap <leader>rh :windo wincmd K<CR>
+
+  "" Ctrl-HJKL keys move between windows
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+  nnoremap <leader>wq <C-w>q
+
+  "" splits and buffers
+  nnoremap <leader>sh :split<CR>
+  nnoremap <leader>sv :vsplit<CR>
+  nnoremap <leader>shb :split<CR>:b <C-Z><C-Z>
+  nnoremap <leader>svb :vsplit<CR>:b <C-Z><C-Z>
+  nnoremap <C-p> :bprev<CR>
+  nnoremap <C-n> :bnext<CR>
+  nnoremap <C-x> :BW<CR>
+
+  "" Linting
+
+  nnoremap <leader>js %!python -m json.tool<CR>
+  nnoremap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
