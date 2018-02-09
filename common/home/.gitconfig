@@ -9,6 +9,7 @@
 	editor = vim
 	excludesfile = /Users/skryl/.gitignore
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [github]
 	user = skryl
@@ -56,7 +57,3 @@
 
 [heroku]
 	account = trusted
-
-[pager]
-	show = diff-so-fancy | less --tabs=1,5 -RFX
-	diff = diff-so-fancy | less --tabs=1,5 -RFX

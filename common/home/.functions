@@ -17,6 +17,27 @@ _bootstrap() {
   fi
 }
 
+_move_common_home() {
+  mv $1 $DROPBOX/customization/common/home/$1
+  ln -sf $DROPBOX/customization/common/home/$1
+}
+
+_remove_common_home() {
+  rm $1
+  mv $DROPBOX/customization/common/home/$1 $1
+}
+
+_move_common_bin() {
+  mv $1 $DROPBOX/customization/common/bin/$1
+  ln -sf $DROPBOX/customization/common/bin/$1
+}
+
+_remove_common_bin() {
+  rm $1
+  mv $DROPBOX/customization/common/bin/$1 $1
+}
+
+
 _rc_test_shell_type() {
   # detect interactive shell
   case "$-" in

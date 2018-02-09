@@ -15,6 +15,7 @@ function _alias_osx {
   #homebrew
   alias brewi='brew install'
   alias brewu='brew uninstall'
+  alias cask='brew cask'
   alias caski='brew cask install --appdir="/Applications"'
   alias casku='brew cask uninstall'
   alias casks='brew cask search'
@@ -74,7 +75,7 @@ function _alias_nav {
   alias txi="cd $DROPBOX/dev/work/tablexi"
   alias 8b="cd $DROPBOX/dev/work/enova/8b"
   alias iq="cd $DROPBOX/dev/work/persistiq"
-  alias trusted="cd $DROPBOX/dev/projects/trustedapp"
+  alias trusted="cd $DROPBOX/dev/work/trusted"
 }
 
 # ----------------------------------------------------------------------
@@ -145,6 +146,14 @@ function _alias_tools {
   alias db_reset='be rake db:reset'
   alias db_dance='be rake db:drop db:create db:migrate db:seed'
 
+#docker
+  alias doc="docker"
+  alias dc="docker-compose"
+  #function drm  { drmc; drmi; drmv }
+  #function drmc { docker rm -v $(docker ps -a -q -f status=exited) }
+  #function drmi { docker rmi $(docker images -f dangling=true -q)  }
+  #function drmv { docker volume rm $(docker volume ls -qf dangling=true) }
+
 # swift
   alias swift='xcrun swift'
   alias swiftc='xcrun swiftc'
@@ -186,8 +195,8 @@ function _alias_tools {
   alias henv='heroku config'
 
 # synergy
- alias synergy_client='synergyc 192.168.1.100'
- alias synergy_server='synergys --config ~/.synergy'
+  alias synergy_client='synergyc 192.168.1.100'
+  alias synergy_server='synergys --config ~/.synergy'
 
 # nocorrect / rlwrap
   alias rspec='nocorrect rspec'
@@ -208,6 +217,5 @@ _alias_fs
 _alias_nav
 _alias_remotes
 _alias_tools
-
 
 _rc_debug_print ALIASES

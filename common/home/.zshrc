@@ -1,27 +1,54 @@
-_rc_test_shell_bin
-_rc_test_shell_type
-
-# -------------------------------------------------------------------
-# FASD
-# -------------------------------------------------------------------
-eval "$(fasd --init auto)"
-
 # -------------------------------------------------------------------
 # COMMON
 # -------------------------------------------------------------------
 _rc_xset
 # _rc_motd
+export KEYTIMEOUT=1
 
 
 # ----------------------------------------------------------------------
-# OH-MY-ZSH
+# ANTIGEN
 # ----------------------------------------------------------------------
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME=cypher
+source ~/.antigen/antigen.zsh
 
-plugins=(sudo)
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-test -n "$ZSH" && source $ZSH/oh-my-zsh.sh
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+#antigen bundle adb
+#antigen bundle bundler
+#antigen bundle colored-man-pages
+#antigen bundle command-not-found
+#antigen bundle common-aliases
+#antigen bundle docker
+#antigen bundle docker-compose
+#antigen bundle gem
+#antigen bundle heroku
+#antigen bundle nmap
+#antigen bundle osx
+#antigen bundle perms
+#antigen bundle pip
+#antigen bundle rails
+#antigen bundle rake
+#antigen bundle rbenv
+antigen bundle sudo
+#antigen bundle tmux
+
+# External plugins
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Load theme.
+#antigen theme cypher
+antigen theme robbyrussell
+
+# Tell antigen that you're done.
+antigen apply
+
+# Settings
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
 
 _rc_debug_print "PATH: $PATH"

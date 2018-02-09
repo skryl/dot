@@ -1,0 +1,11 @@
+set ignorecase
+set wrap
+set wrapscan
+set noerrorbells
+set incsearch
+set gdefault
+set smartcase
+set number
+set hlsearch
+set blinkcursor
+set clipboard=unnamed"

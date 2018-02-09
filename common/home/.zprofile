@@ -1,7 +1,6 @@
 # DEBUG=1
 
 test -e "$HOME/.functions" && source "$HOME/.functions"
-test -e "$HOME/.aliases"   && source "$HOME/.aliases"
 
 _rc_test_shell_bin
 _rc_test_shell_type
@@ -114,12 +113,16 @@ test -n "$(command -v opam)" && eval `opam config env`
 # -------------------------------------------------------------------
 test -n "$(command -v rbenv)" && eval "$(rbenv init -)"
 
+# NODE/NODENV
+# -------------------------------------------------------------------
+test -n "$(command -v nodenv)" && eval "$(nodenv init -)"
+
 
 # -------------------------------------------------------------------
-# JS/NODE/NVM
+# ASDF (Universal Version Manager)
 # -------------------------------------------------------------------
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#test -d "$HOME/.asdf" && source $HOME/.asdf/asdf.sh
+#test -d "$HOME/.asdf" && source $HOME/.asdf/completions/asdf.bash
 
 
 # -------------------------------------------------------------------
@@ -145,8 +148,10 @@ fi
 # -------------------------------------------------------------------
 # PYTHON
 # -------------------------------------------------------------------
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-_rc_path_append_check "/usr/local/lib/python2.7/bin"
+unset PYTHONPATH
+export PYENV_ROOT="$HOME/.pyenv"
+test -n "$(command -v pyenv)" && eval "$(pyenv init -)"
+_rc_path_append_check "$PYENV_ROOT/bin"
 
 
 # -------------------------------------------------------------------
@@ -168,7 +173,6 @@ else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 fi
 
-
 # -------------------------------------------------------------------
 # HASKELL/XMONAD
 # -------------------------------------------------------------------
@@ -187,17 +191,45 @@ export SBT_OPTS=-XX:MaxPermSize=512m
 _rc_path_append_check /Applications/Android\ Studio.app/sdk/tools
 _rc_path_append_check /Applications/Android\ Studio.app/sdk/platform-tools
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
+export IDEA_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk
+export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk
 
+# -------------------------------------------------------------------
+# DRONECI
+# -------------------------------------------------------------------
+export DRONE_SERVER=http://ci.usetrusted.com
+export DRONE_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0Ijoic2tyeWwiLCJ0eXBlIjoidXNlciJ9.1D9dxHzPHrItwlx39VIh8c6SqoOTs0ULFCjVrsHBYvo
 
 
 # -------------------------------------------------------------------
-# DOCKER
+# GITHUB
 # -------------------------------------------------------------------
-export DOCKER_CERT_PATH=/Users/skryl/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
+export GITHUB_USER=skryl
+export GITHUB_TOKEN=manager
+
+
+# -------------------------------------------------------------------
+# BUGSNAG
+# -------------------------------------------------------------------
+export BUGSNAG_TOKEN=5b247282bbbeacbea3e91a6acd186f74
+export BUGSNAG_PROJECT=backend
+
+
+# -------------------------------------------------------------------
+# RUST
+# -------------------------------------------------------------------
+_rc_path_append "$HOME/.cargo/bin"
+export XDG_RUNTIME_DIR="/tmp"
+
+# -------------------------------------------------------------------
+# FASD
+# -------------------------------------------------------------------
+eval "$(fasd --init auto)"
+
 
 
 _rc_export_paths
 _rc_debug_print "PATH: $PATH"
 _rc_debug_print PROFILE
+
+test -e "$HOME/.aliases"   && source "$HOME/.aliases"

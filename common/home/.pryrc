@@ -1,14 +1,15 @@
 require 'pp'
 
 begin
-# require 'hirb'
-  require 'awesome_print'
   require 'pry'
-  #require 'pry-debugger'
-  #require 'pry-stack_explorer'
+  require 'hirb'
+  require 'awesome_print'
+  require 'benchmark'
+  require 'benchmark/ips'
 rescue LoadError
   puts "Error loading gems!"
 end
+
 
 # config
 # -------------------------------------------------------------------------------
@@ -16,10 +17,6 @@ end
 Pry.config.history.should_save = true
 Pry.prompt = [proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
-if defined?(PryDebugger)
-  # Pry.commands.alias_command '.where', 'whereami'
-  # Pry.commands.alias_command '.cont', 'continue'
-end
 
 # scratch buffer
 # -------------------------------------------------------------------------------
@@ -35,15 +32,17 @@ Pry.config.commands.command "vim", "Edit scratch buffer" do |path|
   end
 end
 
-# pretty
+
+# pretty print
 # -------------------------------------------------------------------------------
 
-# if defined? Hirb
-#   Pry.config.print = proc do |output, value|
-#     Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
-#   end
-#   Hirb.enable
-# end
+ if defined? Hirb
+   #Hirb.enable
+   Pry.config.print = proc do |output, value, _pry_|
+     Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value, _pry_)
+   end
+ end
+
 
 # trace
 # -------------------------------------------------------------------------------
@@ -59,13 +58,16 @@ def enable_trace( event_regex = /^(call|return)/, class_regex = /IRB|Wirble|Ruby
   return
 end
 
+
 def disable_trace
   puts "Disabled trace"
   set_trace_func nil
 end
 
-# Rails
+
+# rails
 # -------------------------------------------------------------------------------
+
 def ar_toggle_logger
   if ActiveRecord::Base.logger
     ActiveRecord::Base.logger = nil
@@ -74,8 +76,15 @@ def ar_toggle_logger
   end
 end
 
-# alias
+
+# aliases
 # -------------------------------------------------------------------------------
+
 # Pry.config.commands.alias_command "lM", "ls -M"
+#if defined?(PryDebugger)
+  #Pry.commands.alias_command '.where', 'whereami'
+  #Pry.commands.alias_command '.cont', 'continue'
+#end
+
 
 puts ".pryrc successfully loaded"

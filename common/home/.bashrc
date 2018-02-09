@@ -1,7 +1,18 @@
-test -e "$HOME/.zprofile" && source "$HOME/.zprofile"
+#!/bin/bash
+
+# test -e "$HOME/.zprofile" && source "$HOME/.zprofile"
+test -e "$HOME/.functions" && source "$HOME/.functions"
+test -e "$HOME/.aliases"   && source "$HOME/.aliases"
 
 _rc_test_shell_bin
 _rc_test_shell_type
+
+# ----------------------------------------------------------------------
+# COMMON
+# ----------------------------------------------------------------------
+_rc_xset
+# _rc_motd
+
 
 # ----------------------------------------------------------------------
 # PROMPT
@@ -15,12 +26,5 @@ test -n "$PS1" && _rc_set_prompt_color
 _expand() {
   return 0
 }
-
-# ----------------------------------------------------------------------
-# COMMON
-# ----------------------------------------------------------------------
-_rc_xset
-# _rc_motd
-
 
 _rc_debug_print BASHRC

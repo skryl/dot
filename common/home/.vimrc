@@ -1,9 +1,9 @@
 " ----------------------------------------------------------------------------
 " STARTUP
 " ----------------------------------------------------------------------------
-set nocompatible                       " Vim doesn't act like Vi
-let s:is_macvim  = has('gui_macvim')   " used later
-let g:is_posix = 1                     " bash scripts are not highlighted as sh
+set nocompatible                       " Vim mode
+let s:is_macvim  = has('gui_macvim')
+let g:is_posix = 1
 let mapleader = ","
 let g:mapleader=","
 vnoremap . :norm.<cr>
@@ -30,96 +30,99 @@ endif
   " Plug  'shougo/unite-help'    |
   " Plug  'shougo/unite-session'
 
-  Plug  'altercation/vim-colors-solarized'
-  Plug  'scrooloose/nerdtree',    { 'on': 'NERDTreeToggle' }
-  Plug  'scrooloose/syntastic'
-  Plug  'scrooloose/nerdcommenter'
-  Plug  'Valloric/YouCompleteMe'
-  Plug  'kien/ctrlp.vim'
-  Plug  'SirVer/ultisnips' |  Plug 'honza/vim-snippets'
-  Plug  'tpope/vim-endwise'
-  Plug  'tpope/vim-repeat'
-  Plug  'tpope/vim-surround'
-  Plug  'tpope/vim-unimpaired'
-  Plug  'junegunn/rainbow_parentheses.vim'
-  Plug  'xolox/vim-misc'   |  Plug 'xolox/vim-easytags'
-  Plug  'majutsushi/tagbar'
-  Plug  'mbbill/undotree',        { 'on': 'UndotreeToggle' }
-  Plug  'rking/ag.vim'
-	Plug  'vim-airline/vim-airline'
-	Plug  'vim-airline/vim-airline-themes'
-  Plug  'Raimondi/delimitMate'
-  Plug  'bronson/vim-trailing-whitespace'
-  Plug  'terryma/vim-multiple-cursors'
-  Plug  'gavinbeatty/dragvisuals.vim'
-  Plug  'junegunn/vim-easy-align'
-  "Plug  'kshenoy/vim-signature'
-  Plug  'skryl/tslime.vim'
-  Plug  'bufkill.vim'
-  Plug  'bccalc.vim'
-  Plug  'vis'
+	Plug  'vim-airline/vim-airline'           " buffer list and status bar
+	Plug  'vim-airline/vim-airline-themes'    " themes for status bar
+  Plug  'SirVer/ultisnips'                  " snippet manager
+  "Plug  'terryma/vim-multiple-cursors'      " multiple cursors
+  Plug  'honza/vim-snippets'                " snippet collection
+  Plug  'Raimondi/delimitMate'              " auto close delimiters
+  Plug  'Valloric/YouCompleteMe'            " code completion
+  Plug  'altercation/vim-colors-solarized'  " solarized color theme
+  Plug  'vim-scripts/bccalc.vim'            " eval mathematical expressions
+  Plug  'benmills/vimux'                    " run in tmux pane
+  Plug  'bronson/vim-trailing-whitespace'   " auto remove trailing whitespace
+  Plug  'brooth/far.vim'                    " find and replace
+  Plug  'vim-scripts/bufkill.vim'           " kill buffers
+  Plug  'ctrlpvim/ctrlp.vim'                " fuzzy search
+  Plug  'gavinbeatty/dragvisuals.vim'       " move visual blocks
+  Plug  'janko-m/vim-test'                  " run tests easily
+  Plug  'junegunn/rainbow_parentheses.vim'  " color parentheses highlighting
+  Plug  'junegunn/vim-easy-align'           " easiliy align code blocks
+  Plug  'kshenoy/vim-signature'             " display tags
+  Plug  'majutsushi/tagbar'                 " tag sidebar
+  Plug  'mbbill/undotree'                   " undo history sidebar
+  Plug  'rking/ag.vim'                      " fast grep
+  Plug  'scrooloose/nerdcommenter'          " multilanguage block commenting
+  Plug  'scrooloose/nerdtree'               " file sidebar
+  Plug  'skryl/tslime.vim'                  " send text to tmux pane
+  Plug  'tpope/vim-endwise'                 " auto-close code blocks
+  Plug  'tpope/vim-repeat'                  " enhance repeat command
+  Plug  'tpope/vim-surround'                " easy parenthesizing
+  Plug  'tpope/vim-unimpaired'              " some mapping defaults
+  Plug  'vim-scripts/vis'                   " visual mode enhancements
+  " Plug  'w0rp/ale'                          " async linter/syntax checker
+  "Plug  'xolox/vim-misc' | Plug 'xolox/vim-easytags' " highlight tags
 
 " LANGUAGE SUPPORT
 
  " git
-  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist' }
-  Plug  'tpope/vim-fugitive'
-  Plug  'junegunn/gv.vim'
+  Plug  'mattn/gist-vim',             { 'on': 'Gist' }      " quickly create gists
+  Plug  'tpope/vim-fugitive'                                " all the git things
+  Plug  'junegunn/gv.vim'                                   " git commit browser
 
 
   " ruby
-  Plug  't9md/vim-ruby-xmpfilter',    { 'for': 'ruby' }
-  Plug  'vim-ruby/vim-ruby',          { 'for': 'ruby' }
-  Plug  'tpope/vim-rails',            { 'for': 'ruby' }
+  Plug  't9md/vim-ruby-xmpfilter',    { 'for': 'ruby' }     " ruby eval
+  Plug  'vim-ruby/vim-ruby',          { 'for': 'ruby' }     " ruby syntax
+  Plug  'tpope/vim-rails',            { 'for': 'ruby' }     " rails commands
 
 
   " ios / swift / objc
-  Plug  'keith/swift.vim',            { 'for': 'swift' }
-  Plug  'b4winckler/vim-objc',        { 'for': 'objc'  }
+  Plug  'keith/swift.vim',            { 'for': 'swift' }    " swift syntax
+  Plug  'b4winckler/vim-objc',        { 'for': 'objc'  }    " objective c syntax
 
 
   " clojure
-  Plug  'guns/vim-clojure-static',    { 'for': 'clojure' }
-  Plug  'tpope/vim-fireplace',        { 'for': 'clojure' }
+  Plug  'guns/vim-clojure-static',    { 'for': 'clojure' }  " clojure syntax and tools
+  Plug  'tpope/vim-fireplace',        { 'for': 'clojure' }  " clojure repl
 
 
   " plaintext / markup
-  Plug  'majutsushi/tagbar'
-  Plug  'junegunn/goyo.vim',          { 'for': ['txt', 'markdown']      }
-  Plug  'junegunn/vim-xmark',         { 'do': 'make', 'for': 'markdown' }
-  Plug  'plasticboy/vim-markdown',    { 'for': 'markdown'               }
+  Plug  'junegunn/goyo.vim',          { 'for': ['txt', 'markdown']      } " distraction free writing
+  Plug  'junegunn/vim-xmark',         { 'do': 'make', 'for': 'markdown' } " markdown preview
+  Plug  'plasticboy/vim-markdown',    { 'for': 'markdown'               } " markdown syntax
 
 
   " html/css
-  Plug  'othree/html5.vim',           { 'for': 'html'                }
-  Plug  'Valloric/MatchTagAlways',    { 'for': ['html', 'xml']       }
-  Plug  'groenewege/vim-less',        { 'for': 'less'                }
-  Plug  'slim-template/vim-slim',     { 'for': 'slim'                }
-  Plug  'digitaltoad/vim-pug',        { 'for': 'jade'                }
-  Plug  'tpope/vim-haml',             { 'for': 'haml'                }
-  Plug  'hail2u/vim-css3-syntax',     { 'for': ['css','scss','sass'] }
-  Plug  'cakebaker/scss-syntax.vim',  { 'for': ['scss','sass']       }
-  Plug  'ap/vim-css-color',           { 'for': ['css','scss','sass','less','styl'] }
+  Plug  'othree/html5.vim',           { 'for': 'html'                }    " html syntax
+  Plug  'Valloric/MatchTagAlways',    { 'for': ['html', 'xml']       }    " xml/html tag matching
+  Plug  'groenewege/vim-less',        { 'for': 'less'                }    " less syntax
+  Plug  'slim-template/vim-slim',     { 'for': 'slim'                }    " slim syntax
+  Plug  'digitaltoad/vim-pug',        { 'for': ['jade', 'pug']       }    " pug/jade syntax
+  Plug  'tpope/vim-haml',             { 'for': 'haml'                }    " haml syntax
+  Plug  'tpope/vim-liquid',           { 'for': 'html'                }    " liquid syntax
+  Plug  'hail2u/vim-css3-syntax',     { 'for': ['css','scss','sass'] }    " css3 syntax
+  Plug  'cakebaker/scss-syntax.vim',  { 'for': ['scss','sass']       }    " scss syntax
+  Plug  'ap/vim-css-color',           { 'for': ['css','scss','sass','less'] } " css colors
 
 
   " js
-  Plug  'pangloss/vim-javascript',    { 'for': ['javascript','json'] }
-  Plug  'marijnh/tern_for_vim',       { 'for': 'javascript'          }
-  Plug  'moll/vim-node',              { 'for': 'javascript'          }
-  Plug  'kchmck/vim-coffee-script',   { 'for': 'coffee'              }
-  Plug  'leafgarland/typescript-vim', { 'for': 'typescript'          }
+  Plug  'pangloss/vim-javascript',    { 'for': ['javascript','json'] }    " js syntax
+  Plug  'moll/vim-node',              { 'for': 'javascript'          }    " node syntax
+  Plug  'kchmck/vim-coffee-script',   { 'for': 'coffee'              }    " coffee syntax
+  Plug  'leafgarland/typescript-vim', { 'for': 'typescript'          }    " typescript syntax
 
 
   " random
-  Plug  'OCamlPro/ocp-indent',        { 'for': ['sml', 'ocaml']    }
-  Plug  'derekwyatt/vim-scala',       { 'for': 'scala'             }
-  Plug  'elixir-lang/vim-elixir',     { 'for': 'elixir'            }
-  Plug  'jnwhiteh/vim-golang',        { 'for': 'go'                }
-  Plug  'wlangstroth/vim-racket',     { 'for': ['racket','scheme'] }
-  Plug  'tmux-plugins/vim-tmux',      { 'for': 'tmux'              }
-
-
-" THEMES
+  Plug  'rust-lang/rust.vim',         { 'for': ['rust']              }    " rust syntax
+  Plug  'sophacles/vim-processing',   { 'for': ['pde', 'processing'] }    " processing syntax
+  Plug  'OCamlPro/ocp-indent',        { 'for': ['sml', 'ocaml']      }    " ocaml syntax
+  Plug  'derekwyatt/vim-scala',       { 'for': 'scala'               }    " scala syntax
+  Plug  'elixir-lang/vim-elixir',     { 'for': 'elixir'              }    " elixir syntax
+  Plug  'jnwhiteh/vim-golang',        { 'for': 'go'                  }    " go syntax
+  Plug  'wlangstroth/vim-racket',     { 'for': ['racket','scheme']   }    " racket syntax
+  Plug  'tmux-plugins/vim-tmux',      { 'for': 'tmux'                }    " tmux syntax
+  Plug  'tomlion/vim-solidity',       { 'for': 'solidity'            }    " ethereum
 
 
   call plug#end()
@@ -128,8 +131,8 @@ endif
 " ----------------------------------------------------------------------------
 " SETTINGS
 " ----------------------------------------------------------------------------
+
   set autoread               " updates buffer when file is changed outside of vim
-  set encoding=utf-8
   set fileformats=unix,dos,mac  " detects unix, dos, mac file formats in that order
   set hidden                 " allows switching buffers without saving first
   set modeline               " allows addition of a vim modeline to the bottom of a file
@@ -222,7 +225,7 @@ endif
 " GUI
 
 if has('gui_running')
-    set lines=999 columns=9999 " open maximized
+    set lines=75 columns=150
 
     " With this, the gui (gvim and macvim) now doesn't have the toolbar, the
     " left and right scrollbars and the menu.
@@ -235,8 +238,9 @@ if has('gui_running')
     set guioptions-=M
 
     set guicursor+=a:blinkon0
-    set guifont=Source_Code_Pro_For_Powerline:h12
+    set guifont=Sauce\ Code\ Powerline\ Light:h14
     set transparency=0
+    set vb t_vb=
 endif
 
 " HISTORY/BACKUPS
@@ -276,16 +280,16 @@ endif
 
 " COLORS/THEME/VISUAL
 
-  highlight Comment ctermfg=DarkGrey guifg=#444444
-  highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-  highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-  highlight IncSearch guibg=white guifg=black
-  highlight Normal guibg=black guifg=white
-  highlight Pmenu ctermbg=238 gui=bold      " improve autocomplete menu color
-  highlight Search guibg=white guifg=black
-  highlight SpecialKey ctermfg=DarkGray ctermbg=Black
-  highlight StatusLine guifg=#00ff00 guibg=#000000
-  highlight StatusLineNC guifg=#ff0000 guibg=#000000
+  highlight Comment      ctermfg=DarkGrey guifg=#444444
+  highlight CursorColumn cterm=NONE       ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+  highlight CursorLine   cterm=NONE       ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+  highlight IncSearch    guibg=white      guifg=black
+  highlight Normal       guibg=black      guifg=white
+  highlight Pmenu        ctermbg=238      gui=bold
+  highlight Search       guibg=white      guifg=black
+  highlight SpecialKey   ctermfg=DarkGray ctermbg=Black
+  highlight StatusLine   guifg=#00ff00    guibg=#000000
+  highlight StatusLineNC guifg=#ff0000    guibg=#000000
 
   " how whitespace is displayed
   set listchars=tab:»·,trail:·,eol:¬
@@ -333,12 +337,11 @@ endif
   au filetype racket set lisp
 
   " ruby omnifunc settings
-  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 0
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
   autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " enable brace matching
   runtime! macros/matchit.vim
@@ -362,209 +365,6 @@ endif
 " ----------------------------------------------------------------------------
 " PACKAGE SETTINGS
 " ----------------------------------------------------------------------------
-
-" A.VIM
-
-  nnoremap <Leader>aa :A<CR>
-  nnoremap <Leader>as :AS<CR>
-  nnoremap <Leader>av :AV<CR>
-  nnoremap <Leader>an :AN<CR>
-
-" BCCALC
-
-  vnoremap <Leader>cc "eyy:call CalcLines(1)"<CR>
-  noremap  <Leader>cc "eyy:call CalcLines(0)"<CR>
-
-" CTRLP
-
-  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:40'
-  let g:ctrlp_open_multiple_files = '1vir'
-  let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_working_path_mode=0
-  let g:ctrlp_max_files=20000
-  let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
-  let g:ctrlp_extensions=['funky']
-  let g:ctrlp_map = '<nop>'
-
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -i
-        \ --nocolor --nogroup --hidden --ignore .git --ignore .svn
-        \ --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
-
-  nnoremap <Leader>ff :CtrlP<CR>
-  " nnoremap <Leader>ft :CtrlPTag<CR>
-  " nnoremap <Leader>fb :CtrlPBuffer<CR>
-  " nnoremap <Leader>fm :CtrlPMixed<CR>
-  " nnoremap <Leader>fu :CtrlPFunky<CR>
-
-" DELIMITMATE
-
-  let g:delimitMate_expand_space = 1
-  let g:delimitMate_balance_matchpairs = 1
-
-" EASYMOTION
-
-  let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-  nmap s <Plug>(easymotion-s)
-
-  " map  / <Plug>(easymotion-sn)
-  " omap / <Plug>(easymotion-tn)
-  "
-  " map  n <Plug>(easymotion-next)
-  " map  N <Plug>(easymotion-prev)
-
-  map <Leader>l <Plug>(easymotion-lineforward)
-  map <Leader>j <Plug>(easymotion-j)
-  map <Leader>k <Plug>(easymotion-k)
-  map <Leader>h <Plug>(easymotion-linebackward)
-  map <Leader>w <Plug>(easymotion-bd-w)
-
-  let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion"
-  let g:EasyMotion_smartcase   = 1
-  let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-
-" EASYTAGS / CTAGS / CSCOPE
-
-  let g:easytags_file = '~/.vim/.cache/tags'
-  let g:easytags_async=1
-  let g:easytags_python_enabled  = 1
-  let g:easytags_resolve_links   = 1
-  let g:easytags_dynamic_files   = 1
-  let g:easytags_suppress_report = 1
-
-  map <Leader>tu :UpdateTags -R --exclude='.git' `pwd`<CR>
-  map <Leader>tsu :!cscope -bR<CR><CR>
-  set cscopetag cscopeverbose
-  set cscopequickfix=s-,c-,d-,i-,t-,e-
-
-" GIST
-
-  let g:gist_clip_command = 'pbcopy'
-  let g:gist_detect_filetype = 1
-  let g:gist_open_browser_after_post = 1
-  let g:gist_post_private=1
-  let g:gist_show_privates=1
-
-" INSTANT-MARKDOWN
-
-  let g:instant_markdown_autostart = 0
-  let g:instant_markdown_slow = 1
-  nnoremap <leader>md :InstantMarkdownPreview<cr>
-
-" JS-BEAUTIFY
-
-  nnoremap <leader>jsb :call JsBeautify()<cr>
-
-" NEOBUNDLE
-
-  nnoremap <Leader>bi :NeoBundleInstall<CR>
-  nnoremap <Leader>bc :NeoBundleClean<CR>
-
-" NERDTREE
-
-  let NERDChristmasTree = 1
-  let NERDTreeHighlightCursorline = 1
-  let NERDTreeShowBookmarks = 1
-  let NERDTreeShowHidden = 1
-  let NERDTreeWinSize = 50
-  let NERDTreeQuitOnOpen=0
-  let NERDTreeShowLineNumbers=1
-  let NERDTreeChDirMode=0
-  let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore=['\.git','\.hg']
-  let NERDTreeBookmarksFile='~/.vim/.cache/NERDTreeBookmarks'
-
-  nnoremap <C-e> :NERDTreeToggle<CR>
-
-" RAINBOW PARENS
-
-  let g:rbpt_colorpairs = [
-      \ ['brown',       'RoyalBlue3'],
-      \ ['Darkblue',    'SeaGreen3'],
-      \ ['darkgray',    'DarkOrchid3'],
-      \ ['darkgreen',   'firebrick3'],
-      \ ['darkcyan',    'RoyalBlue3'],
-      \ ['darkred',     'SeaGreen3'],
-      \ ['darkmagenta', 'DarkOrchid3'],
-      \ ['brown',       'firebrick3'],
-      \ ['gray',        'RoyalBlue3'],
-      \ ['darkmagenta', 'DarkOrchid3'],
-      \ ['Darkblue',    'firebrick3'],
-      \ ['darkgreen',   'RoyalBlue3'],
-      \ ['darkcyan',    'SeaGreen3'],
-      \ ['darkred',     'DarkOrchid3'],
-      \ ['red',         'firebrick3'],
-      \ ]
-
-  augroup rainbow_lisp
-    autocmd!
-    autocmd FileType lisp,clojure,scheme RainbowParentheses
-  augroup END
-
-
-" RUBY-RUNNER
-
-  nnoremap <leader>rb :RunRuby<CR>
-
-" SILVER-SEARCHER
-
-  " search for word under cursor
-  set grepprg=ag\ --nogroup\ --nocolor
-  nnoremap F :Ag "<C-R><C-W>"
-
-" SYNTASTIC
-
-  let g:syntastic_error_symbol = '✗'
-  let g:syntastic_style_error_symbol = '✠'
-  let g:syntastic_warning_symbol = '∆'
-  let g:syntastic_style_warning_symbol = '≈'
-
-  let g:syntastic_auto_loc_list=1
-  let g:syntastic_enable_signs=1
-  let g:syntastic_enable_highlighting=1
-  let g:syntastic_quiet_messages = {'level': 'warnings'}
-  let g:syntastic_auto_jump=0
-  let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-  let g:syntastic_cpp_check_header = 1
-  let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
-  let g:syntastic_mode_map = { 'passive_filetypes': [] }
-
-  set statusline+=%#warningmsg#
-"  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-
-" TABULAR
-
-  nnoremap <Leader>a& :Tabularize /&<CR>
-  vnoremap <Leader>a& :Tabularize /&<CR>
-  nnoremap <Leader>a= :Tabularize /=<CR>
-  vnoremap <Leader>a= :Tabularize /=<CR>
-  nnoremap <Leader>a: :Tabularize /:\zs<CR>
-  vnoremap <Leader>a: :Tabularize /:\zs<CR>
-  nnoremap <Leader>a, :Tabularize /,\zs<CR>
-  vnoremap <Leader>a, :Tabularize /,\zs<CR>
-  nnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  vnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
-
-" TAGBAR
-
-  nnoremap <C-T> :TagbarToggle<CR>
-  let g:tagbar_left = 1
-
-" TSLIME
-
-  let g:tmux_sessionname = 0
-  let g:tmux_windowname = 1
-  let g:tmux_panenumber = 2
-  nnoremap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
-  vnoremap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
-  nnoremap <leader>tv :call Tmux_Vars()<CR>
-
-" UNDOTREE
-
-  nnoremap <C-z> :UndotreeToggle<CR>
-  let g:undotree_SetFocusWhenToggle=1
 
 " UNITE
 
@@ -616,6 +416,161 @@ endif
   " nnoremap <leader>fns :<C-u>Unite -auto-resize neobundle/search<cr>
   " nnoremap <leader>fnu :<C-u>Unite -auto-resize neobundle/update<cr>
 
+" ALE
+
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_enter = 0
+  let g:ale_set_loclist = 1
+  let g:ale_set_quickfix = 1
+  let g:ale_open_list = 1
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_linters = {
+  \   'coffeescript': ['coffeelint'],
+  \}
+
+" BCCALC
+
+  vnoremap <Leader>cc "eyy:call CalcLines(1)"<CR>
+  noremap  <Leader>cc "eyy:call CalcLines(0)"<CR>
+
+" CTRLP
+
+  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:40'
+  let g:ctrlp_open_multiple_files = '1vir'
+  let g:ctrlp_follow_symlinks=1
+  let g:ctrlp_working_path_mode=0
+  let g:ctrlp_max_files=5000
+  let g:ctrlp_map = '<nop>'
+  let g:ctrlp_use_caching=0
+
+  let g:ctrlp_user_command = 'ag %s -i
+        \ --nocolor --nogroup --hidden --ignore .git --ignore .svn
+        \ --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+
+
+  nnoremap <Leader>ff :CtrlP<CR>
+  nnoremap <Leader>ft :CtrlPTag<CR>
+  nnoremap <Leader>fb :CtrlPBuffer<CR>
+  nnoremap <Leader>fm :CtrlPMRU<CR>
+
+" DELIMITMATE
+
+  let g:delimitMate_expand_space = 1
+  let g:delimitMate_balance_matchpairs = 1
+
+" EASYALIGN
+
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+  nnoremap <leader>aa :EasyAlign<CR>
+  vnoremap <leader>aa :EasyAlign<CR>
+
+" EASYTAGS / CTAGS / CSCOPE
+
+  let g:easytags_file = '~/.vim/.cache/tags'
+  let g:easytags_async=1
+  let g:easytags_python_enabled  = 1
+  let g:easytags_resolve_links   = 1
+  let g:easytags_dynamic_files   = 1
+  let g:easytags_suppress_report = 1
+  let g:easytags_syntax_keyword = 'always'
+
+" GIST
+
+  let g:gist_clip_command = 'pbcopy'
+  let g:gist_detect_filetype = 1
+  let g:gist_open_browser_after_post = 1
+  let g:gist_post_private=1
+  let g:gist_show_privates=1
+
+" MULTIPLE CURSORS
+
+  let g:multi_cursor_start_key='<C-m>'
+
+" NERDTREE
+
+  let NERDChristmasTree = 1
+  let NERDTreeHighlightCursorline = 1
+  let NERDTreeShowBookmarks = 1
+  let NERDTreeShowHidden = 1
+  let NERDTreeWinSize = 50
+  let NERDTreeQuitOnOpen=0
+  let NERDTreeShowLineNumbers=1
+  let NERDTreeChDirMode=0
+  let NERDTreeShowBookmarks=1
+  let NERDTreeIgnore=['\.git','\.hg']
+  let NERDTreeBookmarksFile=expand("$HOME/.vim/.cache/nerdtree")
+
+  nnoremap <C-e> :NERDTreeToggle<CR>
+  nnoremap <leader>n :NERDTreeFind<CR>
+
+
+" NERDCOMMENTER
+  let g:NERDSpaceDelims  = 1
+  let g:NERDDefaultAlign = 'left'
+  let g:NERDCommentEmptyLines = 1
+
+" PLUG
+
+  nnoremap <Leader>pi :PlugInstall<CR>
+
+
+" RAINBOW PARENS
+
+  augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure,scheme RainbowParentheses
+  augroup END
+
+
+" SILVER-SEARCHER
+
+  set grepprg=ag\ --nogroup\ --nocolor
+
+ "search for word under cursor
+  nnoremap F :Ag "<C-R><C-W>"<CR>
+
+" SYNTASTIC
+
+  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_style_error_symbol = '✠'
+  let g:syntastic_warning_symbol = '∆'
+  let g:syntastic_style_warning_symbol = '≈'
+
+  let g:syntastic_auto_loc_list=1
+  let g:syntastic_enable_signs=1
+  let g:syntastic_enable_highlighting=1
+  "let g:syntastic_quiet_messages = {'level': 'warnings'}
+  let g:syntastic_auto_jump=0
+  let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+  let g:syntastic_cpp_check_header = 1
+  let g:syntastic_cpp_compiler_options=' -I../src -I./src -I./include -I../include'
+  let g:syntastic_mode_map = { 'passive_filetypes': [] }
+  let g:syntastic_javascript_checkers = ['eslint']
+
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
+" TAGBAR
+
+  nnoremap <C-T> :TagbarToggle<CR>
+  let g:tagbar_left = 1
+
+" TSLIME
+
+  let g:tmux_sessionname = 0
+  let g:tmux_windowname = 1
+  let g:tmux_panenumber = 2
+  nnoremap <leader><CR> V"ty:call Send_to_Tmux(@t)<CR>
+  vnoremap <leader><CR> "ty:call Send_to_Tmux(@t)<CR>
+  nnoremap <leader>tm :call Tmux_Vars()<CR>
+
+" UNDOTREE
+
+  nnoremap <C-z> :UndotreeToggle<CR>
+  let g:undotree_SetFocusWhenToggle=1
+
 " UTILSNIPS
 
   let g:UltiSnipsExpandTrigger="<tab>"
@@ -627,12 +582,6 @@ endif
 
   let g:airline#extensions#tabline#enabled = 1
   let g:airline_powerline_fonts = 1
-
-" VIM-AUTO-SAVE
-
-  let g:auto_save = 1
-  let g:auto_save_no_updatetime = 1
-  let g:auto_save_in_insert_mode = 0
 
 " VIM-CLOJURE-STATIC
 
@@ -647,10 +596,12 @@ endif
   vnoremap  <expr>  <Up>    DVB_Drag('up')
   vnoremap  <expr>  D       DVB_Duplicate()
 
-" VIM-EXPAND-REGION
+" FAR
+  let g:far#source = 'agnvim'
+  let g:far#preview_window_height = 40
+  let g:far#window_layout = 'tab'
+  let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.js']
 
-  map + <Plug>(expand_region_expand)
-  map _ <Plug>(expand_region_shrink)
 
 " VIM-FUGITIVE
 
@@ -665,18 +616,10 @@ endif
   autocmd FileType gitcommit nnoremap <buffer> U :Git checkout -- <C-r><C-g><CR>
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
-  " gitv extension
-  nnoremap <silent> <leader>gv :Gitv<CR>
-  nnoremap <silent> <leader>gV :Gitv!<CR>
+" GV
 
-" VIM-INDENT-GUIDES
-
-  let g:indent_guides_start_level=1
-  let g:indent_guides_guide_size=1
-  let g:indent_guides_enable_on_vim_startup=0
-  let g:indent_guides_color_change_percent=5
-
-  nnoremap <silent> <leader>ig :IndentGuidesToggle<CR>
+  nnoremap <silent> <leader>gv :GV<CR>
+  nnoremap <silent> <leader>gV :GV!<CR>
 
 " VIM-RUBY-XMPFILTER
 
@@ -688,26 +631,35 @@ endif
   xmap <buffer> <F4> <Plug>(xmpfilter-mark)
   imap <buffer> <F4> <Plug>(xmpfilter-mark)
 
-" VIM-SIGNIFY
 
-  let g:signify_disable_by_default = 1
-  let g:signify_line_highlight = 1
-  nnoremap <C-g> :SignifyToggle<CR>
-  nnoremap <Leader>gh :SignifyToggleHighlight<CR>
+" VIM-TEST
+  let test#strategy = "tslime"
+  nmap <silent> <leader>tt :TestNearest<CR>
+  nmap <silent> <leader>tf :TestFile<CR>
+  nmap <silent> <leader>ts :TestSuite<CR>
+  nmap <silent> <leader>tl :TestLast<CR>
+  nmap <silent> <leader>tv :TestVisit<CR>
+
 
 " YOUCOMPLETEME
 
   " make ycm play nice with UltiSnips
-  let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+  let g:ycm_server_python_interpreter    = '/usr/local/bin/python3'
+  let g:ycm_key_list_select_completion   = ['<Down>']
+  let g:ycm_key_list_previous_completion = ['<Up>']
 
   let g:ycm_collect_identifiers_from_tags_files=1
-  let g:ycm_min_num_of_chars_for_completion=1
+  let g:ycm_min_num_of_chars_for_completion=2
   let g:ycm_complete_in_comments_and_strings=0
   let g:ycm_autoclose_preview_window_after_completion=1
   let g:ycm_filetype_blacklist = { 'notes': 1, 'text': 1 }
 
+  " let g:ycm_server_use_vim_stdout = 1
+  " let g:ycm_server_keep_logfiles = 1
+  " let g:ycm_server_log_level = 'debug'
+
   nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 " ----------------------------------------------------------------------------
 " KEYMAPPINGS
@@ -866,6 +818,14 @@ endif
 
   nnoremap <leader>js %!python -m json.tool<CR>
   nnoremap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
+
+  "" Terminal
+  nnoremap <leader>t :terminal<CR>
+  " tnoremap <Esc> <C-\><C-n>
+  " tnoremap <A-h> <C-\><C-n><C-w>h
+  " tnoremap <A-j> <C-\><C-n><C-w>j
+  " tnoremap <A-k> <C-\><C-n><C-w>k
+  " tnoremap <A-l> <C-\><C-n><C-w>l
 
 " ----------------------------------------------------------------------------
 " FINISH STARTUP
