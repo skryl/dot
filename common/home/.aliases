@@ -76,6 +76,7 @@ function _alias_nav {
   alias 8b="cd $DROPBOX/dev/work/enova/8b"
   alias iq="cd $DROPBOX/dev/work/persistiq"
   alias trusted="cd $DROPBOX/dev/work/trusted"
+  alias blackbird"cd $DROPBOX/dev/work/blackbird"
 }
 
 # ----------------------------------------------------------------------

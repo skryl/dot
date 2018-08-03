@@ -11,11 +11,24 @@ env:
   # `infocmp xterm-256color`.
   TERM: xterm-256color
 
-# Window dimensions in character columns and lines
-# (changes require restart)
-dimensions:
-  columns: 120
-  lines: 30
+window:
+  # Window dimensions in character columns and lines
+  # Falls back to size specified by window manager if set to 0x0.
+  # (changes require restart)
+  dimensions:
+    columns: 80
+    lines: 24
+
+  # Adds this many blank pixels of padding around the window
+  # Units are physical pixels; this is not DPI aware.
+  # (change requires restart)
+  padding:
+    x: 2
+    y: 2
+
+  # Window decorations
+  # Setting this to false will result in window without borders and title bar.
+  decorations: true
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
@@ -33,21 +46,21 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
-    style: Regular
+    # style: Regular
 
   # The bold font face
   bold:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
-    style: Bold
+    # style: Bold
 
   # The italic font face
   italic:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
-    style: Italic
+    # style: Italic
 
   # Point size of the font
   size: 14.0
@@ -55,15 +68,21 @@ font:
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
+
+  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
+  # screens and make reading text a little easier.
+  # On X11 it is possible to change the DPI for each instance of alacritty by using
+  # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
+  scale_with_dpi: true
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -132,6 +151,10 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
+
+# Background opacity
+
+  background_opacity: 1.0
 
 # Key bindings
 #

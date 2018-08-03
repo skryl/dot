@@ -50,6 +50,18 @@ antigen apply
 # Settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
+# ----------------------------------------------------------------------
+# FZF
+# ----------------------------------------------------------------------
+
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
 
 _rc_debug_print "PATH: $PATH"
 _rc_debug_print ZSHRC

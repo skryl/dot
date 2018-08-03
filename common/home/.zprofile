@@ -89,7 +89,10 @@ if test -n "$OSX"; then
   MANPATH="$BREW/share/man:$MANPATH"
 fi
 
+
 _rc_debug_print "PATH: $PATH"
+_rc_path_prepend_check "/usr/local/opt/postgresql@9.6/bin"
+_rc_path_prepend_check "/usr/local/opt/llvm@4/bin"
 _rc_path_append_check  "/usr/local/heroku/bin"
 _rc_path_append_check  "/usr/local/share/npm/bin"
 _rc_path_prepend_check "$HOME/bin"
@@ -233,3 +236,5 @@ _rc_debug_print "PATH: $PATH"
 _rc_debug_print PROFILE
 
 test -e "$HOME/.aliases"   && source "$HOME/.aliases"
+
+export PATH="$HOME/.cargo/bin:$PATH"

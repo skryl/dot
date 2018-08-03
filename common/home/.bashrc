@@ -15,6 +15,17 @@ _rc_xset
 
 
 # ----------------------------------------------------------------------
+# FZF
+# ----------------------------------------------------------------------
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
+
+source "/usr/local/opt/fzf/shell/key-bindings.bash"
+
+# ----------------------------------------------------------------------
 # PROMPT
 # ----------------------------------------------------------------------
 _rc_setup_prompt_colors
@@ -28,3 +39,5 @@ _expand() {
 }
 
 _rc_debug_print BASHRC
+
+
